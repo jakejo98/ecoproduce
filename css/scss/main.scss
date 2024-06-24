@@ -1,11 +1,30 @@
-/* utils components */
+/* library */
+
+/* utils */
 @import "utils/mixin.scss";
 @import "utils/variable.scss";
-/* common components */
+
+/* common */
 @import "common/reset.scss";
 @import "common/font.scss";
 @import "common/common.scss";
-/* layout components */
+
+/* layout */
 @import "layout/layout.scss";
 @import "layout/header.scss";
 @import "layout/footer.scss";
+
+/* components */
+@import "components/banner.scss";
+@import "components/button.cass";
+@import "components/dropdown.scss";
+@import "components/flag.scss";
+@import "components/form.scss";
+@import "components/loading.scss";
+@import "components/modal.scss";
+@import "components/pagination.scss";
+@import "components/tab.scss";
+
+/* pages */
+@import "pages/list.scss";
+@import "pages/ranking.scss"
