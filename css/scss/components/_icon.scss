@@ -1,37 +1,84 @@
 $icons:
-black_close, /* 반응형 gnb 최근검색어 "X" 버튼 */
-delivery, /* 무료배송 아이콘 */
-fish, /* 수산물 아이콘 */
-footer_arrow_right, /* 푸터 사업자확인 */
-gnb_arrow_right_active, /* PC gnb 활성 목록 */
-gnb_arrow_right_static, /* PC gnb 비활성화 목록 */
-home, /* 페이지 목차 */
-leaf, /* 농산물 아이콘 */
-meat, /* 축산물 아이콘 */
-nav_call_active, /* 반응형 nav 고객센터 활성화 */
-nav_call_static, /* 반응형 nav 고객센터 비활성화 */
-nav_home_active, /* 반응형 nav 홈 활성화 */
-nav_home_static, /* 반응형 nav 홈 비활성화 */
-nav_menu_active, /* 반응형 nav 카테고리 활성화 */
-nav_menu_static, /* 반응형 nav 카테고리 비활성화 */
-nav_order_active, /* 반응형 nav 주문조회 활성화 */
-nav_order_static, /* 반응형 nav 주문조회 비활성화 */
-nav_user_active, /* 반응형 nav 마이페이지 활성화 */
-nav_user_static, /* 반응형 nav 마이페이지 비활성화*/
-plus,
-ranking_down,
-ranking_maintain,
-ranking_up,
-search,
-select_arrow_down,
-select_arrow_up,
-shopping_active,
-shopping_static,
-swiper_arrow_next,
-swiper_arrow_prevm
-white_close,
-logo_v1,
-logo_v2
+black_close /* 반응형 gnb 최근검색어 "X" 버튼 */
+delivery /* 무료배송 아이콘 */
+fish /* 수산물 아이콘 */
+footer_arrow_right /* 푸터 사업자확인 */
+gnb_arrow_right_active /* PC gnb 활성 목록 */
+gnb_arrow_right_static /* PC gnb 비활성화 목록, 반응형 로그인 옆 아이콘 */
+menu /* 전체메뉴 */
+home /* 페이지 목차 */
+leaf /* 농산물 아이콘 */
+meat /* 축산물 아이콘 */
+nav_call_active /* 반응형 nav 고객센터 활성화 */
+nav_call_static /* 반응형 nav 고객센터 비활성화 */
+nav_home_active /* 반응형 nav 홈 활성화 */
+nav_home_static /* 반응형 nav 홈 비활성화 */
+nav_menu_active /* 반응형 nav 카테고리 활성화 */
+nav_menu_static /* 반응형 nav 카테고리 비활성화 */
+nav_order_active /* 반응형 nav 주문조회 활성화 */
+nav_order_static /* 반응형 nav 주문조회 비활성화 */
+nav_user_active /* 반응형 nav 마이페이지 활성화 */
+nav_user_static /* 반응형 nav 마이페이지 비활성화*/
+plus /* 반응형 회원가입 옆 아이콘 */
+ranking_down /* 반응형 인기 검색어 순위 하락 */
+ranking_maintain /* 반응형 인기 검색어 순위 유지 */
+ranking_up /* 반응형 인기 검색어 순위 하락 */
+search /* 반응형, PC 검색창 */
+select_arrow_down /* PC 드롭다운 */
+select_arrow_up /* PC 드롭다운 */
+shopping_active /* PC 장바구니 활성화 */
+shopping_static /* PC 장바구니 비활성화 */
+swiper_arrow_next /* Swiper Next */
+swiper_arrow_prev /* Swiper Prev */
+white_close /* 반응형 gnb 닫기 버튼 */
 ;
 
-div{background:url('../img/svg/icon_anking_up.svg');}
+.common_icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  line-height: 0;
+  vertical-align: middle;
+  &::after {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: center / 100% no-repeat;
+    content: "";
+  }
+  &.ty_xl{
+    width: 32px;
+    height: 32px;
+  }
+  &.ty_sm{
+    width: 16px;
+    height: 16px;
+  }
+  &.ty_xs{
+    width: 12px;
+    height: 12px;
+  }
+}
+@each $icon in $icons {
+  .icon_#{$icon}::after {
+    background-image: url("../img/svg/#{$icon}.svg");
+  }
+}
+/* 로고는 반응형에 따라 사이즈가 변경되어 따로 관리 */
+.logo_v1 {
+  width: 200px;
+  height: 60px;
+  &::after {
+    background-image: url("../img/svg/logo_v1.svg");
+  }
+}
+.logo_v2{
+  width: 200px;
+  height: 60px;
+  &::after {
+    background-image: url("../img/svg/logo_v2.svg");
+  }
+}
