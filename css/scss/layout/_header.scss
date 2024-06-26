@@ -1,164 +1,174 @@
-/* header 공통*/
-.common_header {
-    @include inner;
-}
-.header_inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-}
-/* header_inner */
-.header_util {
-    display: flex;
-    align-items: center;
-    & .header_info_list {
+@media screen and (min-width: 1024px) {
+    /* header 공통*/
+    .common_header {
+        @include inner;
+    }
+    .header_inner {
         display: flex;
-        position: relative;
-        &::after {
-            @include position(20px, 0px, null, null, null);
-            display: block;
-            width: 1px;
-            height: 20px;
-            background-color: #DDDDDD;
-            content: "";
-        }
-        & .header_info_item {
-            padding: 10px 0;
-            & .header_info_link {
-                display: block;
-                padding: 10px;
-                font-size: 14px;
-                line-height: 20px;
-                color: map-get($color-type, grey-01);
-                &:hover {
-                    color: map-get($color-main, color-black);
-                    transition: 0.3s color ease;
-                }
-            }
-        }
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
     }
-}
-.header_controls {
-    display: flex;
-    align-items: center;
-    padding: 0 0 0 15px;
-    & .header_search {
-        position: relative;
-        & .header_search_input {
-            width: 300px;
-            padding: 11px 44px 11px 20px;
-            border: 0;
-            border-radius: 20px;
-            background-color: map-get($color-background, grey-01);
-            &::placeholder {
-                font-size: 14px;
-                line-height: 20px;
-                color: map-get($color-type, grey-04);
-            }
-            &:focus::placeholder {
-                color: transparent;
-            }
-        }
-        & .header_search_btn {
-            @include position(0px, 0px, null, null, null);
-            padding: 8px 20px 8px 20px;
-        }
-    }
-    & .header_shopping {
-        padding-left: 10px;
-        & .header_shopping_btn {
-            position: relative;
-            width: 40px;
-            height: 40px;
-            border-radius: 20px;
-            background-color: map-get($color-main, color-black);
-            & .header_shopping_count {
-                @include position(-5px, -5px, null, null, null);
-                @include font-family("Roboto");
-                display: block;
-                width: 20px;
-                height: 20px;
-                border-radius: 10px;
-                background-color: map-get($color-main, color-primary);
-                font-weight: 700;
-                font-size: 12px;
-                line-height: 20px;
-                color: map-get($color-main, color-white);
-            }
-        }
-    }
-}
-/* header_gnb */
-.header_gnb {
-    display: flex;
-    align-items: center;
-    position: relative;
-    & .header_gnb_list {
+    /* header_inner */
+    .header_util {
         display: flex;
-        width: calc(100% - 100px);
-        padding-left: 28px;
-        & .header_gnb_item {
-            width: calc(100% / 10);
-            line-height: 60px;
-            text-align: center;
-            & .header_gnb_link {
-                display: block;
-                font-weight: 700;
-                font-size: 18px;
-                &[aria-current="page"] {
-                    color: map-get($color-main, color-primary);
-                }
-                &:hover {
-                    color: map-get($color-main, color-primary);
-                    transition: 0.3s color ease;
-                }
-            }
-        }
-    }
-}
-/* header_category */
-.header_category {
-    position: relative;
-    & .category_btn {
-        padding: 14px 20px;
-    }
-    & .header_category_container {
-        @include position(60px, null, null, 0px, null);
-        display: none;
-        border: 1px solid map-get($color-line, grey-02);
-        border-top: none;
-        &.active {
+        align-items: center;
+        & .header_info_list {
             display: flex;
-        }
-        & .header_category_box {
-            &.dep2 {
-                & .header_category_list {
-                    display: none;
-                    &.active {
-                        display: block;
+            position: relative;
+            &::after {
+                @include position(20px, 0px, null, null, null);
+                display: block;
+                width: 1px;
+                height: 20px;
+                background-color: #DDDDDD;
+                content: "";
+            }
+            & .header_info_item {
+                padding: 10px 0;
+                & .header_info_link {
+                    display: block;
+                    padding: 10px;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-01);
+                    &:hover {
+                        color: map-get($color-main, color-black);
+                        transition: 0.3s color ease;
                     }
                 }
             }
-            & .header_category_item {
+        }
+    }
+    .header_controls {
+        display: flex;
+        align-items: center;
+        padding: 0 0 0 15px;
+        & .header_search {
+            position: relative;
+            & .header_search_input {
+                width: 300px;
+                padding: 11px 44px 11px 20px;
+                border: 0;
+                border-radius: 20px;
+                background-color: map-get($color-background, grey-01);
+                &::placeholder {
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-04);
+                }
+                &:focus::placeholder {
+                    color: transparent;
+                }
+            }
+            & .header_search_btn {
+                @include position(0px, 0px, null, null, null);
+                padding: 8px 20px 8px 20px;
+            }
+        }
+        & .header_shopping {
+            padding-left: 10px;
+            & .header_shopping_btn {
                 position: relative;
-                width: 200px;
-                & .header_category_link {
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                background-color: map-get($color-main, color-black);
+                & .header_shopping_count {
+                    @include position(-5px, -5px, null, null, null);
+                    @include font-family("Roboto");
                     display: block;
-                    padding: 0 20px;
-                    line-height: 50px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: map-get($color-main, color-primary);
+                    font-weight: 700;
+                    font-size: 12px;
+                    line-height: 20px;
+                    color: map-get($color-main, color-white);
+                }
+            }
+        }
+    }
+    /* header_gnb */
+    .header_gnb {
+        display: flex;
+        align-items: center;
+        position: relative;
+        & .header_gnb_list {
+            display: flex;
+            width: calc(100% - 100px);
+            padding-left: 28px;
+            & .header_gnb_item {
+                width: calc(100% / 10);
+                line-height: 60px;
+                text-align: center;
+                & .header_gnb_link {
+                    display: block;
+                    font-weight: 700;
+                    font-size: 18px;
+                    &[aria-current="page"] {
+                        color: map-get($color-main, color-primary);
+                    }
                     &:hover {
                         color: map-get($color-main, color-primary);
-                        transition: 0.3 color ease;
+                        transition: 0.3s color ease;
                     }
-                    &.active {
-                        color: map-get($color-main, color-primary);
-                    }
-                }
-                & .common_icon {
-                    @include position(13px, 20px, null, null, null);
                 }
             }
         }
     }
+    /* header_category */
+    .header_category {
+        position: relative;
+        & .category_btn {
+            padding: 14px 20px;
+        }
+        & .header_category_container {
+            @include position(60px, null, null, 0px, null);
+            display: none;
+            border: 1px solid map-get($color-line, grey-02);
+            border-top: none;
+            &.active {
+                display: flex;
+            }
+            & .header_category_box {
+                &.dep2 {
+                    & .header_category_list {
+                        display: none;
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }
+                & .header_category_item {
+                    position: relative;
+                    width: 200px;
+                    & .header_category_link {
+                        display: block;
+                        padding: 0 20px;
+                        line-height: 50px;
+                        &:hover {
+                            color: map-get($color-main, color-primary);
+                            transition: 0.3 color ease;
+                        }
+                        &.active {
+                            color: map-get($color-main, color-primary);
+                        }
+                    }
+                    & .common_icon {
+                        @include position(13px, 20px, null, null, null);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+@media screen and (max-width: 767px) {
+    
 }
