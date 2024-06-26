@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
   <title>에코프로듀스</title>
+  <!-- script -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="./js/header.js"></script>
+  <!-- //script -->
 </head>
 <body>
   <div id="common_container">
@@ -60,53 +64,117 @@
         </div>
       </section>
       <nav class="header_gnb">
-        <button class="category_btn">
-          <span class="common_icon ty_xl icon_menu">
-            <span class="blind">전체상품</span>
-          </span>
-        </button>
-        <div class="header_lnb">
-          <div class="header_lnb_1depths">
-            <ul class="header_lnb_list">
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">농산물</a>
-                <span class="common_icon icon_gnb_arrow_right_static">
-                  <span class="blind">농산물</span>
-                </span>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">축산물</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">수산물</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">못난이</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">유기농</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">선물세트</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">타임어택</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">신상품</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">베스트</a>
-              </li>
-              <li class="header_lnb_item">
-                <a href="#" class="header_lnb_link">이벤트</a>
-              </li>
-            </ul>
+        <div class="header_category">
+          <button class="category_btn">
+            <span class="common_icon ty_xl icon_menu">
+              <span class="blind">전체상품</span>
+            </span>
+          </button>
+          <div class="header_category_container">
+            <div class="header_category_box dep1">
+              <ul class="header_category_list">
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">농산물</a>
+                  <span class="common_icon ty_sm icon_gnb_arrow_right_static"></span>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">축산물</a>
+                  <span class="common_icon ty_sm icon_gnb_arrow_right_static"></span>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">수산물</a>
+                  <span class="common_icon ty_sm icon_gnb_arrow_right_static"></span>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">못난이</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">유기농</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">선물세트</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">타임어택</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">신상품</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">베스트</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link" aria-current="false">이벤트</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header_category_box dep2">
+              <ul class="header_category_list">
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">채소</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">과일</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">버섯</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">곡물</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">유기농</a>
+                </li>
+              </ul>
+              <ul class="header_category_list">
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">소고기</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">돼지고기</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">닭고기</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">오리고기</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">계란</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">가공육</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">유기농</a>
+                </li>
+              </ul>
+              <ul class="header_category_list">
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">생선</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">연체갑각류</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">어패류</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">건어물</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">해조류</a>
+                </li>
+                <li class="header_category_item">
+                  <a href="#" class="header_category_link">해산물</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
         <ul class="header_gnb_list">
           <li class="header_gnb_item">
-            <a href="#" class="header_gnb_link" aria-current="page">농산물</a>
+            <a href="#" class="header_gnb_link" aria-current="false">농산물</a>
           </li>
           <li class="header_gnb_item">
             <a href="#" class="header_gnb_link" aria-current="false">축산물</a>
