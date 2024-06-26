@@ -1,8 +1,18 @@
 $(document).ready(function(){
+  $(window).resize(function(){
+    let responsiveWidth = $(window).width();
+    console.log(responsiveWidth);
+    if(responsiveWidth > 1023){
+      setupDesktop();
+    }
+  })
+})
+// Desktop
+function setupDesktop(){
   categoryActive();
   categoryStatic();
   depth();
-})
+}
 // 전체메뉴 제어
 function categoryActive(){
   let category = $('.header_category');
@@ -52,3 +62,4 @@ function depth(){
     // 2depth
   })
 }
+
