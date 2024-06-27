@@ -1,37 +1,34 @@
-$(document).ready(function(){
-  $(window).resize(function(){
-    let responsiveWidth = $(window).width();
-    console.log(responsiveWidth);
-    if(responsiveWidth > 1023){
-      setupDesktop();
-    }
-  })
-})
 // Desktop
-function setupDesktop(){
+ export function setupDesktop(){
   categoryActive();
   categoryStatic();
-  depth();
+  categoryDepth();
+  setAriaCurrentGnb();
+  setAriaCurrentCategory()
 }
 // 전체메뉴 제어
 function categoryActive(){
   let category = $('.header_category');
   let categoryCont = $('.header_category_container')
   let categoryControl = 'active';
+  let categoryExp = $('.category_btn')
   category.mouseenter(function(){
     categoryCont.addClass(categoryControl);
+    categoryExp.removeAttr('aria-expanded').attr('aria-expanded', 'true')
   })
 }
 function categoryStatic(){
   let category = $('.header_category');
   let categoryCont = $('.header_category_container')
   let categoryControl = 'active';
+  let categoryExp = $('.category_btn')
   category.mouseleave(function(){
     categoryCont.removeClass(categoryControl);
+    categoryExp.removeAttr('aria-expanded').attr('aria-expanded', 'false')
   })
 }
 // category depth 제어
-function depth(){
+function categoryDepth(){
   // 1depth
   let depthFirstLink = $('.header_category_box.dep1 .header_category_link');
   let depthFirstItem = $('.header_category_box.dep1 .header_category_item');
@@ -62,4 +59,29 @@ function depth(){
     // 2depth
   })
 }
-
+// Gnb aria-current 제어
+function setAriaCurrentGnb(){
+  let gnbLink = $('.header_gnb_list .header_gnb_link');
+  let categoryItem = $('.header_category_box.dep1 .header_category_item');
+  let categoryLink = $('.header_category_box.dep1 .header_category_link');
+  $(gnbLink).on('click',function(){
+    let gnbId = $(this).parent().index();
+    $(this).attr('aria-current', 'page');
+    $(this).parent().siblings().children(gnbLink).attr('aria-current', 'false');
+    $(categoryItem).eq(gnbId).children(categoryLink).attr('aria-current', 'page');
+    $(categoryItem).eq(gnbId).siblings().children(categoryLink).attr('aria-current', 'false');
+  })
+}
+// Category aria-current 제어
+function setAriaCurrentCategory(){
+  let categoryLink = $('.header_category_box.dep1 .header_category_link');
+  let gnbItem = $('.header_gnb_list .header_gnb_item');
+  let gnbLink = $('.header_gnb_list .header_gnb_link');
+$(categoryLink).on('click',function(){
+  let categoryId = $(this).parent().index();
+  $(this).attr('aria-current', 'page')
+  $(this).parent().siblings().children(categoryLink).attr('aria-current', 'false')
+  $(gnbItem).eq(categoryId).children(gnbLink).attr('aria-current', 'page');
+  $(gnbItem).eq(categoryId).siblings().children(gnbLink).attr('aria-current', 'false');
+})
+}
