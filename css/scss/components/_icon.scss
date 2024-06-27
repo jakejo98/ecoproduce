@@ -1,36 +1,32 @@
 $icons:
-black_close /* 반응형 gnb 최근검색어 "X" 버튼 */
+black_close /* gnb 최근검색어 "X" 버튼 */
 delivery /* 무료배송 아이콘 */
 fish /* 수산물 아이콘 */
 footer_arrow_right /* 푸터 사업자확인 */
-gnb_arrow_right_active /* PC gnb 활성 목록 */
-gnb_arrow_right_static /* PC gnb 비활성 목록 */
+gnb_arrow_right_active /* gnb 활성 목록 */
+gnb_arrow_right_static /* gnb 비활성 목록 */
 menu /* 전체메뉴 */
 home /* 페이지 목차 */
 leaf /* 농산물 아이콘 */
 meat /* 축산물 아이콘 */
-nav_call_active /* 반응형 nav 고객센터 활성화 */
-nav_call_static /* 반응형 nav 고객센터 비활성화 */
-nav_home_active /* 반응형 nav 홈 활성화 */
-nav_home_static /* 반응형 nav 홈 비활성화 */
-nav_menu_active /* 반응형 nav 카테고리 활성화 */
-nav_menu_static /* 반응형 nav 카테고리 비활성화 */
-nav_order_active /* 반응형 nav 주문조회 활성화 */
-nav_order_static /* 반응형 nav 주문조회 비활성화 */
-nav_user_active /* 반응형 nav 마이페이지 활성화 */
-nav_user_static /* 반응형 nav 마이페이지 비활성화*/
-plus /* 반응형 회원가입 옆 아이콘 */
-ranking_down /* 반응형 인기 검색어 순위 하락 */
-ranking_maintain /* 반응형 인기 검색어 순위 유지 */
-ranking_up /* 반응형 인기 검색어 순위 하락 */
-search /* 반응형, PC 검색창 */
-select_arrow_down /* PC 드롭다운 */
-select_arrow_up /* PC 드롭다운 */
-shopping_active /* PC 장바구니 활성화 */
-shopping_static /* PC 장바구니 비활성화 */
+nav_call /* nav 고객센터 */
+nav_home /* nav 홈 */
+nav_menu /* nav 카테고리 */
+nav_order /* nav 주문조회 */
+nav_user /* nav 마이페이지 */
+plus /* 회원가입 아이콘 */
+ranking_down /* 인기 순위 하락 */
+ranking_maintain /* 인기 순위 유지 */
+ranking_up /* 인기 순위 상승 */
+search /* 검색 */
+select_arrow_down /* 드롭다운 - 아랫 방향 */
+select_arrow_up /* 드롭다운 - 윗 방향 */
+shopping_white /* 장바구니 - 흰색 */
+shopping_black /* 장바구니 - 검은색 */
+shopping_primary /* 장바구니 - 메인색 */
 swiper_arrow_next /* Swiper Next */
 swiper_arrow_prev /* Swiper Prev */
-white_close /* 반응형 gnb 닫기 버튼 */
+white_close /* 대형 흰색 "x" */
 ;
 
 .common_icon {
@@ -84,7 +80,7 @@ white_close /* 반응형 gnb 닫기 버튼 */
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .logo_v1 {
     width: 113px;
     height: 34px;

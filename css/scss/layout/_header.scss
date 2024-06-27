@@ -2,90 +2,94 @@
     /* header 공통*/
     .common_header {
         @include container;
+        position: relative;
     }
+    /* header inner */
     .header_inner {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 20px 0;
-    }
-    /* header_inner */
-    .header_util {
-        display: flex;
-        align-items: center;
-        & .header_info_list {
+        & .header_util {
             display: flex;
-            position: relative;
-            &::after {
-                @include position(20px, 0px, null, null, null);
-                display: block;
-                width: 1px;
-                height: 20px;
-                background-color: #DDDDDD;
-                content: "";
-            }
-            & .header_info_item {
-                padding: 10px 0;
-                & .header_info_link {
+            align-items: center;
+            & .header_info_list {
+                display: flex;
+                position: relative;
+                &::after {
+                    @include position(20px, 0px, null, null, null);
                     display: block;
-                    padding: 10px;
-                    font-size: 14px;
-                    line-height: 20px;
-                    color: map-get($color-type, grey-01);
-                    &:hover {
-                        color: map-get($color-main, color-black);
-                        transition: 0.3s color ease;
+                    width: 1px;
+                    height: 20px;
+                    background-color: #DDDDDD;
+                    content: "";
+                }
+                & .header_info_item {
+                    padding: 10px 0;
+                    & .header_info_link {
+                        display: block;
+                        padding: 10px;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: map-get($color-type, grey-01);
+                        &:hover {
+                            color: map-get($color-main, color-black);
+                            transition: 0.3s color ease;
+                        }
                     }
                 }
             }
         }
-    }
-    .header_controls {
-        display: flex;
-        align-items: center;
-        padding: 0 0 0 15px;
-        & .header_search {
-            position: relative;
-            & .header_search_input {
-                width: 300px;
-                padding: 11px 44px 11px 20px;
-                border: 0;
-                border-radius: 20px;
-                background-color: map-get($color-background, grey-01);
-                &::placeholder {
-                    font-size: 14px;
-                    line-height: 20px;
-                    color: map-get($color-type, grey-04);
-                }
-                &:focus::placeholder {
-                    color: transparent;
-                }
-            }
-            & .header_search_btn {
-                @include position(0px, 0px, null, null, null);
-                padding: 8px 20px 8px 20px;
-            }
-        }
-        & .header_shopping {
-            padding-left: 10px;
-            & .header_shopping_btn {
+        .header_controls {
+            display: flex;
+            align-items: center;
+            padding: 0 0 0 15px;
+            & .header_search {
                 position: relative;
-                width: 40px;
-                height: 40px;
-                border-radius: 20px;
-                background-color: map-get($color-main, color-black);
-                & .header_shopping_count {
-                    @include position(-5px, -5px, null, null, null);
-                    @include font-family("Roboto");
-                    display: block;
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 10px;
-                    background-color: map-get($color-main, color-primary);
-                    font-weight: 700;
-                    font-size: 12px;
-                    line-height: 20px;
-                    color: map-get($color-main, color-white);
+                & .header_search_input {
+                    width: 300px;
+                    padding: 11px 44px 11px 20px;
+                    border: 0;
+                    border-radius: 20px;
+                    background-color: map-get($color-background, grey-01);
+                    &::placeholder {
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: map-get($color-type, grey-04);
+                    }
+                    &:focus::placeholder {
+                        color: transparent;
+                    }
+                }
+                & .header_search_btn {
+                    @include position(0px, 0px, null, null, null);
+                    padding: 8px 20px 8px 20px;
+                }
+            }
+            & .header_shopping {
+                padding-left: 10px;
+                & .header_shopping_btn {
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 20px;
+                    background-color: map-get($color-main, color-black);
+                    &.respond {
+                        display: none;
+                    }
+                    & .header_shopping_count {
+                        @include position(-5px, -5px, null, null, null);
+                        @include font-family("Roboto");
+                        display: block;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        background-color: map-get($color-main, color-primary);
+                        font-weight: 700;
+                        font-size: 12px;
+                        line-height: 20px;
+                        color: map-get($color-main, color-white);
+                    }
                 }
             }
         }
@@ -166,9 +170,78 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-
+    /* 헤더 공통 */
+    .common_header {
+        @include inner;
+    }
+    /* header inner */
+    .header_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        & .header_info {
+            display: none;
+        }
+        & .header_controls {
+            display: flex;
+            & .header_search_input {
+                display: none;
+            }
+            & .header_shopping_btn {
+                display: none;
+                &.respond {
+                    display: block;
+                }
+            }
+            & .header_search_btn {
+                padding: 8px;
+            }
+            & .header_shopping_btn {
+                padding: 8px;
+            }
+        }
+    }
+    .header_gnb {
+        display: none;
+    }
 }
 
+
 @media screen and (max-width: 767px) {
+    .common_header {
+        @include inner;
+    }
+    /* header inner */
+    .header_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        & .header_info {
+            display: none;
+        }
+        & .header_controls {
+            display: flex;
+            & .header_search_input {
+                display: none;
+            }
+            & .header_shopping_btn {
+                display: none;
+                &.respond {
+                    display: block;
+                }
+            }
+            & .header_search_btn {
+                padding: 5px;
+            }
+            & .header_shopping_btn {
+                padding: 5px;
+            }
+        }
+    }
+    .header_gnb {
+        display: none;
+    }
     
 }

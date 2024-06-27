@@ -6,7 +6,10 @@
   setAriaCurrentGnb();
   setAriaCurrentCategory()
 }
-// 전체메뉴 제어
+export function setupRespond(){
+  setToolbarCurrent();
+}
+// Desktop 전체메뉴 제어
 function categoryActive(){
   let category = $('.header_category');
   let categoryCont = $('.header_category_container')
@@ -27,12 +30,12 @@ function categoryStatic(){
     categoryExp.removeAttr('aria-expanded').attr('aria-expanded', 'false')
   })
 }
-// category depth 제어
+// Desktop category depth 제어
 function categoryDepth(){
   // 1depth
   let depthFirstLink = $('.header_category_box.dep1 .header_category_link');
   let depthFirstItem = $('.header_category_box.dep1 .header_category_item');
-  let depthFirstIcon = '.common_icon';
+  let depthFirstIcon = $('.header_category_box.dep1 .common_icon');
   let depthFirstArrowStatic = 'icon_gnb_arrow_right_static';
   let depthFirstArrowActive = 'icon_gnb_arrow_right_active';
   // 2depth
@@ -59,7 +62,7 @@ function categoryDepth(){
     // 2depth
   })
 }
-// Gnb aria-current 제어
+// Desktop Gnb aria-current 제어
 function setAriaCurrentGnb(){
   let gnbLink = $('.header_gnb_list .header_gnb_link');
   let categoryItem = $('.header_category_box.dep1 .header_category_item');
@@ -72,7 +75,7 @@ function setAriaCurrentGnb(){
     $(categoryItem).eq(gnbId).siblings().children(categoryLink).attr('aria-current', 'false');
   })
 }
-// Category aria-current 제어
+// Desktop Category aria-current 제어
 function setAriaCurrentCategory(){
   let categoryLink = $('.header_category_box.dep1 .header_category_link');
   let gnbItem = $('.header_gnb_list .header_gnb_item');
@@ -84,4 +87,14 @@ $(categoryLink).on('click',function(){
   $(gnbItem).eq(categoryId).children(gnbLink).attr('aria-current', 'page');
   $(gnbItem).eq(categoryId).siblings().children(gnbLink).attr('aria-current', 'false');
 })
+}
+
+// Respond Toolbar
+function setToolbarCurrent(){
+  let toolbarLink = $('.respond_toolbar .toolbar_link');
+  $(toolbarLink).on('click',function(){
+    let toolbarId = $(this).parent().index();
+    $(this).attr('aria-current', 'page');
+    $(this).parent().siblings().children(toolbarLink).attr('aria-current', 'false');
+  })
 }
