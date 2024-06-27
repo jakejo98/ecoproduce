@@ -1,12 +1,4 @@
-@media screen and (min-width: 1240px) {
-  #common_container {
-    width: 100%;
-  }
+#common_container {
+  width: 100%;
 }
-@media screen and (max-width: 1239px){
-  #common_container {
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-}
+

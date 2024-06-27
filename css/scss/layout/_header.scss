@@ -1,7 +1,7 @@
 @media screen and (min-width: 1024px) {
     /* header 공통*/
     .common_header {
-        @include inner;
+        @include container;
     }
     .header_inner {
         display: flex;
