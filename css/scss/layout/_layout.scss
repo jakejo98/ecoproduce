@@ -18,7 +18,7 @@ body {
 @media screen and (min-width: 1024px) {
   #common_container {
     &::after {
-      @include position(160px, null, null, 0px, null);
+      @include position(160px, null, null, 0px, 1);
       display: block;
       width: 100%;
       height: 1px;

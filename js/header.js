@@ -1,14 +1,16 @@
 // Desktop
  export function setupDesktop(){
-  categoryBtnToggle();
+  categoryToggle();
+  gnbControl();
 }
 export function setupRespond(){
   setToolbarCurrent();
 }
 // Desktop
 // category control
-function categoryBtnToggle() {
-  const categoryBtn = $('.header_category');
+function categoryToggle() {
+  const category = $('.header_category');
+  const categoryBtn = $('.category_btn');
   const categoryCont = $('.header_category_container');
   const categoryLink = $('.header_category_box.dep1').find('.header_category_link');
   const categoryIcon = $('.common_icon');
@@ -18,15 +20,19 @@ function categoryBtnToggle() {
   const categoryIconAct = 'icon_gnb_arrow_right_active'; 
   const categoryCon = 'active';
 
-  $(categoryBtn).mouseenter(function() {
+  $(category).mouseenter(function() {
     $(categoryCont).addClass(categoryCon);
   });
 
-  $(categoryBtn).mouseleave(function() {
+  $(category).mouseleave(function() {
     $(categoryCont).removeClass(categoryCon);
+  });
+
+  $(categoryBtn).mouseenter(function(){
     $(categoryLink).removeClass(categoryCon);
     $(categoryIcon).removeClass(categoryIconAct).addClass(categoryIconDis);
-  });
+    $(categorySecond).removeClass(categoryCon);
+  })
 
   $(categoryLink).mouseenter(function(){
     const categoryId = $(this).parent().index();
@@ -39,6 +45,23 @@ function categoryBtnToggle() {
     if(categoryId >= categorySecondLen) {
       $(categorySecond).removeClass(categoryCon);
     }
-  })
+  });
 
+  $(categoryLink).click(function(){
+    const categoryId = $(this).parent().index();
+    const gnbLink = $('.header_gnb_item').children('.header_gnb_link');
+    const gnbCon = 'active';
+    $(gnbLink).parent().eq(categoryId).children(gnbLink).addClass(gnbCon);
+    $(gnbLink).parent().eq(categoryId).siblings().children(gnbLink).removeClass(gnbCon);
+  })
+}
+
+function gnbControl(){
+  const gnbLink = $('.header_gnb_item').children('.header_gnb_link');
+  const gnbCon = 'active';
+  $(gnbLink).click(function(){
+    let gnbId = $(this).parent().index();
+    $(this).addClass(gnbCon);
+    $(this).parent().siblings().children(gnbLink).removeClass(gnbCon);
+  })
 }

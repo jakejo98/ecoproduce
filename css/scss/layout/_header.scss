@@ -129,10 +129,9 @@
             padding: 14px 20px;
         }
         & .header_category_container {
-            @include position(60px, null, null, 0px, null);
+            @include position(60px, null, null, 0px, 10);
             display: none;
             border: 1px solid map-get($color-line, grey-02);
-            border-top: none;
             &.active {
                 display: flex;
             }
