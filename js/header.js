@@ -1,100 +1,44 @@
 // Desktop
  export function setupDesktop(){
-  categoryActive();
-  categoryDisabled();
-  categoryDepth();
-  setAriaCurrentGnb();
-  setAriaCurrentCategory()
+  categoryBtnToggle();
 }
 export function setupRespond(){
   setToolbarCurrent();
 }
-// Desktop 전체메뉴 제어
-function categoryActive(){
-  let category = $('.header_category');
-  let categoryCont = $('.header_category_container')
-  let categoryControl = 'active';
-  let categoryExp = $('.category_btn')
-  category.mouseenter(function(){
-    categoryCont.addClass(categoryControl);
-    categoryExp.removeAttr('aria-expanded').attr('aria-expanded', 'true')
-  })
-}
-function categoryDisabled(){
-  let category = $('.header_category');
-  let categoryCont = $('.header_category_container')
-  let categoryControl = 'active';
-  let categoryExp = $('.category_btn')
-  category.mouseleave(function(){
-    categoryCont.removeClass(categoryControl);
-    categoryExp.removeAttr('aria-expanded').attr('aria-expanded', 'false')
-  })
-}
-// Desktop category depth 제어
-function categoryDepth(){
-  // 1depth
-  let depthFirstLink = $('.header_category_box.dep1 .header_category_link');
-  let depthFirstItem = $('.header_category_box.dep1 .header_category_item');
-  let depthFirstIcon = $('.header_category_box.dep1 .common_icon');
-  let depthFirstArrowStatic = 'icon_gnb_arrow_right_static';
-  let depthFirstArrowActive = 'icon_gnb_arrow_right_active';
-  // 2depth
-  let depthSecondList = $('.header_category_box.dep2 .header_category_list');
-  let depthSecondListControl = 'active';
-  let depthSecondListCount = depthSecondList.length - 1;
+// Desktop
+// category control
+function categoryBtnToggle() {
+  const categoryBtn = $('.header_category');
+  const categoryCont = $('.header_category_container');
+  const categoryLink = $('.header_category_box.dep1').find('.header_category_link');
+  const categoryIcon = $('.common_icon');
+  const categorySecond = $('.header_category_box.dep2').children('.header_category_list');
+  const categorySecondLen = $('.header_category_box.dep2').children('.header_category_list').length;
+  const categoryIconDis = 'icon_gnb_arrow_right_static';
+  const categoryIconAct = 'icon_gnb_arrow_right_active'; 
+  const categoryCon = 'active';
 
-  depthFirstLink.mouseenter(function(){
-    // 1depth
-    let depthId = $(this).parent().index();
-    depthFirstItem.eq(depthId).children(depthFirstIcon).removeClass(depthFirstArrowStatic).addClass(depthFirstArrowActive);
-    depthFirstItem.eq(depthId).siblings().children(depthFirstIcon).removeClass(depthFirstArrowActive).addClass(depthFirstArrowStatic);
-    // 2depth
-    depthSecondList.eq(depthId).addClass(depthSecondListControl);
-    depthSecondList.eq(depthId).siblings().removeClass(depthSecondListControl);
-    if(depthId > depthSecondListCount) {
-      depthSecondList.removeClass(depthSecondListControl);
+  $(categoryBtn).mouseenter(function() {
+    $(categoryCont).addClass(categoryCon);
+  });
+
+  $(categoryBtn).mouseleave(function() {
+    $(categoryCont).removeClass(categoryCon);
+    $(categoryLink).removeClass(categoryCon);
+    $(categoryIcon).removeClass(categoryIconAct).addClass(categoryIconDis);
+  });
+
+  $(categoryLink).mouseenter(function(){
+    const categoryId = $(this).parent().index();
+    $(this).addClass(categoryCon);
+    $(this).parent().siblings().children(categoryLink).removeClass(categoryCon);
+    $(this).parent().find(categoryIcon).removeClass(categoryIconDis).addClass(categoryIconAct);
+    $(this).parent().siblings().find(categoryIcon).removeClass(categoryIconAct).addClass(categoryIconDis);
+    $(categorySecond).eq(categoryId).addClass(categoryCon);
+    $(categorySecond).eq(categoryId).siblings().removeClass(categoryCon);
+    if(categoryId >= categorySecondLen) {
+      $(categorySecond).removeClass(categoryCon);
     }
   })
-  depthFirstLink.mouseleave(function(){
-    let depthId = $(this).parent().index();
-    // 1depth
-    depthFirstItem.eq(depthId).children(depthFirstIcon).removeClass(depthFirstArrowActive).addClass(depthFirstArrowStatic);
-    // 2depth
-  })
-}
-// Desktop Gnb aria-current 제어
-function setAriaCurrentGnb(){
-  let gnbLink = $('.header_gnb_list .header_gnb_link');
-  let categoryItem = $('.header_category_box.dep1 .header_category_item');
-  let categoryLink = $('.header_category_box.dep1 .header_category_link');
-  $(gnbLink).on('click',function(){
-    let gnbId = $(this).parent().index();
-    $(this).attr('aria-current', 'page');
-    $(this).parent().siblings().children(gnbLink).attr('aria-current', 'false');
-    $(categoryItem).eq(gnbId).children(categoryLink).attr('aria-current', 'page');
-    $(categoryItem).eq(gnbId).siblings().children(categoryLink).attr('aria-current', 'false');
-  })
-}
-// Desktop Category aria-current 제어
-function setAriaCurrentCategory(){
-  let categoryLink = $('.header_category_box.dep1 .header_category_link');
-  let gnbItem = $('.header_gnb_list .header_gnb_item');
-  let gnbLink = $('.header_gnb_list .header_gnb_link');
-$(categoryLink).on('click',function(){
-  let categoryId = $(this).parent().index();
-  $(this).attr('aria-current', 'page')
-  $(this).parent().siblings().children(categoryLink).attr('aria-current', 'false')
-  $(gnbItem).eq(categoryId).children(gnbLink).attr('aria-current', 'page');
-  $(gnbItem).eq(categoryId).siblings().children(gnbLink).attr('aria-current', 'false');
-})
-}
 
-// Respond Toolbar
-function setToolbarCurrent(){
-  let toolbarLink = $('.respond_toolbar .toolbar_link');
-  $(toolbarLink).on('click',function(){
-    let toolbarId = $(this).parent().index();
-    $(this).attr('aria-current', 'page');
-    $(this).parent().siblings().children(toolbarLink).attr('aria-current', 'false');
-  })
 }
