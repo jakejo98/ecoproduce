@@ -1,7 +1,7 @@
 // Desktop
  export function setupDesktop(){
   categoryActive();
-  categoryStatic();
+  categoryDisabled();
   categoryDepth();
   setAriaCurrentGnb();
   setAriaCurrentCategory()
@@ -20,7 +20,7 @@ function categoryActive(){
     categoryExp.removeAttr('aria-expanded').attr('aria-expanded', 'true')
   })
 }
-function categoryStatic(){
+function categoryDisabled(){
   let category = $('.header_category');
   let categoryCont = $('.header_category_container')
   let categoryControl = 'active';

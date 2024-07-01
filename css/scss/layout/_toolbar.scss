@@ -7,11 +7,9 @@
     z-index: 999;
     & .toolbar_list {
       display: flex;
-      padding: 9px 0;
       border-radius: 8px 8px 0 0;
       background-color: map-get($color-background, white-01);
       box-shadow: 0 -4px 10px 0 rgba(0, 0, 0, 0.1);
-
       & .toolbar_item {
         width: calc(100% / 5);
         & .toolbar_link {
@@ -19,7 +17,8 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          &[aria-current="page"] {
+          padding: 9px 0;
+          &[aria-current="true"] {
             & .toolbar_txt {
               color: map-get($color-main, color-primary);
             }
@@ -36,16 +35,7 @@
         }
       }
     }
-    & .toolbar_content_container {
-      width: 100%;
-      height: 100vh;
-      background-color: #fff;
-      position: fixed;
-      top: 0px;
-      left: 0px;
-      z-index: 1;
-      max-height: calc(100vh - 70px);
-    }
+    
   }
 }
 @media screen and (min-width: 1024px) {
