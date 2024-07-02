@@ -255,5 +255,6 @@
     .header_search_app {
         @include respond-fixed(0px, null, null, 0px, 10);
         @include inner;
+        display: none;
     }
 }

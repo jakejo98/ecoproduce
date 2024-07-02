@@ -1,8 +1,7 @@
 export function toolbar(){
-  const toolbarBtn = $('.toolbar').children('.toolbar_btn');
-  const toolbarText = $('.toolbar').children('.toolbar_text');
-  const toolbarIcon = $('.toolbar').children('.common_icon');
-  // 위에 수정 내용
+  const toolbarBtn = $('.toolbar_btn');
+  const toolbarIcon = $('.toolbar_btn .common_icon');
+  const toolbarText = $('.toolbar_btn .toolbar_text');
   const categoryCont = $('.toolbar_category_app');
   const categoryClsBtn = $('.toolbar_category_app').find('.close_btn');
   const categoryItem = $('.category_content_list.dep1 > .category_content_item');
@@ -15,7 +14,20 @@ export function toolbar(){
   const toolbarCon = 'active';
   const resetPage = './index.html'
 
- // 수정 중
+  $(toolbarBtn).click(function(){
+    const btnId = $(this).parent().index();
+    $(this).children(toolbarIcon).addClass(toolbarCon);
+    $(this).parent().siblings().find(toolbarIcon).removeClass(toolbarCon);
+    $(this).children(toolbarText).addClass(toolbarCon);
+    $(this).parent().siblings().find(toolbarText).removeClass(toolbarCon);
+    switch(btnId){
+      case 0: $(categoryCont).addClass(toolbarCon);
+        break;
+      case 2: window.location.href = resetPage;
+        break; 
+      default:
+    }
+  })
 
   $(categoryClsBtn).click(function(){
     $(categoryCont).removeClass(toolbarCon);
@@ -38,6 +50,4 @@ export function toolbar(){
       $(categorySecList).removeClass(toolbarCon);
     }
   })
-
-
 }

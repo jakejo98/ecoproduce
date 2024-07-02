@@ -61,7 +61,6 @@ function gnbControl(){
   const gnbLink = $('.header_gnb_item').children('.header_gnb_link');
   const gnbCon = 'active';
   $(gnbLink).click(function(){
-    const gnbId = $(this).parent().index();
     $(this).addClass(gnbCon);
     $(this).parent().siblings().children(gnbLink).removeClass(gnbCon);
   })

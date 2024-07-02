@@ -12,12 +12,20 @@
           align-items: center;
           padding: 9px 0;
           width: 100%;
+          & .common_icon {
+            &.active::after {
+              filter: brightness(0) saturate(100%) invert(57%) sepia(65%) saturate(450%) hue-rotate(39deg) brightness(101%) contrast(95%);
+            }
+          }
           & .toolbar_text {
             margin-top: 6px;
             font-weight: 100;
             font-size: 12px;
             line-height: 12px;
             color: map-get($color-type, grey-01);
+            &.active {
+              color: map-get($color-main, color-primary);
+            }
           }
         }
       }
