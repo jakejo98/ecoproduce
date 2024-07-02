@@ -4,10 +4,10 @@
   gnbControl();
 }
 export function setupRespond(){
-  setToolbarCurrent();
+  
 }
 // Desktop
-// category control
+// Category Control
 function categoryToggle() {
   const category = $('.header_category');
   const categoryBtn = $('.category_btn');
@@ -56,12 +56,16 @@ function categoryToggle() {
   })
 }
 
+// Gnb Control
 function gnbControl(){
   const gnbLink = $('.header_gnb_item').children('.header_gnb_link');
   const gnbCon = 'active';
   $(gnbLink).click(function(){
-    let gnbId = $(this).parent().index();
+    const gnbId = $(this).parent().index();
     $(this).addClass(gnbCon);
     $(this).parent().siblings().children(gnbLink).removeClass(gnbCon);
   })
 }
+
+// Respond
+// header search app

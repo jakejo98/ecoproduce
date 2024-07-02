@@ -8,7 +8,7 @@
   <!-- script -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script type="module" src="./js/header.js"></script>
-  <script type="module" src="./js/screen_control.js"></script>
+  <script type="module" src="./js/screen.js"></script>
   <script type="module" src="./js/main.js"></script>
   <!-- //script -->
 </head>
@@ -47,21 +47,22 @@
           </div>
           <div class="header_controls">
             <div class="header_search">
+              <label for="search" class="blind">상품명 입력</label>
               <input type="search" name="search" id="search" class="header_search_input" placeholder="상품명을 입력해주세요.">
-              <button class="header_search_btn">
+              <button class="header_search_btn" title="검색">
                 <span class="common_icon icon_search">
                   <span class="blind">검색</span>
                 </span>
               </button>
             </div>
             <div class="header_shopping">
-              <button class="header_shopping_btn">
+              <button class="header_shopping_btn" title="장바구니">
                 <span class="common_icon icon_shopping_white">
                   <span class="blind">장바구니</span>
                 </span>
                 <em class="header_shopping_count">0</em>
               </button>
-              <button class="header_shopping_btn respond">
+              <button class="header_shopping_btn respond" title="장바구니">
                 <span class="common_icon icon_shopping_black">
                   <span class="blind">장바구니</span>
                 </span>
@@ -72,7 +73,7 @@
       </section>
       <nav class="header_gnb">
         <div class="header_category">
-          <button class="category_btn">
+          <button class="category_btn" title="전체상품">
             <span class="common_icon ty_xl icon_menu">
               <span class="blind">전체상품</span>
             </span>
@@ -82,15 +83,21 @@
               <ul class="header_category_list">
                 <li class="header_category_item">
                   <a href="#" class="header_category_link">농산물</a>
-                  <span class="common_icon ty_sm icon_gnb_arrow_right_static"></span>
+                  <span class="common_icon ty_sm icon_gnb_arrow_right_static">
+                    <span class="blind">농산물</span>
+                  </span>
                 </li>
                 <li class="header_category_item">
                   <a href="#" class="header_category_link">축산물</a>
-                  <span class="common_icon ty_sm icon_gnb_arrow_right_static"></span>
+                  <span class="common_icon ty_sm icon_gnb_arrow_right_static">
+                    <spna class="blind">축산물</spna>
+                  </span>
                 </li>
                 <li class="header_category_item">
                   <a href="#" class="header_category_link">수산물</a>
-                  <span class="common_icon ty_sm icon_gnb_arrow_right_static"></span>
+                  <span class="common_icon ty_sm icon_gnb_arrow_right_static">
+                    <span class="blind">수산물</span>
+                  </span>
                 </li>
                 <li class="header_category_item">
                   <a href="#" class="header_category_link">못난이</a>
@@ -216,8 +223,185 @@
         </ul>
       </nav>
     </header>
+    <main>
+      <div class="toolbar_category_app">
+        <div class="category_header">
+          <div class="user_btn_box">
+            <button class="user_btn" title="로그인">
+              <span class="btn_text">로그인</span>
+              <span class="common_icon ty_sm icon_arrow_right_white">
+                <span class="blind">로그인</span>
+              </span>
+            </button>
+            <button class="user_btn" title="회원가입">
+              <span class="btn_text">회원가입</span>
+              <span class="common_icon ty_sm icon_plus">
+                <span class="blind">회원가입</span>
+              </span>
+            </button>
+          </div>
+          <button class="close_btn" title="창닫기">
+            <span class="common_icon icon_white_close">
+              <span class="blind">창닫기</span>
+            </span>
+          </button>
+        </div>
+        <div class="category_content">
+          <ul class="category_content_list dep1">
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">농산물</a>
+              <span class="common_icon ty_sm icon_category_arrow_down">
+                <span class="blind">농산물</span>
+              </span>
+              <ul class="category_content_list dep2">
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">채소</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">과일</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">버섯</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">곡물</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">유기농</a>
+                </li>
+              </ul>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">축산물</a>
+              <span class="common_icon ty_sm icon_category_arrow_down">
+                <span class="blind">축산물</span>
+              </span>
+              <ul class="category_content_list dep2">
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">소고기</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">돼지고기</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">닭고기</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">오리고기</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">계란</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">가공육</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">유기농</a>
+                </li>
+              </ul>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">수산물</a>
+              <span class="common_icon ty_sm icon_category_arrow_down">
+                <span class="blind">수산물</span>
+              </span>
+              <ul class="category_content_list dep2">
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">생선</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">연체갑각류</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">어패류</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">건어물</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">해조류</a>
+                </li>
+                <li class="category_content_item">
+                  <a href="#" class="category_content_link">해산물</a>
+                </li>
+              </ul>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">못난이</a>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">선물세트</a>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">타임어택</a>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">신상품</a>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">베스트</a>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">이벤트</a>
+            </li>
+            <li class="category_content_item">
+              <a href="#" class="category_content_link">스토리</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="header_search_app">
+        <div class="search_header">
+          <div class="left_header">
+            <button class=""></button>
+          </div>
+          <div class="left_header"></div>
+        </div>
+      </div>
+    </main>
     <nav class="toolbar">
-      
+      <ul class="toolbar_list">
+        <li class="toolbar_item">
+          <button class="toolbar_btn" title="카테고리">
+            <span class="common_icon icon_toolbar_menu">
+              <span class="blind">카테고리</span>
+            </span>
+            <span class="toolbar_text">카테고리</span>
+          </button>
+        </li>
+        <li class="toolbar_item">
+          <button class="toolbar_btn" title="고객센터">
+            <span class="common_icon icon_toolbar_call">
+              <span class="blind">고객센터</span>
+            </span>
+            <span class="toolbar_text">고객센터</span>
+          </button>
+        </li>
+        <li class="toolbar_item">
+          <button class="toolbar_btn" title="홈">
+            <span class="common_icon icon_toolbar_home active">
+              <span class="blind">홈</span>
+            </span>
+            <span class="toolbar_text active">홈</span>
+          </button>
+        </li>
+        <li class="toolbar_item">
+          <button class="toolbar_btn" title="주문조회">
+            <span class="common_icon icon_toolbar_order">
+              <span class="blind">주문조회</span>
+            </span>
+            <span class="toolbar_text">주문조회</span>
+          </button>
+        </li>
+        <li class="toolbar_item">
+          <button class="toolbar_btn" title="마이페이지">
+            <span class="common_icon icon_toolbar_user">
+              <span class="blind">마이페이지</span>
+            </span>
+            <span class="toolbar_text">마이페이지</span>
+          </button>
+        </li>
+      </ul>
     </nav>
   </div>
 </body>

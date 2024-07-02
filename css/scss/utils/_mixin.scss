@@ -34,6 +34,7 @@
 }
 /* 팝업 */
 @mixin respond-fixed($top, $right, $bottom, $left, $z-index) {
+  overflow-y: auto;
   position: fixed;
   top: $top;
   right: $right;
@@ -42,6 +43,17 @@
   z-index: $z-index;
   width: 100%;
   height: 100%;
-  max-height: calc(100vh - 70px);
+  max-height: calc(100% - 60px);
   background-color: map-get($color-main, color-white);
+}
+/* 툴바 */
+@mixin toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  background-color: map-get($color-main, color-white);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }

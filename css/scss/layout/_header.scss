@@ -52,6 +52,9 @@
                     border: 0;
                     border-radius: 20px;
                     background-color: map-get($color-background, grey-01);
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-01);
                     &::placeholder {
                         font-size: 14px;
                         line-height: 20px;
@@ -59,6 +62,9 @@
                     }
                     &:focus::placeholder {
                         color: transparent;
+                    }
+                    &:focus {
+                        outline: none;
                     }
                 }
                 & .header_search_btn {
@@ -243,4 +249,11 @@
         display: none;
     }
     
+}
+
+@media screen and (max-width: 1023px) {
+    .header_search_app {
+        @include respond-fixed(0px, null, null, 0px, 10);
+        @include inner;
+    }
 }

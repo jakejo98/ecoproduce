@@ -1,36 +1,101 @@
 @media screen and (max-width: 1023px) {
   .toolbar {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 999;
+    @include toolbar;
     & .toolbar_list {
       display: flex;
-      border-radius: 8px 8px 0 0;
-      background-color: map-get($color-background, white-01);
-      box-shadow: 0 -4px 10px 0 rgba(0, 0, 0, 0.1);
-      & .toolbar_item {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
+      & .toolbar_item{
         width: calc(100% / 5);
-        padding: 9px 0;
-        & .toolbar_link {
-          margin-top: 6px;
-          font-weight: 100;
-          font-size: 12px;
-          color: map-get($color-type, grey-01)
-          
+        & .toolbar_btn {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 9px 0;
+          width: 100%;
+          & .toolbar_text {
+            margin-top: 6px;
+            font-weight: 100;
+            font-size: 12px;
+            line-height: 12px;
+            color: map-get($color-type, grey-01);
+          }
         }
       }
     }
-    
+  }
+  .toolbar_category_app {
+    @include respond-fixed(0px, null, null, 0px, 10);
+    display: none;
+    &.active {
+      display: block;
+    }
+    & .category_header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: map-get($color-main, color-black);
+      padding: 8px 20px;
+      & .user_btn_box {
+        display: flex;
+        align-items: center;
+        & .user_btn {
+          display: flex;
+          align-items: center;
+          & + .user_btn {
+            margin-left: 15px;
+          }
+          & .btn_text {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 20px;
+            color: map-get($color-main, color-white);
+          }
+        }
+      }
+      .close_btn {
+        padding: 5px 0 5px 5px;
+      }
+    }
+    & .category_content {
+      & .category_content_list.dep1 {
+        padding: 15px 20px;
+        & .category_content_item {
+          position: relative;
+          & .category_content_link {
+            display: block;
+            font-weight: 700;
+            line-height: 45px;
+          }
+          & .common_icon {
+            @include position(14.5px, 0px, null, null, null)
+          }
+        }
+        & .category_content_list.dep2 {
+          display: none;
+          padding: 10px 0;
+          background-color: map-get($color-background, grey-02);
+          &.active {
+            display: block;
+          }
+          & .category_content_link {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 40px;
+            color: map-get($color-type, grey-01);
+          }
+        }
+      }
+    }
   }
 }
 @media screen and (min-width: 1024px) {
-  .respond_toolbar {
+  .toolbar {
+    display: none;
+  }
+  .toolbar_category_app {
+    display: none;
+  }
+  .header_search_app {
     display: none;
   }
 }
