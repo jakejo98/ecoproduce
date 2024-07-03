@@ -56,6 +56,7 @@
                     line-height: 20px;
                     color: map-get($color-type, grey-01);
                     &::placeholder {
+                        font-weight: 700;
                         font-size: 14px;
                         line-height: 20px;
                         color: map-get($color-type, grey-04);
@@ -253,8 +254,159 @@
 
 @media screen and (max-width: 1023px) {
     .header_search_app {
-        @include respond-fixed(0px, null, null, 0px, 10);
-        @include inner;
+        @include respond-fixed-full(0px, null, null, 0px, 1000);
         display: none;
+        &.active {
+            display: block;
+        }
+        & .search_header {
+            @include inner;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 9px 20px 8px 20px;
+            border-bottom: 1px solid map-get($color-main, black-01);
+            & .header_btn {
+                padding: 4px;
+            }
+            & .header_search_input {
+                padding: 0 10px;
+                width: calc(100% - 64px);
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 20px;
+                color: map-get($color-type, grey-01);
+                &::placeholder {
+                    font-weight: 700;
+                    color: map-get($color-type, grey-04);
+                }
+                &:focus::placeholder {
+                    color: transparent;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        & .search_content {
+            @include inner;
+            & .recent_search_container {
+                padding-top: 30px;
+                & .recent_tit {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .tit {
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                    & .entire_del_btn {
+                        & .entire_del_text {
+                            font-size: 14px;
+                            line-height: 20px;
+                            color: map-get($color-main, color-primary);
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            } 
+            & .best_search_container {
+                padding-top: 20px;
+                & .best_tit {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .tit {
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 30px;
+                    }
+                    & .best_time {
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: map-get($color-type, grey-01);
+                    }
+                }
+                & .best_list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 20px;
+                    counter-reset: number;
+                    border-top: 1px solid map-get($color-line, grey-02);
+                    & .best_item {
+                        position: relative;
+                        padding: 17px 0 16px 54px;
+                        width: 50%;
+                        box-sizing: border-box;
+                        border-bottom: 1px solid map-get($color-line, grey-02);
+                        &::before{
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            display: flex;
+                            justify-content: center;
+                            width: 20px;
+                            font-weight: 700;
+                            font-size: 16px;
+                            transform: translateY(-50%);
+                            content: counter(number);
+                            counter-increment: number;
+                        }
+                        &:nth-of-type(-n + 3)::before {
+                            color: map-get($color-type, red-01);
+                        }
+                        &::after {
+                            display: block;
+                        }
+                        &.maintain::after {
+                            position: absolute;
+                            left: 24px;
+                            top: 50%;
+                            width: 16px;
+                            height: 16px;
+                            background: url('../img/icon_ranking/ranking_maintain.svg') center / 100% no-repeat;
+                            transform: translateY(-50%);
+                            content: '';
+                        }
+                        &.down::after {
+                            position: absolute;
+                            left: 24px;
+                            top: 50%;
+                            width: 16px;
+                            height: 16px;
+                            background: url('../img/icon_ranking/ranking_down.svg') center / 100% no-repeat;
+                            transform: translateY(-50%);
+                            content: '';
+                        }
+                        &.up::after {
+                            position: absolute;
+                            left: 24px;
+                            top: 50%;
+                            width: 16px;
+                            height: 16px;
+                            background: url('../img/icon_ranking/ranking_up.svg') center / 100% no-repeat;
+                            transform: translateY(-50%);
+                            content: '';
+                        }
+                    }
+                }
+            } 
+            & .ad_container {
+                padding: 30px 0;
+                & .ad_list {
+                    display: flex;
+                    & .ad_item {
+                        width: calc(50% - 10px);
+                        & + .ad_item {
+                            margin-left: 20px;
+                        }
+                    }
+                    & img {
+                        width: 100%;
+                    }
+                }
+            } 
+        }
     }
 }

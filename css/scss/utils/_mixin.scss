@@ -1,17 +1,3 @@
-/* 배너 가운데 정렬 */ 
-@mixin container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-/* Tablet, Mobild 여백 */
-@mixin inner {
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-/* font 지정 */
-@mixin font-family($font-family) {
-  font-family: $font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
 /* 숨김 처리 */
 @mixin blind {
   overflow: hidden;
@@ -23,6 +9,24 @@
   border: 0;
   clip: rect(0, 0, 0, 0);
 }
+
+/* font 지정 */
+@mixin font-family($font-family) {
+  font-family: $font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* 배너 가운데 정렬 */ 
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Tablet, Mobild 여백 */
+@mixin inner {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
 /* 포지션 */
 @mixin position($top, $right, $bottom, $left, $z-index) {
   position: absolute;
@@ -32,7 +36,20 @@
   left: $left;
   z-index: $z-index
 }
-/* 팝업 */
+
+/* 툴바 */
+@mixin toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  background-color: map-get($color-main, color-white);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 앱 */
 @mixin respond-fixed($top, $right, $bottom, $left, $z-index) {
   overflow-y: auto;
   position: fixed;
@@ -46,14 +63,17 @@
   max-height: calc(100% - 60px);
   background-color: map-get($color-main, color-white);
 }
-/* 툴바 */
-@mixin toolbar {
+
+/* 앱-full */
+@mixin respond-fixed-full($top, $right, $bottom, $left, $z-index) {
+  overflow-y: auto;
   position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
   width: 100%;
-  border-radius: 8px 8px 0px 0px;
+  height: 100%;
   background-color: map-get($color-main, color-white);
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
 }
