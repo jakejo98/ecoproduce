@@ -1,3 +1,14 @@
+@media screen and (min-width: 1240px){
+    .common_header {
+      width: 100%;
+    }
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1239px){
+    .common_header {
+      width: 100%;
+      @include inner;
+    }
+  }
 @media screen and (min-width: 1024px) {
     /* header 공통*/
     .common_header {
@@ -332,8 +343,8 @@
                     display: flex;
                     flex-wrap: wrap;
                     margin-top: 20px;
-                    counter-reset: number;
                     border-top: 1px solid map-get($color-line, grey-02);
+                    counter-reset: number;
                     & .best_item {
                         position: relative;
                         padding: 17px 0 16px 54px;

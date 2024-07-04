@@ -227,7 +227,7 @@
         <div class="header_search_app">
           <div class="search_header">
             <button class="header_btn close_btn" title="검색창 닫기">
-              <span class="common_icon icon_swiper_arrow_prev">
+              <span class="common_icon icon_swiper_prev">
                 <span class="blind">검색창 닫기</span>
               </span>
             </button>
@@ -403,7 +403,7 @@
             </div>
           </div>
         </div>
-        <div class="toolbar_category_app">
+        <div class="toolbar_category_app" aria-hidden="true">
           <div class="category_header">
             <div class="user_btn_box">
               <button class="user_btn" title="로그인">
@@ -529,40 +529,26 @@
             </ul>
           </div>
         </div>
-        <div class="toolbar_call_app"></div>
+        <div class="toolbar_call_app">
+          <div class="call_header">
+            <button class="close_btn">
+              <span class="common_icon icon_white_close"></span>
+            </button>
+          </div>
+          <div class="message_container">
+            <p>이 페이지는 준비 중입니다.</p>
+          </div>
+        </div>
         <div class="toolbar_order_app"></div>
         <div class="toolbar_mypage_app"></div>
       </section>
-      <section class="common_section section_visual_banner">
-        <div class="swiper visual_banner">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide">
-              <img src="./img/banner/main_banner_01.jpg" alt="">
-            </li>
-            <li class="swiper-slide">
-              <img src="./img/banner/main_banner_02.jpg" alt="">
-            </li>
-            <li class="swiper-slide">
-              <img src="./img/banner/main_banner_03.jpg" alt="">
-            </li>
-            <li class="swiper-slide">
-              <img src="./img/banner/main_banner_04.jpg" alt="">
-            </li>
-            <li class="swiper-slide">
-              <img src="./img/banner/main_banner_05.jpg" alt="">
-            </li>
-          </ul>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-pagination"></div>
-        </div>
+      <section class="common_section section_main_banner">
       </section>
-      <section class="common_section"></section>
     </main>
     <nav class="toolbar">
       <ul class="toolbar_list">
         <li class="toolbar_item">
-          <button class="toolbar_btn" title="카테고리">
+          <button class="toolbar_btn" aria-label="카테고리창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_category_app">
             <span class="common_icon icon_toolbar_menu">
               <span class="blind">카테고리</span>
             </span>
@@ -570,7 +556,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" title="고객센터">
+          <button class="toolbar_btn" aria-label="고객센터창 활성화" aria-current="false">
             <span class="common_icon icon_toolbar_call">
               <span class="blind">고객센터</span>
             </span>
@@ -578,7 +564,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" title="홈">
+          <button class="toolbar_btn" aria-label="메인페이지로 이동" aria-current="page">
             <span class="common_icon icon_toolbar_home active">
               <span class="blind">홈</span>
             </span>
@@ -586,7 +572,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" title="주문조회">
+          <button class="toolbar_btn" aria-label="주문조회창 활성화" aria-current="false">
             <span class="common_icon icon_toolbar_order">
               <span class="blind">주문조회</span>
             </span>
@@ -594,7 +580,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" title="마이페이지">
+          <button class="toolbar_btn" aria-label="마이페이지창 활성화" aria-current="false">
             <span class="common_icon icon_toolbar_mypage">
               <span class="blind">마이페이지</span>
             </span>

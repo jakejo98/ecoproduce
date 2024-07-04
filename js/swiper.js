@@ -1,12 +1,20 @@
 export function swiper() {
-  var swiper = new Swiper(".visual_banner", {
+  var swiper = new Swiper('.main_banner', {
+    slidesPerView: 'auto',
+    centeredSlides: true,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
     pagination: {
-      el: ".swiper-pagination",
+      el: '.swiper-pagination',
       clickable: true,
     },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+    breakpoints: {
+      1261: {
+        spaceBetween: 30,
+      },
+    }
   });
 }

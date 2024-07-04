@@ -1,4 +1,5 @@
 /* library */
+@import "lib/swiper.scss";
 
 /* utils */
 @import "utils/mixin.scss";
@@ -28,4 +29,5 @@
 
 /* pages */
 @import "pages/list.scss";
-@import "pages/ranking.scss"
+@import "pages/ranking.scss";
+@import "pages/preparing.scss";
