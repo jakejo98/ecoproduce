@@ -57,10 +57,6 @@ swiper_next /* 스와이퍼 */
     width: 16px;
     height: 16px;
   }
-  &.ty_xs{
-    width: 12px;
-    height: 12px;
-  }
 }
 @each $icon in $icons {
   .icon_#{$icon}::after {
@@ -88,6 +84,13 @@ swiper_next /* 스와이퍼 */
   .logo_v1 {
     width: 113px;
     height: 34px;
+    &::after {
+      background-image: url("../img/svg/logo_v1.svg");
+    }
+  }
+  .logo_preparing {
+    width: 300px;
+    height: 90px;
     &::after {
       background-image: url("../img/svg/logo_v1.svg");
     }

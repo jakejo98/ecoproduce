@@ -1,38 +1,22 @@
+// 툴바 이벤트
 export function toolbar(){
-  toolbarBtnCon();
-  categoryAppCon();
-}
-// 툴바 버튼 활성화 유무
-function toolbarBtnCon(){
+  const toolbarItem = $('.toolbar .toolbar_item');
   const toolbarBtn = $('.toolbar .toolbar_btn');
   
   $(toolbarBtn).click(function(){
+    const btnId = $(this).parent().index();
+    // aria-current 제어
     $(toolbarBtn).attr('aria-current', 'false')
     $(this).attr('aria-current', 'page')
-  })
-}
-
-// 툴바 카테고리 이벤트
-function categoryAppCon(){
-  const categoryApp = $('#app .toolbar_category_app');
-  const toolbarBtn = $('.toolbar .toolbar_btn');
-  
-  // 카테고리 앱 활성화
-  $(toolbarBtn).click(function(){
-    const categoryId = $(this).parent().index();
-    if(categoryId == 0){
-      $(categoryApp).attr('aria-hidden', 'false');
+    // aria-expanded 제어
+    if(btnId != 2){
+      $(this).attr('aria-expanded', 'true');
+      $(this).parent().siblings().children(toolbarBtn).attr('aria-expanded', 'false');
+      $(toolbarItem).eq(2).children(toolbarBtn).removeAttr('aria-expanded');
     } else {
-      $(categoryApp).attr('aria-hidden', 'true')
+      $(this).removeAttr('aria-expanded');
     }
   })
-
-  // 카테고리 앱 비활성화
-  const categoryClsBtn = $('#app .toolbar_category_app .close_btn');
-  const resetPage = './index.html'
-  
-  $(categoryClsBtn).click(function(){
-    $(categoryApp).attr('aria-hidden', 'true');
-    
-  })
 }
+
+
