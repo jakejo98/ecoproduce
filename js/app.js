@@ -12,15 +12,20 @@ function toolbarappCon(){
   const toolbarBtn = $('.toolbar .toolbar_btn');
 
   $(toolbarBtn).click(function(){
-    let btnId = $(this).parent().index();
-    let appId = $(this).parent().index() + 1;
-    if (btnId == 2) {
+    let btnId = $(this).parent().index() + 1;
+    console.log(btnId);
+    if(btnId == 3) {
+      $(commonApp).attr('aria-hidden', 'true');
       window.location.href = resetPage;
-    } else if (appId >= 4) {
-      appId -= 1;
+    }else if(btnId >= 4){
+      btnId -= 1;
+      $(commonApp).eq(btnId).attr('aria-hidden', 'false');
+      $(commonApp).eq(btnId).siblings().attr('aria-hidden', 'true');
+    } else {
+      $(commonApp).eq(btnId).attr('aria-hidden', 'false');
+      $(commonApp).eq(btnId).siblings().attr('aria-hidden', 'true');
     }
-    $(commonApp).eq(appId).attr('aria-hidden', 'false');
-    $(commonApp).eq(appId).siblings().attr('aria-hidden', 'true');
+
   })
 }
 
