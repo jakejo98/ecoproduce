@@ -47,21 +47,21 @@
           <div class="header_controls">
             <div class="header_search">
               <label for="search" class="blind">상품명 입력</label>
-              <input type="search" name="search_keyword" id="search" class="header_search_input" placeholder="상품명을 입력해주세요.">
-              <button class="header_search_btn" aria-label="검색창 활성화하기" aria-expanded="false" aria-controls="header_search_app">
+              <input type="search" name="search_keyword" id="search" class="header_search_input" placeholder="상품명을 입력해주세요." aria-label="상품명 검색">
+              <button type="button" class="header_search_btn" aria-label="검색창 활성화하기" aria-expanded="false" aria-controls="header_search_app">
                 <span class="common_icon icon_search">
                   <span class="blind">검색</span>
                 </span>
               </button>
             </div>
             <div class="header_shopping">
-              <button class="header_shopping_btn" aria-label="장바구니 페이지로 이동">
+              <button type="button" class="header_shopping_btn" aria-label="장바구니 페이지로 이동">
                 <span class="common_icon icon_shopping_white">
                   <span class="blind">장바구니</span>
                 </span>
                 <em class="header_shopping_count">0</em>
               </button>
-              <button class="header_shopping_btn respond" aria-label="장바구니 페이지로 이동">
+              <button type="button" class="header_shopping_btn respond" aria-label="장바구니 페이지로 이동">
                 <span class="common_icon icon_shopping_black">
                   <span class="blind">장바구니</span>
                 </span>
@@ -72,121 +72,127 @@
       </div>
       <nav class="header_gnb">
         <div class="header_category">
-          <button class="category_btn" title="전체상품 활성화">
-            <span class="common_icon ty_xl icon_menu">
-              <span class="blind">전체상품</span>
-            </span>
-          </button>
-          <div class="header_category_container">
-            <div class="header_category_box dep1">
-              <ul class="header_category_list">
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">농산물</a>
-                  <span class="common_icon ty_sm icon_gnb_arrow_right_static">
-                    <span class="blind">농산물</span>
-                  </span>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">축산물</a>
-                  <span class="common_icon ty_sm icon_gnb_arrow_right_static">
-                    <spna class="blind">축산물</spna>
-                  </span>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">수산물</a>
-                  <span class="common_icon ty_sm icon_gnb_arrow_right_static">
-                    <span class="blind">수산물</span>
-                  </span>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">못난이</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">유기농</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">선물세트</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">타임어택</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">신상품</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">베스트</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">이벤트</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">스토리</a>
-                </li>
-              </ul>
+            <button type="button" class="category_btn" aria-label="카테고리 창 활성화하기" aria-expanded="false" aria-controls="header_category_container">
+              <span class="common_icon ty_xl icon_menu">
+                <span class="blind">전체상품</span>
+              </span>
+            </button>
+            <div class="header_category_container" aria-hidden="true">
+              <div class="header_category_box dep1">
+                <ul class="header_category_list">
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link" aria-label="농산물" aria-expanded="false" aria-controls="header_agricultural">
+                      <span class="header_category_text category_icon_disabled">농산물</span>
+                    </a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-expanded="false" aria-label="축산물" aria-controls="header_livestock">
+                      <span class="header_category_text category_icon_disabled">축산물</span>
+                    </a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-expanded="false" aria-label="수산물" aria-controls="header_seafood">
+                      <span class="header_category_text category_icon_disabled">수산물</span>
+                    </a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="못난이">못난이</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="유기농">유기농</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="선물세트">선물세트</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="타임어택">타임어택</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="신상품">신상품</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="베스트">베스트</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link" aria-label="이벤트">이벤트</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="./html/story.html" class="header_category_link" aria-label="스토리">스토리</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="header_category_box dep2">
+                <ul class="header_category_list header_agricultural" aria-hidden="true">
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link">전체</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link">채소</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link">과일</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link">버섯</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link">곡물</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="./html/agricultural.html" class="header_category_link">유기농</a>
+                  </li>
+                </ul>
+                <ul class="header_category_list header_livestock" aria-hidden="true">
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">전체</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">소고기</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">돼지고기</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">닭고기</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">오리고기</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">계란</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">가공육</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">유기농</a>
+                  </li>
+                </ul>
+                <ul class="header_category_list header_seafood" aria-hidden="true">
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">전체</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">생선</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">연체갑각류</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">어패류</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">건어물</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">해조류</a>
+                  </li>
+                  <li class="header_category_item">
+                    <a href="#" class="header_category_link">해산물</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="header_category_box dep2">
-              <ul class="header_category_list">
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">채소</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">과일</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">버섯</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">곡물</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">유기농</a>
-                </li>
-              </ul>
-              <ul class="header_category_list">
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">소고기</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">돼지고기</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">닭고기</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">오리고기</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">계란</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">가공육</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">유기농</a>
-                </li>
-              </ul>
-              <ul class="header_category_list">
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">생선</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">연체갑각류</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">어패류</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">건어물</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">해조류</a>
-                </li>
-                <li class="header_category_item">
-                  <a href="#" class="header_category_link">해산물</a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
         <ul class="header_gnb_list">
           <li class="header_gnb_item">
@@ -226,14 +232,14 @@
       <section id="app">
         <div class="common_app_container header_search_app" aria-hidden="true">
           <div class="search_header">
-            <button class="header_cls_btn" aria-label="검색창 닫기">
+            <button type="button" class="header_cls_btn" aria-label="검색창 닫기" aria-expanded="false" aria-controls="header_search_app">
               <span class="common_icon icon_swiper_prev">
                 <span class="blind">검색창 닫기</span>
               </span>
             </button>
             <label for="search" class="blind"></label>
             <input type="search" class="header_search_input" name="search_keyword" id="search" placeholder="상품명을 입력해주세요.">
-            <button class="header_btn search_btn" aria-label="검색하기">
+            <button type="button" class="header_btn search_btn" aria-label="검색하기">
               <span class="common_icon icon_search">
                 <span class="blind">검색</span>
               </span>
@@ -243,112 +249,117 @@
             <div class="recent_search_container">
               <div class="recent_tit">
                 <h2 class="tit">최근 검색어</h2>
-                <button class="entire_del_btn" aria-label="최근 검색어 전체 삭제하기">
+                <button type="button" class="entire_del_btn" aria-label="최근 검색어 전체 삭제하기" aria-expanded="true" aria-controls="recent_not_search_box recent_search_list_box">
                   <span class="entire_del_text">전체삭제</span>
                 </button>
               </div>
-              <ul class="recent_search_list">
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">유기농</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">딸기</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">키조개</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">파인애플</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">광어</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">우럭</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">다금바리</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">앞다리살</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">애호박</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="recent_search_item">
-                  <div class="recent_search_btn_container">
-                    <a href="#" class="recent_search_link">표고버섯</a>
-                    <button class="recent_del_btn" aria-label="최근 검색어 삭제">
-                      <span class="common_icon ty_sm icon_recent_close">
-                        <span class="blind">삭제</span>
-                      </span>
-                    </button>
-                  </div>
-                </li>
-              </ul>
+              <div class="recent_not_search_box" aria-hidden="true">
+                <p class="recent_not_search_text">최근 검색어가 없습니다.</p>
+              </div>
+              <div class="recent_search_list_box" aria-hidden="false">
+                <ul class="recent_search_list">
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">유기농</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">딸기</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">키조개</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">파인애플</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">광어</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">우럭</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">다금바리</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">앞다리살</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">애호박</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="recent_search_item">
+                    <div class="recent_search_btn_box">
+                      <a href="#" class="recent_search_link">표고버섯</a>
+                      <button type="button" class="recent_del_btn" aria-label="최근 검색어 삭제">
+                        <span class="common_icon ty_sm icon_recent_close">
+                          <span class="blind">삭제</span>
+                        </span>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
             <div class="best_search_container">
               <div class="best_tit">
@@ -406,20 +417,20 @@
         <div class="common_app_container toolbar_category_app" aria-hidden="true">
           <div class="category_header">
             <div class="user_btn_box">
-              <button class="user_btn" aria-label="로그인 페이지로 이동">
+              <button type="button" class="user_btn" aria-label="로그인 페이지로 이동">
                 <span class="btn_text">로그인</span>
                 <span class="common_icon ty_sm icon_arrow_right_white">
                   <span class="blind">로그인</span>
                 </span>
               </button>
-              <button class="user_btn" aria-label="회원가입 페이지로 이동">
+              <button type="button" class="user_btn" aria-label="회원가입 페이지로 이동">
                 <span class="btn_text">회원가입</span>
                 <span class="common_icon ty_sm icon_plus">
                   <span class="blind">회원가입</span>
                 </span>
               </button>
             </div>
-            <button class="close_btn" title="카테고리 페이지 닫고 홈으로 이동">
+            <button type="button" class="close_btn" aria-label="카테고리 페이지 닫고 홈으로 이동">
               <span class="common_icon icon_white_close">
                 <span class="blind">창닫기</span>
               </span>
@@ -428,34 +439,40 @@
           <div class="category_content">
             <ul class="category_content_list dep1">
               <li class="category_content_item">
-                <a href="#" class="category_content_link" aria-expanded="false" aria-controls="agricultural">농산물</a>
+                <a href="#" class="category_content_link" aria-expanded="false" aria-controls="toolbar_agricultural">농산물</a>
                 <span class="common_icon ty_sm icon_category_arrow_down">
                   <span class="blind">농산물</span>
                 </span>
-                <ul class="category_content_list dep2 agricultural" aria-hidden="true">
+                <ul class="category_content_list dep2 toolbar_agricultural" aria-hidden="true">
                   <li class="category_content_item">
-                    <a href="#" class="category_content_link">채소</a>
+                    <a href="./html/agricultural.html" class="category_content_link">전체</a>
                   </li>
                   <li class="category_content_item">
-                    <a href="#" class="category_content_link">과일</a>
+                    <a href="./html/agricultural.html" class="category_content_link">채소</a>
                   </li>
                   <li class="category_content_item">
-                    <a href="#" class="category_content_link">버섯</a>
+                    <a href="./html/agricultural.html" class="category_content_link">과일</a>
                   </li>
                   <li class="category_content_item">
-                    <a href="#" class="category_content_link">곡물</a>
+                    <a href="./html/agricultural.html" class="category_content_link">버섯</a>
                   </li>
                   <li class="category_content_item">
-                    <a href="#" class="category_content_link">유기농</a>
+                    <a href="./html/agricultural.html" class="category_content_link">곡물</a>
+                  </li>
+                  <li class="category_content_item">
+                    <a href="./html/agricultural.html" class="category_content_link">유기농</a>
                   </li>
                 </ul>
               </li>
               <li class="category_content_item">
-                <a href="#" class="category_content_link" aria-expanded="false" aria-controls="livestock">축산물</a>
+                <a href="#" class="category_content_link" aria-expanded="false" aria-controls="toolbar_livestock">축산물</a>
                 <span class="common_icon ty_sm icon_category_arrow_down">
                   <span class="blind">축산물</span>
                 </span>
-                <ul class="category_content_list dep2 livestock" aria-hidden="true">
+                <ul class="category_content_list dep2 toolbar_livestock" aria-hidden="true">
+                  <li class="category_content_item">
+                    <a href="#" class="category_content_link">전체</a>
+                  </li>
                   <li class="category_content_item">
                     <a href="#" class="category_content_link">소고기</a>
                   </li>
@@ -480,11 +497,14 @@
                 </ul>
               </li>
               <li class="category_content_item">
-                <a href="#" class="category_content_link" aria-expanded="false" aria-controls="seafood">수산물</a>
+                <a href="#" class="category_content_link" aria-expanded="false" aria-controls="toolbar_seafood">수산물</a>
                 <span class="common_icon ty_sm icon_category_arrow_down">
                   <span class="blind">수산물</span>
                 </span>
-                <ul class="category_content_list dep2 seafood" aria-hidden="true">
+                <ul class="category_content_list dep2 toolbar_seafood" aria-hidden="true">
+                  <li class="category_content_item">
+                    <a href="#" class="category_content_link">전체</a>
+                  </li>
                   <li class="category_content_item">
                     <a href="#" class="category_content_link">생선</a>
                   </li>
@@ -524,14 +544,14 @@
                 <a href="#" class="category_content_link">이벤트</a>
               </li>
               <li class="category_content_item">
-                <a href="#" class="category_content_link">스토리</a>
+                <a href="./html/story.html" class="category_content_link">스토리</a>
               </li>
             </ul>
           </div>
         </div>
         <div class="common_app_container toolbar_call_app" aria-hidden="true">
           <div class="prepare_header">
-            <button class="close_btn">
+            <button type="button" class="close_btn" aria-label="고객센터 창 닫고 홈으로 이동">
               <span class="common_icon icon_white_close"></span>
             </button>
           </div>
@@ -546,7 +566,7 @@
         </div>
         <div class="common_app_container toolbar_order_app" aria-hidden="true">
           <div class="prepare_header">
-            <button class="close_btn">
+            <button type="button"class="close_btn" aria-label="주문조회 창 닫고 홈으로 이동">
               <span class="common_icon icon_white_close"></span>
             </button>
           </div>
@@ -561,7 +581,7 @@
         </div>
         <div class="common_app_container toolbar_mypage_app" aria-hidden="true">
           <div class="prepare_header">
-            <button class="close_btn">
+            <button type="button" class="close_btn" aria-label="마이페이지 창 닫고 홈으로 이동">
               <span class="common_icon icon_white_close"></span>
             </button>
           </div>
@@ -581,7 +601,7 @@
     <nav class="toolbar">
       <ul class="toolbar_list">
         <li class="toolbar_item">
-          <button class="toolbar_btn" aria-label="카테고리창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_category_app">
+          <button type="button" class="toolbar_btn" aria-label="카테고리창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_category_app">
             <span class="common_icon icon_toolbar_menu">
               <span class="blind">카테고리</span>
             </span>
@@ -589,7 +609,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" aria-label="고객센터창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_call_app">
+          <button type="button" class="toolbar_btn" aria-label="고객센터창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_call_app">
             <span class="common_icon icon_toolbar_call">
               <span class="blind">고객센터</span>
             </span>
@@ -597,7 +617,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" aria-label="활성화된 창 닫고 홈으로 이동" aria-current="page">
+          <button type="button" class="toolbar_btn" aria-label="활성화된 창 닫고 홈으로 이동" aria-current="page">
             <span class="common_icon icon_toolbar_home">
               <span class="blind">홈</span>
             </span>
@@ -605,7 +625,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" aria-label="주문조회창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_order_app">
+          <button type="button" class="toolbar_btn" aria-label="주문조회창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_order_app">
             <span class="common_icon icon_toolbar_order">
               <span class="blind">주문조회</span>
             </span>
@@ -613,7 +633,7 @@
           </button>
         </li>
         <li class="toolbar_item">
-          <button class="toolbar_btn" aria-label="마이페이지창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_mypage_app">
+          <button type="button" class="toolbar_btn" aria-label="마이페이지창 활성화" aria-current="false" aria-expanded="false" aria-controls="toolbar_mypage_app">
             <span class="common_icon icon_toolbar_mypage">
               <span class="blind">마이페이지</span>
             </span>

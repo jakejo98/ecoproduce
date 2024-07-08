@@ -3,6 +3,7 @@ export function appRespond(){
   toolbarappClose();
   toolbarcategoryDep();
   searchApp();
+  searchDel();
 }
 
 // 앱 이벤트
@@ -13,7 +14,6 @@ function toolbarappCon(){
 
   $(toolbarBtn).click(function(){
     let btnId = $(this).parent().index() + 1;
-    console.log(btnId);
     if(btnId == 3) {
       $(commonApp).attr('aria-hidden', 'true');
       window.location.href = resetPage;
@@ -40,7 +40,10 @@ function toolbarappClose(){
 
 // 카테고리 리스트 
 function toolbarcategoryDep(){
-  const firstDepLink = $('.category_content_list.dep1 > .category_content_item > .category_content_link');
+  const firstDepLink = $('.category_content_list.dep1 .category_content_link');
+  const firstDepIcon = $('.category_content_list.dep1 .common_icon');
+  const firstDepDown = 'icon_category_arrow_down';
+  const firstDepUp = 'icon_category_arrow_up';
   const secondDep = $('.category_content_list.dep2');
 
   $(firstDepLink).click(function(){
@@ -48,20 +51,43 @@ function toolbarcategoryDep(){
     $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
     $(this).attr('aria-expanded', 'true');
     $(this).parent().siblings().find(firstDepLink).attr('aria-expanded', 'false');
+    $(this).parent().find(firstDepIcon).removeClass(firstDepDown).addClass(firstDepUp);
+    $(this).parent().siblings().find(firstDepIcon).removeClass(firstDepUp).addClass(firstDepDown);
   })
 }
 
-// 검색창
+// 검색창 활성화
 function searchApp(){
   const searchBtn = $('.header_search_btn');
-  const headerApp = $('#app .header_search_app');
+  const searchApp = $('#app .header_search_app');
   const searchClsBtn = $('.header_cls_btn');
 
   $(searchBtn).click(function(){
-    $(headerApp).attr('aria-hidden', 'false');
+    $(searchApp).attr('aria-hidden', 'false');
+    $(searchBtn).attr('aria-expanded', 'true');
+    $(searchClsBtn).attr('aria-expanded', 'true')
   })
 
   $(searchClsBtn).click(function(){
-    $(headerApp).attr('aria-hidden', 'true');
+    $(searchApp).attr('aria-hidden', 'true');
+    $(searchBtn).attr('aria-expanded', 'false');
+    $(searchClsBtn).attr('aria-expanded', 'false')
   })
 }
+
+// 검색창 최근검색어 삭제
+function searchDel(){
+  const delItem =  $('#app .header_search_app .recent_search_item');
+  const delBtn =  $('#app .header_search_app .recent_search_item .recent_del_btn');
+  const entireDelBtn =  $('#app .header_search_app .entire_del_btn');
+  const recentList = $('#app .header_search_app .recent_search_list');
+
+  $(delBtn).click(function(){
+    $(this).closest(delItem).remove();
+  })
+
+  $(entireDelBtn).click(function(){
+    $(recentList).remove();
+  })
+}
+

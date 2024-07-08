@@ -150,14 +150,17 @@
             @include position(60px, null, null, 0px, 10);
             display: none;
             border: 1px solid map-get($color-line, grey-02);
-            &.active {
+            &[aria-hidden="false"]{
                 display: flex;
             }
             & .header_category_box {
                 &.dep2 {
                     & .header_category_list {
                         display: none;
-                        &.active {
+                        & .header_category_link {
+                            color: map-get($color-type, grey-01);
+                        }
+                        &[aria-hidden="false"]{
                             display: block;
                         }
                     }
@@ -166,19 +169,31 @@
                     position: relative;
                     width: 200px;
                     & .header_category_link {
+                        position: relative;
                         display: block;
                         padding: 0 20px;
                         line-height: 50px;
                         &:hover {
                             color: map-get($color-main, color-primary);
-                            transition: 0.3 color ease;
+                            transition: 0.3s color ease;
                         }
-                        &.active {
-                            color: map-get($color-main, color-primary);
+                        & .header_category_text {
+                            &::after{
+                                @include position(50%, 20px, null, null, null);
+                                display: block;
+                                width: 16px;
+                                height: 16px;
+                                background: url('../img/sprites/sprites.png') no-repeat;
+                                transform: translateY(-50%);
+                                content: '';
+                            }
+                            &.category_icon_disabled::after {
+                                background-position: -48px -0px;
+                            }
+                            &.category_icon_active::after {
+                                background-position: -32px -0px;
+                            }
                         }
-                    }
-                    & .common_icon {
-                        @include position(13px, 20px, null, null, null);
                     }
                 }
             }
