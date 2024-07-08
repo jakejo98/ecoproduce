@@ -9,7 +9,6 @@ $(document).ready(function(){
   swiper();
   console.log(initialWidth);
   if(initialWidth > 1023){
-    // headerCon();
   } else {
     toolbar();
     appRespond();
