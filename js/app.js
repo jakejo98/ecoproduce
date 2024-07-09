@@ -42,17 +42,23 @@ function toolbarappClose(){
 function toolbarcategoryDep(){
   const firstDepLink = $('.category_content_list.dep1 .category_content_link');
   const firstDepText = $('.category_content_list.dep1 .category_content_text');
+  const secondDep = $('.category_content_list.dep2');
   const dis = 'disabled';
   const act = 'active';
-  const secondDep = $('.category_content_list.dep2');
 
   $(firstDepLink).click(function(){
-    $(this).parent().find(secondDep).attr('aria-hidden', 'false');
-    $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
-    $(this).attr('aria-expanded', 'true');
-    $(this).parent().siblings().find(firstDepLink).attr('aria-expanded', 'false');
-    $(this).children(firstDepText).removeClass(dis).addClass(act);
-    $(this).parent().siblings().find(firstDepText).removeClass(act).addClass(dis);
+    if($(this).attr('aria-expanded') == 'false') {
+      $(this).attr('aria-expanded', 'true');
+      $(this).parent().siblings().find(firstDepLink).attr('aria-expanded', 'false');
+      $(this).parent().find(secondDep).attr('aria-hidden', 'false');
+      $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
+      $(this).children(firstDepText).removeClass(dis).addClass(act);
+      $(this).parent().siblings().find(firstDepText).removeClass(act).addClass(dis);
+    } else {
+      $(this).attr('aria-expanded', 'false')
+      $(this).parent().find(secondDep).attr('aria-hidden', 'true');
+      $(this).children(firstDepText).removeClass(act).addClass(dis);
+    }
   })
 }
 

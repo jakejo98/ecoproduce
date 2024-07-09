@@ -150,6 +150,7 @@
             @include position(60px, null, null, 0px, 10);
             display: none;
             border: 1px solid map-get($color-line, grey-02);
+            background-color: map-get($color-background, white-01);
             &[aria-hidden="false"]{
                 display: flex;
             }
