@@ -41,9 +41,9 @@ function toolbarappClose(){
 // 카테고리 리스트 
 function toolbarcategoryDep(){
   const firstDepLink = $('.category_content_list.dep1 .category_content_link');
-  const firstDepIcon = $('.category_content_list.dep1 .common_icon');
-  const firstDepDown = 'icon_category_arrow_down';
-  const firstDepUp = 'icon_category_arrow_up';
+  const firstDepText = $('.category_content_list.dep1 .category_content_text');
+  const dis = 'disabled';
+  const act = 'active';
   const secondDep = $('.category_content_list.dep2');
 
   $(firstDepLink).click(function(){
@@ -51,8 +51,8 @@ function toolbarcategoryDep(){
     $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
     $(this).attr('aria-expanded', 'true');
     $(this).parent().siblings().find(firstDepLink).attr('aria-expanded', 'false');
-    $(this).parent().find(firstDepIcon).removeClass(firstDepDown).addClass(firstDepUp);
-    $(this).parent().siblings().find(firstDepIcon).removeClass(firstDepUp).addClass(firstDepDown);
+    $(this).children(firstDepText).removeClass(dis).addClass(act);
+    $(this).parent().siblings().find(firstDepText).removeClass(act).addClass(dis);
   })
 }
 
@@ -77,17 +77,27 @@ function searchApp(){
 
 // 검색창 최근검색어 삭제
 function searchDel(){
+  const recentNotBox = $('#app .header_search_app .recent_not_search_box')
+  const recentBox = $('#app .header_search_app .recent_search_list_box');
   const delItem =  $('#app .header_search_app .recent_search_item');
+  const delItemLen =  $('#app .header_search_app .recent_search_item').length;
   const delBtn =  $('#app .header_search_app .recent_search_item .recent_del_btn');
   const entireDelBtn =  $('#app .header_search_app .entire_del_btn');
-  const recentList = $('#app .header_search_app .recent_search_list');
+  let delCount = 0;
 
   $(delBtn).click(function(){
     $(this).closest(delItem).remove();
+    delCount++;
+    if(delItemLen == delCount) {
+      $(recentBox).attr('aria-hidden', 'true');
+      $(recentNotBox).attr('aria-hidden', 'false');
+    }
   })
 
   $(entireDelBtn).click(function(){
-    $(recentList).remove();
+    $(delItem).remove();
+    $(recentBox).attr('aria-hidden', 'true');
+    $(recentNotBox).attr('aria-hidden', 'false');
   })
 }
 

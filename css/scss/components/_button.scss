@@ -6,32 +6,3 @@ button {
 	appearance: none;
 	cursor: pointer;
 }
-.recent_search_list_box {
-	padding: 20px 0px 0px 0px;
-	& .recent_search_list {
-		display: flex;
-		flex-wrap: wrap;
-		margin-bottom: -10px;
-		& .recent_search_item {
-			margin: 0px 5px 10px 0px;
-			& .recent_search_btn_box {
-				position: relative;
-				border: 1px solid map-get($color-line, grey-02);
-				border-radius: 15px;
-				& .recent_search_link {
-					display: block;
-					padding: 5px 25px 5px 10px;
-					font-size: 14px;
-					line-height: 20px;
-				}
-				& .recent_del_btn {
-					@include position(50%, 5px, null, null, null);
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					transform: translateY(-50%);
-				}
-			}
-		}
-	}
-}

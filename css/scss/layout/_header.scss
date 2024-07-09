@@ -201,78 +201,53 @@
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    /* 헤더 공통 */
+@media screen and (max-width: 1023px) {
     .common_header {
         @include inner;
-    }
-    /* header inner */
-    .header_inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 0;
-        & .header_info {
-            display: none;
-        }
-        & .header_controls {
+        & .header_inner {
             display: flex;
-            & .header_search_input {
+            justify-content: space-between;
+            align-items: center;
+            @media screen and (max-width: 767px) {
+                padding: 8px 0px;
+            }
+            @media screen and (min-width: 768px) and (max-width: 1023px) {
+                padding: 10px 0px;
+            }
+            & .header_info {
                 display: none;
             }
-            & .header_shopping_btn {
-                display: none;
-                &.respond {
-                    display: block;
+            & .header_controls {
+                display: flex;
+                & .header_search_input {
+                    display: none;
+                }
+                & .header_shopping_btn {
+                    display: none;
+                    &.respond {
+                        display: block;
+                    }
+                }
+                & .header_search_btn { 
+                    @media screen and (max-width: 767px) {
+                        padding: 5px;
+                    }
+                    @media screen and (min-width: 768px) and (max-width: 1023px) {
+                        padding: 8px
+                    }
+                }
+                & .header_shopping_btn { 
+                    @media screen and (max-width: 767px) {
+                        padding: 5px 0px 5px 5px;
+                    }
+                    @media screen and (min-width: 768px) and (max-width: 1023px) {
+                        padding: 8px 0px 8px 8px;
+                    }
                 }
             }
-            & .header_search_btn {
-                padding: 8px;
-            }
-            & .header_shopping_btn {
-                padding: 8px 0px 8px 8px;
-            }
         }
-    }
-    .header_gnb {
-        display: none;
-    }
-}
-
-
-@media screen and (max-width: 767px) {
-    .common_header {
-        @include inner;
-    }
-    /* header inner */
-    .header_inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        & .header_info {
+        & .header_gnb {
             display: none;
         }
-        & .header_controls {
-            display: flex;
-            & .header_search_input {
-                display: none;
-            }
-            & .header_shopping_btn {
-                display: none;
-                &.respond {
-                    display: block;
-                }
-            }
-            & .header_search_btn {
-                padding: 5px;
-            }
-            & .header_shopping_btn {
-                padding: 5px 0px 5px 5px;
-            }
-        }
-    }
-    .header_gnb {
-        display: none;
     }
 }
