@@ -5,9 +5,10 @@ import { header } from "./header.js";
 import { appRespond } from "./app.js";
 
 $(document).ready(function(){
-  swiper();
   const initialWidth = loadScreen();
+  swiper();
   emptyLinkCon();
+
   if(initialWidth > 1023){
     header();
   } else {
