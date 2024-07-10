@@ -273,9 +273,9 @@
               display: none;
               padding: 10px 0;
               background-color: map-get($color-background, grey-02);
-              // &[aria-hidden="false"] {
-              //   display: block;
-              // }
+              &[aria-hidden="false"] {
+                display: block;
+              }
               & .category_content_link {
                 font-weight: 400;
                 font-size: 14px;

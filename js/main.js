@@ -6,6 +6,7 @@ import { appRespond } from "./app.js";
 
 $(document).ready(function(){
   const initialWidth = loadScreen();
+  console.log(initialWidth);
   swiper();
   emptyLinkCon();
 
@@ -16,6 +17,7 @@ $(document).ready(function(){
     appRespond();
   }
   responsiveScreen(function(resizeWidth){
+    console.log(resizeWidth);
     if(resizeWidth > 1023){
       header();
     } else {
