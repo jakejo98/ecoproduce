@@ -3,7 +3,7 @@
     @include toolbar;
     & .toolbar_list {
       display: flex;
-      & .toolbar_item{
+      & .toolbar_item {
         width: calc(100% / 5);
         & .toolbar_btn {
           display: flex;
@@ -14,7 +14,8 @@
           width: 100%;
           &[aria-current="page"] {
             & .common_icon {
-              filter: brightness(0) saturate(100%) invert(57%) sepia(65%) saturate(450%) hue-rotate(39deg) brightness(101%) contrast(95%);
+              filter: brightness(0) saturate(100%) invert(57%) sepia(65%)
+                saturate(450%) hue-rotate(39deg) brightness(101%) contrast(95%);
             }
             & .toolbar_text {
               color: map-get($color-main, color-primary);

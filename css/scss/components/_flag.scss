@@ -1,0 +1,33 @@
+.common_flag {
+  display: inline-block;
+  & + .common_flag {
+    margin-left: 6px;
+  }
+  & .flag {
+    display: inline-block;
+    position: relative;
+    padding: 7px 10px 7px 31px;
+    border-radius: 5px;
+    &.agricultural {
+      background-color: map-get($color-background, green-01);
+    }
+    &.livestock {
+      background-color: map-get($color-background, brwon-01);
+    }
+    &.seafood {
+      background-color: map-get($color-background, skyblue-01);
+    }
+    &.delivery {
+      background-color: map-get($color-background, yellow-01);
+    }
+    & .common_icon {
+      @include position(7px, 0px, 0px, 10px, null);
+    }
+    & .flag_text {
+      display: block;
+      font-size: 12px;
+      line-height: 16px;
+      color: map-get($color-main, color-white);
+    }
+  }
+}

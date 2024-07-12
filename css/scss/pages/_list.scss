@@ -17,8 +17,73 @@
   }
   .product_grid {
     & .product_grid_list {
+      justify-content: space-between;
       display: flex;
-      & .product_grid_item {
+      flex-wrap: wrap;
+      &.col1 {
+        & .product_grid_item {
+          margin-bottom: 70px;
+          width: calc((100% - 60px) / 3);
+        }
+        & .product_grid_link {
+          display: block;
+          & .product_grid_box {
+            & .product_img_box {
+              overflow: hidden;
+              border-radius: 8px;
+              & img {
+                width: 100%;
+                transition: 0.3s all ease;
+                &:hover {
+                  scale: 1.1;
+                }
+              }
+            }
+            & .product_info {
+              margin-top: 16px;
+              & .product_name {
+                & .name {
+                  display: block;
+                  font-weight: 700;
+                  line-height: 24px;
+                }
+                & .weight {
+                  display: block;
+                  font-weight: bold;
+                  font-size: 14px;
+                  line-height: 20px;
+                  color: map-get($color-type, grey-02);
+                }
+              }
+              & .product_price {
+                margin: 16px 0px 10px 0;
+                & span {
+                  display: inline-block;
+                  margin-right: 5px;
+                }
+                & .discount_rate {
+                  font-weight: 900;
+                  font-size: 20px;
+                  line-height: 30px;
+                  color: map-get($color-type, red-01);
+                }
+                & .discount_price {
+                  font-weight: 900;
+                  font-size: 20px;
+                  line-height: 30px;
+                }
+                & .price {
+                  font-weight: 100;
+                  line-height: 30px;
+                  color: map-get($color-type, grey-02);
+                }
+              }
+              & .product_flag {
+                display: flex;
+              }
+            }
+          }
+        }
       }
     }
   }

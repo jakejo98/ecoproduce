@@ -12,10 +12,11 @@
 
 /* font 지정 */
 @mixin font-family($font-family) {
-  font-family: $font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: $font-family, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* 배너 가운데 정렬 */ 
+/* 배너 가운데 정렬 */
 @mixin container {
   max-width: 1200px;
   margin: 0 auto;
@@ -34,7 +35,7 @@
   right: $right;
   bottom: $bottom;
   left: $left;
-  z-index: $z-index
+  z-index: $z-index;
 }
 
 /* 툴바 */
