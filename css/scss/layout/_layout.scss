@@ -18,11 +18,17 @@ body {
     & .common_section {
       & + .common_section {
         @include container;
+        @media screen and (min-width: 1024px) and (max-width: 1240px) {
+          @include inner;
+        }
         padding-top: 70px;
       }
       &.section_main_banner {
         overflow: hidden;
         height: 600px;
+      }
+      &.section_weekly_best {
+        margin-bottom: -70px;
       }
     }
   }
@@ -37,6 +43,15 @@ body {
       background-color: map-get($color-line, black-01);
       content: "";
     }
+    & .common_section {
+      & + .common_section {
+        @include inner;
+        padding-top: 60px;
+      }
+      &.section_weekly_best {
+        margin-bottom: -60px;
+      }
+    }
   }
 }
 @media screen and (max-width: 767px) {
@@ -48,6 +63,15 @@ body {
       height: 1px;
       background-color: map-get($color-line, black-01);
       content: "";
+    }
+    & .common_section {
+      & + .common_section {
+        @include inner;
+        padding-top: 50px;
+      }
+      &.section_weekly_best {
+        margin-bottom: -50px;
+      }
     }
   }
 }

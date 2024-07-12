@@ -79,3 +79,12 @@
   max-height: none;
   background-color: map-get($color-main, color-white);
 }
+
+/* 말줄임 */
+@mixin ellipsis-single($w) {
+  overflow: hidden;
+  display: block;
+  width: $w;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

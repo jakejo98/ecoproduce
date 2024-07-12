@@ -1,85 +1,281 @@
-.common_section {
-  .section_heading {
-    margin-bottom: 30px;
-    & .section_title {
-      font-weight: 700;
-      font-size: 30px;
-      line-height: 30px;
-      @include font-family("GmarketSans");
+@media screen and (min-width: 1024px) {
+  .common_section {
+    .section_heading {
+      margin-bottom: 30px;
+      & .section_title {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 30px;
+        @include font-family("GmarketSans");
+      }
+      & .section_sub_title {
+        margin-top: 6px;
+        font-weight: 100;
+        line-height: 24px;
+        color: map-get($color-type, grey-01);
+      }
     }
-    & .section_sub_title {
-      margin-top: 6px;
-      font-weight: 100;
-      font-size: 16px;
-      line-height: 24px;
-      color: map-get($color-type, grey-01);
-    }
-  }
-  .product_grid {
-    & .product_grid_list {
-      justify-content: space-between;
-      display: flex;
-      flex-wrap: wrap;
-      &.col1 {
-        & .product_grid_item {
-          margin-bottom: 70px;
-          width: calc((100% - 60px) / 3);
-        }
-        & .product_grid_link {
-          display: block;
-          & .product_grid_box {
-            & .product_img_box {
-              overflow: hidden;
-              border-radius: 8px;
-              & img {
-                width: 100%;
-                transition: 0.3s all ease;
-                &:hover {
-                  scale: 1.1;
+    .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col1 {
+          & .product_grid_item {
+            margin-bottom: 70px;
+            width: calc((100% - 60px) / 3);
+            &:not(:nth-of-type(3n)) {
+              margin-right: 30px;
+            }
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                  transition: 0.3s all ease;
+                  &:hover {
+                    scale: 1.1;
+                  }
+                }
+                & .shopping_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_flag {
+                  display: flex;
                 }
               }
             }
-            & .product_info {
-              margin-top: 16px;
-              & .product_name {
-                & .name {
-                  display: block;
-                  font-weight: 700;
-                  line-height: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .common_section {
+    .section_heading {
+      margin-bottom: 25px;
+      & .section_title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        @include font-family("GmarketSans");
+      }
+      & .section_sub_title {
+        margin-top: 6px;
+        font-weight: 100;
+        line-height: 24px;
+        color: map-get($color-type, grey-01);
+      }
+    }
+    .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col1 {
+          & .product_grid_item {
+            margin-bottom: 60px;
+            width: calc((100% - 30px) / 2);
+            &:not(:nth-of-type(2n)) {
+              margin-right: 30px;
+            }
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
                 }
-                & .weight {
-                  display: block;
-                  font-weight: bold;
-                  font-size: 14px;
-                  line-height: 20px;
-                  color: map-get($color-type, grey-02);
+                & .shopping_btn {
+                  @include position(null, 10px, 10px, null, null);
                 }
               }
-              & .product_price {
-                margin: 16px 0px 10px 0;
-                & span {
-                  display: inline-block;
-                  margin-right: 5px;
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
                 }
-                & .discount_rate {
-                  font-weight: 900;
-                  font-size: 20px;
-                  line-height: 30px;
-                  color: map-get($color-type, red-01);
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
                 }
-                & .discount_price {
-                  font-weight: 900;
-                  font-size: 20px;
-                  line-height: 30px;
-                }
-                & .price {
-                  font-weight: 100;
-                  line-height: 30px;
-                  color: map-get($color-type, grey-02);
+                & .product_flag {
+                  display: flex;
                 }
               }
-              & .product_flag {
-                display: flex;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .common_section {
+    .section_heading {
+      margin-bottom: 20px;
+      & .section_title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        @include font-family("GmarketSans");
+      }
+      & .section_sub_title {
+        margin-top: 6px;
+        font-weight: 100;
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($color-type, grey-01);
+      }
+    }
+    .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col1 {
+          & .product_grid_item {
+            margin-bottom: 50px;
+            width: 100%;
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                }
+                & .shopping_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_flag {
+                  display: flex;
+                }
               }
             }
           }
