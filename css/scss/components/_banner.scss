@@ -4,6 +4,7 @@
   height: 100%;
   & .swiper-wrapper {
     & .swiper-slide {
+      width: 100%;
       & img {
         display: block;
         width: 100%;
@@ -24,11 +25,6 @@
         width: 1200px;
         overflow: visible;
         position: relative;
-      }
-      & .swiper-wrapper {
-        & .swiper-slide {
-          width: 100%;
-        }
       }
       & .swiper-button-prev {
         @include position(50%, null, null, 30px, null);
@@ -85,11 +81,6 @@
   .section_main_banner {
     & .main_banner {
       overflow: hidden;
-      & .swiper-wrapper {
-        & .swiper-slide {
-          width: 100%;
-        }
-      }
       & .swiper-button-prev {
         display: none;
       }
@@ -132,3 +123,7 @@
     }
   }
 }
+
+// 이벤트 베너 - desktop 
+
+// 이벤트 베너 - respond
