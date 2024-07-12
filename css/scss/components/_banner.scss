@@ -1,4 +1,5 @@
-.main_banner {
+// 스와이퍼 공통
+.swiper {
   width: 100%;
   height: 100%;
   & .swiper-wrapper {
@@ -13,114 +14,120 @@
   }
 }
 
+// 메인배너 - Desktop
 @media screen and (min-width: 1024px) {
-  .main_banner {
-    overflow: hidden;
-    position: relative;
-    @media screen and (min-width: 1262px) {
-      width: 1200px;
-      overflow: visible;
+  .section_main_banner {
+    & .main_banner {
+      overflow: hidden;
       position: relative;
-    }
-    & .swiper-wrapper {
-      & .swiper-slide {
-        width: 100%;
+      @media screen and (min-width: 1262px) {
+        width: 1200px;
+        overflow: visible;
+        position: relative;
       }
-    }
-    & .swiper-button-prev {
-      @include position(50%, null, null, 30px, null);
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
-      background-color: map-get($color-background, white-01);
-      opacity: 0;
-      transition: 0.5s all ease;
-      &.active {
-        opacity: 1;
-      }
-      &::after {
-        display: none;
-      }
-    }
-    & .swiper-button-next {
-      @include position(50%, 30px, null, null, null);
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
-      background-color: map-get($color-background, white-01);
-      opacity: 0;
-      transition: 0.5s all ease;
-      &.active {
-        opacity: 1;
-      }
-      &::after {
-        display: none;
-      }
-    }
-    & .swiper-pagination {
-      bottom: 20px;
-      font-size: 0px;
-      & .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-        background-color: map-get($color-main, color-black);
-        opacity: 0.3;
-        & + .swiper-pagination-bullet {
-          margin-left: 15px;
+      & .swiper-wrapper {
+        & .swiper-slide {
+          width: 100%;
         }
       }
-      & .swiper-pagination-bullet-active {
-        opacity: 1;
+      & .swiper-button-prev {
+        @include position(50%, null, null, 30px, null);
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: map-get($color-background, white-01);
+        opacity: 0;
+        transition: 0.5s all ease;
+        &.active {
+          opacity: 1;
+        }
+        &::after {
+          display: none;
+        }
+      }
+      & .swiper-button-next {
+        @include position(50%, 30px, null, null, null);
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background-color: map-get($color-background, white-01);
+        opacity: 0;
+        transition: 0.5s all ease;
+        &.active {
+          opacity: 1;
+        }
+        &::after {
+          display: none;
+        }
+      }
+      & .swiper-pagination {
+        bottom: 20px;
+        font-size: 0px;
+        & .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px;
+          background-color: map-get($color-main, color-black);
+          opacity: 0.3;
+          & + .swiper-pagination-bullet {
+            margin-left: 15px;
+          }
+        }
+        & .swiper-pagination-bullet-active {
+          opacity: 1;
+        }
       }
     }
   }
 }
 
+// 메인배너 - 
 @media screen and (max-width: 1023px) {
-  .main_banner {
-    overflow: hidden;
-    & .swiper-wrapper {
-      & .swiper-slide {
-        width: 100%;
+  .section_main_banner {
+    & .main_banner {
+      overflow: hidden;
+      & .swiper-wrapper {
+        & .swiper-slide {
+          width: 100%;
+        }
       }
-    }
-    & .swiper-button-prev {
-      display: none;
-    }
-    & .swiper-button-next {
-      display: none;
-    }
-    & .swiper-pagination {
-      @media screen and (min-width: 767px) and (max-width: 1023px) {
-        bottom: 20px;
-        font-size: 0px;
+      & .swiper-button-prev {
+        display: none;
       }
-      @media screen and (max-width: 768px) {
-        bottom: 10px;
-        font-size: 0px;
+      & .swiper-button-next {
+        display: none;
       }
-      & .swiper-pagination-bullet {
+      & .swiper-pagination {
         @media screen and (min-width: 767px) and (max-width: 1023px) {
-          width: 10px;
-          height: 10px;
+          bottom: 20px;
+          font-size: 0px;
         }
         @media screen and (max-width: 768px) {
-          width: 8px;
-          height: 8px;
+          bottom: 10px;
+          font-size: 0px;
         }
-        background-color: map-get($color-main, color-black);
-        opacity: 0.3;
-        & + .swiper-pagination-bullet {
+        & .swiper-pagination-bullet {
           @media screen and (min-width: 767px) and (max-width: 1023px) {
-            margin-left: 10px;
+            width: 10px;
+            height: 10px;
           }
           @media screen and (max-width: 768px) {
-            margin-left: 8px;
+            width: 8px;
+            height: 8px;
+          }
+          background-color: map-get($color-main, color-black);
+          opacity: 0.3;
+          & + .swiper-pagination-bullet {
+            @media screen and (min-width: 767px) and (max-width: 1023px) {
+              margin-left: 10px;
+            }
+            @media screen and (max-width: 768px) {
+              margin-left: 8px;
+            }
           }
         }
-      }
-      & .swiper-pagination-bullet-active {
-        opacity: 1;
+        & .swiper-pagination-bullet-active {
+          opacity: 1;
+        }
       }
     }
   }
