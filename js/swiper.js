@@ -4,7 +4,7 @@ export function swiper() {
 }
 
 function mainBannerSwiperCon() {
-  const cont = $('.section_main_banner'); // 마우스 이벤트를 받을 요소 선택
+  const cont = $('.section_main_banner'); 
   const btnEffect = 'active'
   const prevBtn = $('.swiper-button-prev')
   const nextBtn = $('.swiper-button-next')
@@ -61,14 +61,14 @@ function mainBannerSwiperCon() {
 function eventBannerSwiperCon() {
   // 스와이퍼 기본속성
   var eventBannerSwiper = new Swiper('.event_banner', {
-    slidesPerView : 'auto', 
+    slidesPerView : 1, 
     loopAdditionalSlides: 1, 
     centeredSlides: true,
     loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: false,
+    // },
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
