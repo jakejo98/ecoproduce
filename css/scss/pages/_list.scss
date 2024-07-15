@@ -7,6 +7,9 @@
         font-size: 30px;
         line-height: 30px;
         @include font-family("GmarketSans");
+        & .section_title_countdown {
+          color: map-get($color-type, red-01);
+        }
       }
       & .section_sub_title {
         margin-top: 6px;
@@ -41,7 +44,7 @@
                     scale: 1.1;
                   }
                 }
-                & .shopping_btn {
+                & .common_btn {
                   @include position(null, 10px, 10px, null, null);
                 }
               }
@@ -106,6 +109,9 @@
         font-size: 24px;
         line-height: 30px;
         @include font-family("GmarketSans");
+        & .section_title_countdown {
+          color: map-get($color-type, red-01);
+        }
       }
       & .section_sub_title {
         margin-top: 6px;
@@ -136,7 +142,7 @@
                 & img {
                   width: 100%;
                 }
-                & .shopping_btn {
+                & .common_btn {
                   @include position(null, 10px, 10px, null, null);
                 }
               }
@@ -201,6 +207,9 @@
         font-size: 20px;
         line-height: 30px;
         @include font-family("GmarketSans");
+        & .section_title_countdown {
+          color: map-get($color-type, red-01);
+        }
       }
       & .section_sub_title {
         margin-top: 6px;
@@ -229,7 +238,7 @@
                 & img {
                   width: 100%;
                 }
-                & .shopping_btn {
+                & .common_btn {
                   @include position(null, 10px, 10px, null, null);
                 }
               }

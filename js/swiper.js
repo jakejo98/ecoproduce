@@ -65,10 +65,10 @@ function eventBannerSwiperCon() {
     loopAdditionalSlides: 1, 
     centeredSlides: true,
     loop: true,
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',

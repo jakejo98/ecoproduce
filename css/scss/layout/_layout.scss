@@ -19,7 +19,7 @@ body {
       & + .common_section {
         @include container;
         @media screen and (min-width: 1024px) and (max-width: 1240px) {
-          @include inner;
+          padding: 70px 20px 0px 20px;
         }
         padding-top: 70px;
       }
@@ -30,11 +30,15 @@ body {
       &.section_weekly_best {
         margin-bottom: -70px;
       }
+      &.section_event_banner {
+        padding: 70px 0px 0px 0px;
+      }
     }
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   #common_container {
+    padding: 0px 0px 60px 0px;
     &::after {
       @include position(60px, null, null, 0px, null);
       display: block;
@@ -52,13 +56,14 @@ body {
         margin-bottom: -60px;
       }
       &.section_event_banner {
-        padding: 60px 0px 150px 0px;
+        padding: 60px 0px 0px 0px;
       }
     }
   }
 }
 @media screen and (max-width: 767px) {
   #common_container {
+    padding: 0px 0px 60px 0px;
     &::after {
       @include position(50px, null, null, 0px, null);
       display: block;
@@ -74,6 +79,9 @@ body {
       }
       &.section_weekly_best {
         margin-bottom: -50px;
+      }
+      &.section_event_banner {
+        padding: 50px 0px 0px 0px;
       }
     }
   }

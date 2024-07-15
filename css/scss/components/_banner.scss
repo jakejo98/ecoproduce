@@ -21,6 +21,7 @@
     & .main_banner {
       overflow: hidden;
       position: relative;
+      width: 100%;
       @media screen and (min-width: 1262px) {
         width: 1200px;
         overflow: visible;
@@ -133,6 +134,9 @@
       overflow: hidden;
       position: relative;
       width: 1200px;
+      @media screen and (min-width: 1023px) and (max-width: 1240px) {
+        width: 100%;
+      }
       & .swiper-pagination {
         bottom: 20px;
         font-size: 0px;
