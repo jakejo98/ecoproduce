@@ -1,13 +1,29 @@
-.common_flag {
-  display: inline-block;
-  & + .common_flag {
-    margin-left: 6px;
-  }
+.common_flag_v1 {
   & .flag {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    padding: 2px 5px;
+    border-radius: 20px;
+    background-color: map-get($color-background, red-01);
+    & .flag_text {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 16px;
+      color: map-get($color-main, color-white);
+    }
+  }
+}
+
+.common_flag_v2 {
+  display: flex;
+  & .flag {
     position: relative;
     padding: 7px 10px 7px 31px;
     border-radius: 5px;
+    & + .flag {
+      margin-left: 6px;
+    }
     &.agricultural {
       background-color: map-get($color-background, green-01);
     }
@@ -31,3 +47,4 @@
     }
   }
 }
+

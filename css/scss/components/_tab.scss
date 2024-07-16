@@ -1,0 +1,71 @@
+.common_tab {
+  &.type_capsule_v1 {
+    padding: 20px 0px 0px 0px;
+    & .common_tab_list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: -10px;
+      & .common_tab_item {
+        margin: 0px 5px 10px 0px;
+        & .common_tab_box {
+          position: relative;
+          padding: 5px 25px 5px 10px;
+          border: 1px solid map-get($color-line, grey-02);
+          border-radius: 15px;
+          & .common_tab_link {
+            font-weight: 100;
+            font-size: 14px;
+            line-height: 20px;
+          }
+          & .common_tab_btn {
+            @include position(50%, 5px, null, null, null);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 20px;
+            height: 20px;
+            transform: translateY(-50%);
+          }
+        }
+      }
+    }
+  }
+}
+
+.common_tab {
+  &.type_capsule_v2 {
+    @media screen and (min-width: 1024px) {
+      margin-bottom: 30px;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      margin-bottom: 25px;
+    }
+    @media screen and (max-width: 767px) {
+      margin-bottom: 20px;
+    }
+    & .common_tab_list {
+      display: flex;
+      & .common_tab_item {
+        &:not(:last-of-type) {
+          margin-right: 5px;
+        }
+        & .common_tab_btn {
+          display: block;
+          padding: 10px 15px;
+          border-radius: 17px;
+          font-size: 14px;
+          line-height: 1;
+          background-color: map-get($color-background, grey-01);
+          &[aria-selected="true"] {
+            background-color: map-get($color-main, color-black);
+            color: map-get($color-main, color-white);
+          }
+          &[aria-selected="false"] {
+            background-color: map-get($color-background, grey-01);
+            color: map-get($color-type, grey-01);
+          }
+        }
+      }
+    }
+  }
+}

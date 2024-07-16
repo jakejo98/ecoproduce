@@ -159,7 +159,7 @@
 }
 
 // 이벤트 배너 - respond
-@media screen and (max-width: 1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px){
   .section_event_banner {
     & .event_banner {
       overflow: hidden;
@@ -174,7 +174,33 @@
           background-color: map-get($color-background, white-01);
           opacity: 0.3;
           & + .swiper-pagination-bullet {
-            margin-left: 15px;
+            margin-left: 10px;
+          }
+        }
+        & .swiper-pagination-bullet-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .section_event_banner {
+    & .event_banner {
+      overflow: hidden;
+      position: relative;
+      & .swiper-pagination {
+        bottom: 10px;
+        font-size: 0px;
+        & .swiper-pagination-bullet {
+          margin: 0px;
+          width: 8px;
+          height: 8px;
+          background-color: map-get($color-background, white-01);
+          opacity: 0.3;
+          & + .swiper-pagination-bullet {
+            margin-left: 8px;
           }
         }
         & .swiper-pagination-bullet-active {

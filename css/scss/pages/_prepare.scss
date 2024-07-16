@@ -1,0 +1,45 @@
+@media screen and (max-width: 1023px) {
+  #app {
+    & .common_app_container {
+      & .prepare_header {
+        display: flex;
+        justify-content: flex-end;
+        background-color: map-get($color-main, color-black);
+        @media screen and (max-width: 767px) {
+          padding: 8px 20px;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+          padding: 10px 20px;
+        }
+        & .close_btn {
+          @media screen and (max-width: 767px) {
+            padding: 5px 0px 5px 5px;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            padding: 8px 0px 8px 8px;
+          }
+        }
+      }
+      & .prepare_message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 50px);
+        color: map-get($color-main, color-black);
+        & .main_message_text {
+          padding: 20px 0;
+          font-weight: 700;
+          font-size: 30px;
+        }
+        & .sub_message_text {
+          display: block;
+          font-size: 14px;
+          line-height: 20px;
+          color: map-get($color-type, grey-01);
+          text-align: center;
+        }
+      }
+    }
+  }
+} 

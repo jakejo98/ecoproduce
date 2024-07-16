@@ -1,6 +1,5 @@
 @media screen and (max-width: 1023px) {
   #app {
-    display: block;
     & .common_app_container {
       @include respond-fixed(0px, null, null, 0px, 999);
       display: none;
@@ -45,7 +44,7 @@
         }
         & .search_content {
           @include inner;
-          & .recent_search_container {
+          & .recent_search {
             padding: 30px 0px 0px 0px;
             & .recent_tit {
               display: flex;
@@ -66,7 +65,7 @@
                 }
               }
             }
-            & .recent_not_search_box {
+            & .recent_not_search {
               display: flex;
               justify-content: center;
               align-items: center;
@@ -83,7 +82,7 @@
                 text-align: center;
               }
             }
-            .recent_search_list_box {
+            .recent_search {
               padding: 20px 0px 0px 0px;
               &[aria-hidden="true"] {
                 display: none;
@@ -91,35 +90,9 @@
               &[aria-hidden="false"] {
                 display: block;
               }
-              & .recent_search_list {
-                display: flex;
-                flex-wrap: wrap;
-                margin-bottom: -10px;
-                & .recent_search_item {
-                  margin: 0px 5px 10px 0px;
-                  & .recent_search_btn_box {
-                    position: relative;
-                    border: 1px solid map-get($color-line, grey-02);
-                    border-radius: 15px;
-                    & .recent_search_link {
-                      display: block;
-                      padding: 5px 25px 5px 10px;
-                      font-size: 14px;
-                      line-height: 20px;
-                    }
-                    & .recent_del_btn {
-                      @include position(50%, 5px, null, null, null);
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      transform: translateY(-50%);
-                    }
-                  }
-                }
-              }
             }
           }
-          & .best_search_container {
+          & .best_search {
             padding-top: 30px;
             & .best_tit {
               display: flex;
@@ -150,7 +123,6 @@
                 border-bottom: 1px solid map-get($color-line, grey-02);
                 &::before {
                   @include position(50%, null, null, 0px, null);
-
                   display: flex;
                   justify-content: center;
                   width: 20px;
@@ -184,7 +156,7 @@
               }
             }
           }
-          & .ad_container {
+          & .ad {
             padding: 30px 0;
             & .ad_list {
               display: flex;
@@ -282,45 +254,6 @@
               }
             }
           }
-        }
-      }
-      & .prepare_header {
-        display: flex;
-        justify-content: flex-end;
-        background-color: map-get($color-main, color-black);
-        @media screen and (max-width: 767px) {
-          padding: 8px 20px;
-        }
-        @media screen and (min-width: 768px) and (max-width: 1023px) {
-          padding: 10px 20px;
-        }
-        & .close_btn {
-          @media screen and (max-width: 767px) {
-            padding: 5px 0px 5px 5px;
-          }
-          @media screen and (min-width: 768px) and (max-width: 1023px) {
-            padding: 8px 0px 8px 8px;
-          }
-        }
-      }
-      & .prepare_message {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: calc(100% - 50px);
-        color: map-get($color-main, color-black);
-        & .main_message_text {
-          padding: 20px 0;
-          font-weight: 700;
-          font-size: 30px;
-        }
-        & .sub_message_text {
-          display: block;
-          font-size: 14px;
-          line-height: 20px;
-          color: map-get($color-type, grey-01);
-          text-align: center;
         }
       }
     }

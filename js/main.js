@@ -4,6 +4,8 @@ import { header } from "./header.js";
 import { appRespond } from "./app.js";
 import { toolbar } from "./toolbar.js";
 import { btn } from "./button.js";
+import { countdown } from "./countdown.js"
+import { list } from "./list.js"
 
 
 $(document).ready(function(){
@@ -11,6 +13,8 @@ $(document).ready(function(){
   console.log(initialWidth);
   swiper();
   emptyLinkCon();
+  countdown();
+  list();
 
   if(initialWidth > 1023){
     header();

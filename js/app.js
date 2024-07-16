@@ -83,11 +83,11 @@ function searchApp(){
 
 // 검색창 최근검색어 삭제
 function searchDel(){
-  const recentNotBox = $('#app .header_search_app .recent_not_search_box')
-  const recentBox = $('#app .header_search_app .recent_search_list_box');
-  const delItem =  $('#app .header_search_app .recent_search_item');
-  const delItemLen =  $('#app .header_search_app .recent_search_item').length;
-  const delBtn =  $('#app .header_search_app .recent_search_item .recent_del_btn');
+  const recentNotBox = $('#app .header_search_app .recent_not_search')
+  const recentBox = $('#app .header_search_app .recent_search');
+  const delItem =  $('#app .header_search_app .common_tab.type_capsule_v1 .common_tab_item');
+  const delItemLen =  $('#app .header_search_app .common_tab.type_capsule_v1 .common_tab_item').length;
+  const delBtn =  $('#app .header_search_app .common_tab.type_capsule_v1 .common_tab_btn');
   const entireDelBtn =  $('#app .header_search_app .entire_del_btn');
   let delCount = 0;
 

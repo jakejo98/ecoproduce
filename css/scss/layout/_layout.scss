@@ -7,6 +7,7 @@ body {
 
 @media screen and (min-width: 1024px) {
   #common_container {
+    width: 100%;
     &::after {
       @include position(160px, null, null, 0px, 1);
       display: block;
@@ -27,18 +28,13 @@ body {
         overflow: hidden;
         height: 600px;
       }
-      &.section_weekly_best {
-        margin-bottom: -70px;
-      }
-      &.section_event_banner {
-        padding: 70px 0px 0px 0px;
-      }
     }
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   #common_container {
     padding: 0px 0px 60px 0px;
+    width: 100%;
     &::after {
       @include position(60px, null, null, 0px, null);
       display: block;
@@ -52,9 +48,6 @@ body {
         @include inner;
         padding-top: 60px;
       }
-      &.section_weekly_best {
-        margin-bottom: -60px;
-      }
       &.section_event_banner {
         padding: 60px 0px 0px 0px;
       }
@@ -64,6 +57,7 @@ body {
 @media screen and (max-width: 767px) {
   #common_container {
     padding: 0px 0px 60px 0px;
+    width: 100%;
     &::after {
       @include position(50px, null, null, 0px, null);
       display: block;
@@ -76,9 +70,6 @@ body {
       & + .common_section {
         @include inner;
         padding-top: 50px;
-      }
-      &.section_weekly_best {
-        margin-bottom: -50px;
       }
       &.section_event_banner {
         padding: 50px 0px 0px 0px;

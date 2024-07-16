@@ -1,6 +1,8 @@
+/* section_heading */
 @media screen and (min-width: 1024px) {
   .common_section {
     .section_heading {
+      position: relative;
       margin-bottom: 30px;
       & .section_title {
         font-weight: 700;
@@ -17,12 +19,107 @@
         line-height: 24px;
         color: map-get($color-type, grey-01);
       }
+      & .section_link {
+        @include position(50%, 0px, null, null, null);
+        display: flex;
+        align-items: center;
+        transform: translateY(-50%);
+        & .section_link_text {
+          display: block;
+          margin-right: 5px;
+          font-weight: 700;
+          line-height: 24px;
+        }
+      }
     }
-    .product_grid {
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .common_section {
+    .section_heading {
+      position: relative;
+      margin-bottom: 25px;
+      & .section_title {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+        @include font-family("GmarketSans");
+        & .section_title_countdown {
+          color: map-get($color-type, red-01);
+        }
+      }
+      & .section_sub_title {
+        margin-top: 6px;
+        font-weight: 100;
+        line-height: 24px;
+        color: map-get($color-type, grey-01);
+      }
+      & .section_link {
+        @include position(50%, 0px, null, null, null);
+        display: flex;
+        align-items: center;
+        transform: translateY(-50%);
+        & .section_link_text {
+          display: block;
+          margin-right: 5px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .common_section {
+    .section_heading {
+      position: relative;
+      margin-bottom: 20px;
+      & .section_title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        @include font-family("GmarketSans");
+        & .section_title_countdown {
+          color: map-get($color-type, red-01);
+        }
+      }
+      & .section_sub_title {
+        margin-top: 6px;
+        font-weight: 100;
+        font-size: 14px;
+        line-height: 20px;
+        color: map-get($color-type, grey-01);
+      }
+      & .section_link {
+        @include position(50%, 0px, null, null, null);
+        display: flex;
+        align-items: center;
+        transform: translateY(-50%);
+        & .section_link_text {
+          display: block;
+          margin-right: 5px;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+
+/* product*/
+// type1 - 3X2
+@media screen and (min-width: 1024px) {
+  .common_section {
+    & .product_grid {
       & .product_grid_list {
         display: flex;
         flex-wrap: wrap;
         &.col1 {
+          margin-bottom: -70px;
           & .product_grid_item {
             margin-bottom: 70px;
             width: calc((100% - 60px) / 3);
@@ -31,7 +128,6 @@
             }
           }
           & .product_grid_link {
-            display: block;
             & .product_grid_box {
               & .product_img_box {
                 overflow: hidden;
@@ -88,9 +184,6 @@
                     color: map-get($color-type, grey-02);
                   }
                 }
-                & .product_flag {
-                  display: flex;
-                }
               }
             }
           }
@@ -100,31 +193,15 @@
   }
 }
 
+// type1 - 2X3
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .common_section {
-    .section_heading {
-      margin-bottom: 25px;
-      & .section_title {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 30px;
-        @include font-family("GmarketSans");
-        & .section_title_countdown {
-          color: map-get($color-type, red-01);
-        }
-      }
-      & .section_sub_title {
-        margin-top: 6px;
-        font-weight: 100;
-        line-height: 24px;
-        color: map-get($color-type, grey-01);
-      }
-    }
-    .product_grid {
+    & .product_grid {
       & .product_grid_list {
         display: flex;
         flex-wrap: wrap;
         &.col1 {
+          margin-bottom: -60px;
           & .product_grid_item {
             margin-bottom: 60px;
             width: calc((100% - 30px) / 2);
@@ -133,7 +210,6 @@
             }
           }
           & .product_grid_link {
-            display: block;
             & .product_grid_box {
               & .product_img_box {
                 overflow: hidden;
@@ -185,9 +261,6 @@
                     line-height: 30px;
                     color: map-get($color-type, grey-02);
                   }
-                }
-                & .product_flag {
-                  display: flex;
                 }
               }
             }
@@ -198,38 +271,20 @@
   }
 }
 
+// type1 - 1X6
 @media screen and (max-width: 767px) {
   .common_section {
-    .section_heading {
-      margin-bottom: 20px;
-      & .section_title {
-        font-weight: 700;
-        font-size: 20px;
-        line-height: 30px;
-        @include font-family("GmarketSans");
-        & .section_title_countdown {
-          color: map-get($color-type, red-01);
-        }
-      }
-      & .section_sub_title {
-        margin-top: 6px;
-        font-weight: 100;
-        font-size: 14px;
-        line-height: 20px;
-        color: map-get($color-type, grey-01);
-      }
-    }
-    .product_grid {
+    & .product_grid {
       & .product_grid_list {
         display: flex;
         flex-wrap: wrap;
         &.col1 {
+          margin-bottom: -50px;
           & .product_grid_item {
             margin-bottom: 50px;
             width: 100%;
           }
           & .product_grid_link {
-            display: block;
             & .product_grid_box {
               & .product_img_box {
                 overflow: hidden;
@@ -240,6 +295,9 @@
                 }
                 & .common_btn {
                   @include position(null, 10px, 10px, null, null);
+                }
+                & .common_flag {
+                  @include position(null, null, 10px, 10px, null);
                 }
               }
               & .product_info {
@@ -282,14 +340,299 @@
                     color: map-get($color-type, grey-02);
                   }
                 }
-                & .product_flag {
-                  display: flex;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// type2 - 3X1
+@media screen and (min-width: 1024px) {
+  .common_section {
+    & .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col2 {
+          & .product_grid_item {
+            width: calc((100% - 60px) / 3);
+            &:not(:nth-of-type(3n)) {
+              margin-right: 30px;
+            }
+          }
+          & .product_grid_link {
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                  transition: 0.3s all ease;
+                  &:hover {
+                    scale: 1.1;
+                  }
+                }
+                & .common_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+                & .common_flag_v1 {
+                  @include position(null, null, 10px, 10px, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
                 }
               }
             }
           }
         }
       }
+    }
+  }
+}
+
+// type2 - 1X6
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .common_section {
+    & .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col2 {
+          margin-bottom: -60px;
+          & .product_grid_item {
+            margin-bottom: 60px;
+            width: 100%;
+          }
+          & .product_grid_link {
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                }
+                & .common_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+                & .common_flag_v1 {
+                  @include position(null, null, 10px, 10px, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// type2 - 1X6
+@media screen and (max-width: 767px) {
+  .common_section {
+    & .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col2 {
+          margin-bottom: -50px;
+          & .product_grid_item {
+            margin-bottom: 50px;
+            width: 100%;
+          }
+          & .product_grid_link {
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                }
+                & .common_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+                & .common_flag_v1 {
+                  @include position(null, null, 10px, 10px, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// type3
+@media screen and (min-width: 1024px) {
+  .common_section {
+    & .product_grid {
+      & .product_grid_list {
+        display: flex;
+        flex-wrap: wrap;
+        &.col3 {
+          flex-wrap: nowrap;
+          & .product_grid_item {
+            width: calc((100% - 60px) / 4);
+            &:not(:last-of-type) {
+              margin-right: 20px;
+            }
+          }
+          & .product_grid_link {
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 행사상품 제어
+.common_section {
+  &.section_event_product {
+    & .product_grid {
+      & .product_grid_list {
+        &[aria-hidden="true"] {
+          display: none;
+        }
+        &[aria-hidden="false"] {
+          display: flex;
+        }
+      } 
     }
   }
 }
