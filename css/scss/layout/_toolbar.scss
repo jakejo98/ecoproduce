@@ -10,8 +10,8 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 9px 0;
           width: 100%;
+          padding: 9px 0;
           &[aria-current="page"] {
             & .common_icon {
               filter: brightness(0) saturate(100%) invert(57%) sepia(65%)

@@ -23,9 +23,9 @@
       position: relative;
       width: 100%;
       @media screen and (min-width: 1262px) {
-        width: 1200px;
         overflow: visible;
         position: relative;
+        width: 1200px;
       }
       & .swiper-button-prev {
         @include position(50%, null, null, 30px, null);
@@ -168,9 +168,9 @@
         bottom: 20px;
         font-size: 0px;
         & .swiper-pagination-bullet {
-          margin: 0px;
           width: 10px;
           height: 10px;
+          margin: 0px;
           background-color: map-get($color-background, white-01);
           opacity: 0.3;
           & + .swiper-pagination-bullet {
@@ -194,9 +194,9 @@
         bottom: 10px;
         font-size: 0px;
         & .swiper-pagination-bullet {
-          margin: 0px;
           width: 8px;
           height: 8px;
+          margin: 0px;
           background-color: map-get($color-background, white-01);
           opacity: 0.3;
           & + .swiper-pagination-bullet {
