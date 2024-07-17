@@ -88,3 +88,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin ellipsis-multi($w,$h,$line) {
+  overflow:hidden;
+  display:-webkit-box;
+  width:$w;
+  height:$h;
+  -webkit-line-clamp:$line;
+  -webkit-box-orient:vertical;
+  text-overflow:ellipsis;
+}
