@@ -110,8 +110,7 @@
   }
 }
 
-/* product*/
-// type1 - 3X2
+/* product */
 @media screen and (min-width: 1024px) {
   .common_section {
     & .product_grid {
@@ -189,12 +188,179 @@
             }
           }
         }
+        &.col2 {
+          & .product_grid_item {
+            width: calc((100% - 60px) / 3);
+            &:not(:nth-of-type(3n)) {
+              margin-right: 30px;
+            }
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                  transition: 0.3s all ease;
+                  &:hover {
+                    scale: 1.1;
+                  }
+                }
+                & .common_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+                & .common_flag_v1 {
+                  @include position(null, null, 10px, 10px, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.col3 {
+          & .product_grid_item {
+            width: calc((100% - 60px) / 4);
+            &:not(:last-of-type) {
+              margin-right: 20px;
+            }
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              position: relative;
+              padding: 10px;
+              &::before {
+                @include position(0px, null, null, 0px, null);
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 1px solid map-get($color-line, black-02);
+                border-radius: 8px;
+                box-sizing: border-box;
+                content: '';
+              }
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                  border-radius: 8px;
+                }
+              }
+              & .product_review_box {
+                padding: 10px 10px 0px 10px;
+                & .product_info {
+                  padding: 10px 0px;
+                  border-top: 1px solid map-get($color-line, black-02);
+                  border-bottom: 1px solid map-get($color-line, black-02);
+                  & .info {
+                    margin-bottom: 10px;
+                    & .name {
+                      @include ellipsis-single(100%);
+                      display: block;
+                      font-weight: 700;
+                      line-height: 24px;
+                    }
+                    & .weight {
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                      color: map-get($color-type, grey-02);
+                    }
+                  }
+                  & .eval {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .text {
+                      display: inline-block;
+                      margin-right: 4px;
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                      color: map-get($color-type, grey-01);
+                    }
+                    & .number {
+                      display: inline-block;
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                    }
+                  }
+                }
+                & .product_review {
+                  padding: 10px 0px;
+                  & .post {
+                    @include ellipsis-multi(100%, 60px, 3);
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                  & .post_info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .name, .post_time {
+                      font-weight: 100;
+                      font-size: 14px;
+                      line-height: 20px;
+                      color: map-get($color-type, grey-01);
+                    }
+                  }
+                }
+              }   
+            }
+          }
+        }
       }
     }
   }
 }
 
-// type1 - 2X3
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .common_section {
     & .product_grid {
@@ -268,12 +434,180 @@
             }
           }
         }
+        &.col2 {
+          margin-bottom: -60px;
+          & .product_grid_item {
+            width: 100%;
+            margin-bottom: 60px;
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                }
+                & .common_btn {
+                  @include position(null, 10px, 10px, null, null);
+                }
+                & .common_flag_v1 {
+                  @include position(null, null, 10px, 10px, null);
+                }
+              }
+              & .product_info {
+                margin-top: 16px;
+                & .product_name {
+                  & .name {
+                    @include ellipsis-single(100%);
+                    display: block;
+                    font-weight: 700;
+                    line-height: 24px;
+                  }
+                  & .weight {
+                    display: block;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+                & .product_price {
+                  margin: 16px 0px 10px 0;
+                  & span {
+                    display: inline-block;
+                    margin-right: 5px;
+                  }
+                  & .discount_rate {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: map-get($color-type, red-01);
+                  }
+                  & .discount_price {
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                  & .price {
+                    font-weight: 100;
+                    line-height: 30px;
+                    color: map-get($color-type, grey-02);
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.col3 {
+          overflow: scroll;
+          flex-wrap: nowrap;
+          width: 100%;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          & .product_grid_item {
+            flex: 0 0 285px;
+            &:not(:last-of-type) {
+              margin-right: 20px;
+            }
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              position: relative;
+              padding: 10px;
+              &::before {
+                @include position(0px, null, null, 0px, null);
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 1px solid map-get($color-line, black-02);
+                border-radius: 8px;
+                box-sizing: border-box;
+                content: '';
+              }
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                  border-radius: 8px;
+                }
+              }
+              & .product_review_box {
+                padding: 10px 10px 0px 10px;
+                & .product_info {
+                  padding: 10px 0px;
+                  border-top: 1px solid map-get($color-line, black-02);
+                  border-bottom: 1px solid map-get($color-line, black-02);
+                  & .info {
+                    margin-bottom: 10px;
+                    & .name {
+                      @include ellipsis-single(100%);
+                      display: block;
+                      font-weight: 700;
+                      line-height: 24px;
+                    }
+                    & .weight {
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                      color: map-get($color-type, grey-02);
+                    }
+                  }
+                  & .eval {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .text {
+                      display: inline-block;
+                      margin-right: 4px;
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                      color: map-get($color-type, grey-01);
+                    }
+                    & .number {
+                      display: inline-block;
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                    }
+                  }
+                }
+                & .product_review {
+                  padding: 10px 0px;
+                  & .post {
+                    @include ellipsis-multi(100%, 60px, 3);
+                    margin-bottom: 10px;
+                    font-size: 14px;
+                    line-height: 20px;
+                  }
+                  & .post_info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .name, .post_time {
+                      font-weight: 100;
+                      font-size: 14px;
+                      line-height: 20px;
+                      color: map-get($color-type, grey-01);
+                    }
+                  }
+                }
+              }   
+            }
+          }
+        }
       }
     }
   }
 }
 
-// type1 - 1X6
 @media screen and (max-width: 767px) {
   .common_section {
     & .product_grid {
@@ -347,181 +681,6 @@
             }
           }
         }
-      }
-    }
-  }
-}
-
-// type2 - 3X1
-@media screen and (min-width: 1024px) {
-  .common_section {
-    & .product_grid {
-      & .product_grid_list {
-        display: flex;
-        flex-wrap: wrap;
-        &.col2 {
-          & .product_grid_item {
-            width: calc((100% - 60px) / 3);
-            &:not(:nth-of-type(3n)) {
-              margin-right: 30px;
-            }
-          }
-          & .product_grid_link {
-            display: block;
-            & .product_grid_box {
-              & .product_img_box {
-                overflow: hidden;
-                position: relative;
-                border-radius: 8px;
-                & img {
-                  width: 100%;
-                  transition: 0.3s all ease;
-                  &:hover {
-                    scale: 1.1;
-                  }
-                }
-                & .common_btn {
-                  @include position(null, 10px, 10px, null, null);
-                }
-                & .common_flag_v1 {
-                  @include position(null, null, 10px, 10px, null);
-                }
-              }
-              & .product_info {
-                margin-top: 16px;
-                & .product_name {
-                  & .name {
-                    @include ellipsis-single(100%);
-                    display: block;
-                    font-weight: 700;
-                    line-height: 24px;
-                  }
-                  & .weight {
-                    display: block;
-                    font-weight: bold;
-                    font-size: 14px;
-                    line-height: 20px;
-                    color: map-get($color-type, grey-02);
-                  }
-                }
-                & .product_price {
-                  margin: 16px 0px 10px 0;
-                  & span {
-                    display: inline-block;
-                    margin-right: 5px;
-                  }
-                  & .discount_rate {
-                    font-weight: 900;
-                    font-size: 20px;
-                    line-height: 30px;
-                    color: map-get($color-type, red-01);
-                  }
-                  & .discount_price {
-                    font-weight: 900;
-                    font-size: 20px;
-                    line-height: 30px;
-                  }
-                  & .price {
-                    font-weight: 100;
-                    line-height: 30px;
-                    color: map-get($color-type, grey-02);
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// type2 - 1X6
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .common_section {
-    & .product_grid {
-      & .product_grid_list {
-        display: flex;
-        flex-wrap: wrap;
-        &.col2 {
-          margin-bottom: -60px;
-          & .product_grid_item {
-            width: 100%;
-            margin-bottom: 60px;
-          }
-          & .product_grid_link {
-            display: block;
-            & .product_grid_box {
-              & .product_img_box {
-                overflow: hidden;
-                position: relative;
-                border-radius: 8px;
-                & img {
-                  width: 100%;
-                }
-                & .common_btn {
-                  @include position(null, 10px, 10px, null, null);
-                }
-                & .common_flag_v1 {
-                  @include position(null, null, 10px, 10px, null);
-                }
-              }
-              & .product_info {
-                margin-top: 16px;
-                & .product_name {
-                  & .name {
-                    @include ellipsis-single(100%);
-                    display: block;
-                    font-weight: 700;
-                    line-height: 24px;
-                  }
-                  & .weight {
-                    display: block;
-                    font-weight: bold;
-                    font-size: 14px;
-                    line-height: 20px;
-                    color: map-get($color-type, grey-02);
-                  }
-                }
-                & .product_price {
-                  margin: 16px 0px 10px 0;
-                  & span {
-                    display: inline-block;
-                    margin-right: 5px;
-                  }
-                  & .discount_rate {
-                    font-weight: 900;
-                    font-size: 20px;
-                    line-height: 30px;
-                    color: map-get($color-type, red-01);
-                  }
-                  & .discount_price {
-                    font-weight: 900;
-                    font-size: 20px;
-                    line-height: 30px;
-                  }
-                  & .price {
-                    font-weight: 100;
-                    line-height: 30px;
-                    color: map-get($color-type, grey-02);
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-// type2 - 1X6
-@media screen and (max-width: 767px) {
-  .common_section {
-    & .product_grid {
-      & .product_grid_list {
-        display: flex;
-        flex-wrap: wrap;
         &.col2 {
           margin-bottom: -50px;
           & .product_grid_item {
@@ -589,12 +748,113 @@
             }
           }
         }
+        &.col3 {
+          overflow: scroll;
+          flex-wrap: nowrap;
+          width: 100%;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+          & .product_grid_item {
+            flex: 0 0 285px;
+            &:not(:last-of-type) {
+              margin-right: 20px;
+            }
+          }
+          & .product_grid_link {
+            display: block;
+            & .product_grid_box {
+              position: relative;
+              padding: 10px;
+              &::before {
+                @include position(0px, null, null, 0px, null);
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 1px solid map-get($color-line, black-02);
+                border-radius: 8px;
+                box-sizing: border-box;
+                content: '';
+              }
+              & .product_img_box {
+                overflow: hidden;
+                position: relative;
+                border-radius: 8px;
+                & img {
+                  width: 100%;
+                  border-radius: 8px;
+                }
+              }
+              & .product_review_box {
+                padding: 10px 10px 0px 10px;
+                & .product_info {
+                  padding: 10px 0px;
+                  border-top: 1px solid map-get($color-line, black-02);
+                  border-bottom: 1px solid map-get($color-line, black-02);
+                  & .info {
+                    margin-bottom: 10px;
+                    & .name {
+                      @include ellipsis-single(100%);
+                      display: block;
+                      font-weight: 700;
+                      font-size: 14px;
+                      line-height: 20px;
+                    }
+                    & .weight {
+                      font-weight: 700;
+                      font-size: 12px;
+                      line-height: 18px;
+                      color: map-get($color-type, grey-02);
+                    }
+                  }
+                  & .eval {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .text {
+                      display: inline-block;
+                      margin-right: 4px;
+                      font-weight: 700;
+                      font-size: 12px;
+                      line-height: 18px;
+                      color: map-get($color-type, grey-01);
+                    }
+                    & .number {
+                      display: inline-block;
+                      font-weight: 700;
+                      font-size: 12px;
+                      line-height: 18px;
+                    }
+                  }
+                }
+                & .product_review {
+                  padding: 10px 0px;
+                  & .post {
+                    @include ellipsis-multi(100%, 60px, 3);
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                    line-height: 18px;
+                  }
+                  & .post_info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    & .name, .post_time {
+                      font-weight: 100;
+                      font-size: 12px;
+                      line-height: 18px;
+                      color: map-get($color-type, grey-01);
+                    }
+                  }
+                }
+              }   
+            }
+          }
+        }
       }
     }
   }
 }
-
-// type3
 
 // 행사상품 제어
 .common_section {
