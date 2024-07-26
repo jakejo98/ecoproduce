@@ -1,14 +1,3 @@
-@media screen and (min-width: 1240px) {
-  .common_header {
-    width: 100%;
-  }
-}
-@media screen and (min-width: 1024px) and (max-width: 1239px) {
-  .common_header {
-    @include inner;
-    width: 100%;
-  }
-}
 @media screen and (min-width: 1024px) {
   .common_header {
     & .header_inner {
@@ -17,6 +6,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 0px;
+      @media screen and (min-width: 1024px) and (max-width: 1239px) {
+        padding: 20px 20px;
+      }
       & .header_util {
         display: flex;
         align-items: center;
@@ -107,6 +99,9 @@
       & .header_gnb_inner {
         @include container;
         display: flex;
+        @media screen and (min-width: 1024px) and (max-width: 1239px) {
+          @include inner;
+        }
         & .header_category {
           position: relative;
           margin-right: 28px;

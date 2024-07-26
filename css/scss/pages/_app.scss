@@ -119,7 +119,6 @@
                 position: relative;
                 padding: 17px 0 16px 54px;
                 width: 50%;
-                box-sizing: border-box;
                 border-bottom: 1px solid map-get($color-line, grey-02);
                 &::before {
                   @include position(50%, null, null, 0px, null);

@@ -11,7 +11,7 @@ body {
     & .common_section {
       & + .common_section {
         @include container;
-        @media screen and (min-width: 1024px) and (max-width: 1240px) {
+        @media screen and (min-width: 1024px) and (max-width: 1239px) {
           padding: 70px 20px 0px 20px;
         }
         padding-top: 70px;
@@ -20,8 +20,13 @@ body {
         overflow: hidden;
         height: 600px;
       }
+      &.section_event_banner {
+        @media screen and (min-width: 1024px) and (max-width: 1239px) {
+          padding: 70px 0px 0px 0px;
+        }
+      }
       &.section_card_benefit {
-        padding: 70px 0px 100px 0px;
+        padding-bottom: 100px;
       }
     }
   }
