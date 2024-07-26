@@ -1,5 +1,5 @@
 export function countdown() {
-  const target = new Date("July 23, 2024 00:00:00").getTime();
+  const target = new Date("Aug 31, 2024 00:00:00").getTime();
 
   const countDownCon = setInterval(function(){
 

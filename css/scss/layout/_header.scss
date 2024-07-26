@@ -10,64 +10,55 @@
   }
 }
 @media screen and (min-width: 1024px) {
-  /* header 공통*/
   .common_header {
-    @include container;
-    position: relative;
-  }
-  /* header inner */
-  .header_inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    & .header_util {
+    & .header_inner {
+      @include container;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      & .header_info_list {
+      padding: 20px 0px;
+      & .header_util {
         display: flex;
-        position: relative;
-        &::after {
-          @include position(20px, 0px, null, null, null);
-          display: block;
-          width: 1px;
-          height: 20px;
-          background-color: #dddddd;
-          content: "";
-        }
-        & .header_info_item {
-          padding: 10px 0;
-          & .header_info_link {
+        align-items: center;
+        & .header_info_list {
+          display: flex;
+          position: relative;
+          &::after {
+            @include position(20px, 0px, null, null, null);
             display: block;
-            padding: 10px;
-            font-size: 14px;
-            line-height: 20px;
-            color: map-get($color-type, grey-01);
-            &:hover {
-              color: map-get($color-main, color-black);
-              transition: 0.3s color ease;
+            width: 1px;
+            height: 20px;
+            background-color: map-get($color-line, grey-02);
+            content: "";
+          }
+          & .header_info_item {
+            padding: 10px 0px;
+            & .header_info_link {
+              display: block;
+              padding: 10px;
+              font-size: 14px;
+              line-height: 20px;
+              color: map-get($color-type, grey-01);
+              &:hover {
+                color: map-get($color-main, color-black);
+                transition: 0.3s color ease;
+              }
             }
           }
         }
       }
-    }
-    .header_controls {
-      display: flex;
-      align-items: center;
-      padding: 0 0 0 15px;
-      & .header_search {
-        position: relative;
-        & .header_search_input {
-          width: 300px;
-          padding: 11px 44px 11px 20px;
-          border: 0;
-          border-radius: 20px;
-          background-color: map-get($color-background, grey-01);
-          font-size: 14px;
-          line-height: 20px;
-          color: map-get($color-type, grey-01);
-          &::placeholder {
-            font-weight: 700;
+      & .header_controls {
+        display: flex;
+        align-items: center;
+        padding: 0px 0px 0px 15px;
+        & .header_search {
+          position: relative;
+          & .header_search_input {
+            width: 300px;
+            padding: 11px 44px 11px 20px;
+            border: 0;
+            border-radius: 20px;
+            background-color: map-get($color-background, grey-01);
             font-size: 14px;
             line-height: 20px;
             color: map-get($color-type, grey-04);
@@ -78,121 +69,118 @@
           &:focus {
             outline: none;
           }
-        }
-        & .header_search_btn {
-          @include position(0px, 0px, null, null, null);
-          padding: 8px 20px 8px 20px;
-        }
-      }
-      & .header_shopping {
-        padding-left: 10px;
-        & .header_shopping_btn {
-          position: relative;
-          width: 40px;
-          height: 40px;
-          border-radius: 20px;
-          background-color: map-get($color-main, color-black);
-          &.respond {
-            display: none;
-          }
-          & .header_shopping_count {
-            @include position(-5px, -5px, null, null, null);
-            @include font-family("Roboto");
-            display: block;
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
-            background-color: map-get($color-main, color-primary);
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 20px;
-            color: map-get($color-main, color-white);
+          & .header_search_btn {
+            @include position(0px, 0px, null, null, null);
+            padding: 8px 20px 8px 20px;
           }
         }
-      }
-    }
-  }
-  /* header_gnb */
-  .header_gnb {
-    display: flex;
-    align-items: center;
-    position: relative;
-    & .header_gnb_list {
-      display: flex;
-      width: calc(100% - 100px);
-      padding-left: 28px;
-      & .header_gnb_item {
-        width: calc(100% / 10);
-        line-height: 60px;
-        text-align: center;
-        & .header_gnb_link {
-          display: block;
-          font-weight: 700;
-          font-size: 18px;
-          &.active {
-            color: map-get($color-main, color-primary);
-          }
-          &:hover {
-            color: map-get($color-main, color-primary);
-            transition: 0.3s color ease;
-          }
-        }
-      }
-    }
-  }
-  /* header_category */
-  .header_category {
-    position: relative;
-    & .category_btn {
-      padding: 14px 20px;
-    }
-    & .header_category_container {
-      @include position(60px, null, null, 0px, 10);
-      display: none;
-      border: 1px solid map-get($color-line, grey-02);
-      background-color: map-get($color-background, white-01);
-      &[aria-hidden="false"] {
-        display: flex;
-      }
-      & .header_category_box {
-        &.dep2 {
-          & .header_category_list {
-            display: none;
-            & .header_category_link {
-              color: map-get($color-type, grey-01);
-            }
-            &[aria-hidden="false"] {
-              display: block;
-            }
-          }
-        }
-        & .header_category_item {
-          position: relative;
-          width: 200px;
-          & .header_category_link {
+        & .header_shopping {
+          padding: 0px 0px 0px 10px;
+          & .header_shopping_btn {
             position: relative;
-            display: block;
-            padding: 0 20px;
-            line-height: 50px;
-            &:hover {
-              color: map-get($color-main, color-primary);
-              transition: 0.3s color ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: map-get($color-main, color-black);
+            &.respond {
+              display: none;
             }
-            & .header_category_text {
-              &::after {
-                @include position(50%, 20px, null, null, null);
-                display: block;
-                width: 16px;
-                height: 16px;
-                background: url("../img/sprites/sprites.png") no-repeat;
-                transform: translateY(-50%);
-                content: "";
+            & .header_shopping_count {
+              @include position(-5px, -5px, null, null, null);
+              @include font-family("Roboto");
+              display: block;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
+              background-color: map-get($color-main, color-primary);
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 20px;
+              color: map-get($color-main, color-white);
+            }
+          }
+        }
+      }
+    }
+    & .header_gnb {
+      border-bottom: 1px solid map-get($color-line, black-01);
+      & .header_gnb_inner {
+        @include container;
+        display: flex;
+        & .header_category {
+          position: relative;
+          margin-right: 28px;
+          & .category_btn {
+            padding: 14px 20px;
+          }
+          & .header_category_container {
+            @include position(60px, null, null, 0px, 10);
+            display: none;
+            border: 1px solid map-get($color-line, grey-02);
+            background-color: map-get($color-background, white-01);
+            &[aria-hidden="false"] {
+              display: flex;
+            }
+            & .header_category_box {
+              &.dep2 {
+                & .header_category_list {
+                  display: none;
+                  & .header_category_link {
+                    color: map-get($color-type, grey-01);
+                  }
+                  &[aria-hidden="false"] {
+                    display: block;
+                  }
+                }
               }
-              &.category_icon_disabled::after {
-                background-position: -48px -0px;
+              & .header_category_item {
+                position: relative;
+                width: 200px;
+                & .header_category_link {
+                  position: relative;
+                  display: block;
+                  padding: 0 20px;
+                  line-height: 50px;
+                  &:hover {
+                    color: map-get($color-main, color-primary);
+                    transition: 0.3s color ease;
+                  }
+                  & .header_category_text {
+                    &::after {
+                      @include position(50%, 20px, null, null, null);
+                      display: block;
+                      width: 16px;
+                      height: 16px;
+                      background: url("../img/sprites/sprites.png") no-repeat;
+                      transform: translateY(-50%);
+                      content: "";
+                    }
+                    &.category_icon_disabled::after {
+                      background-position: -48px -0px;
+                    }
+                    &.category_icon_active::after {
+                      background-position: -32px -0px;
+                    }
+                  }
+                }
               }
-              &.category_icon_active::after {
-                background-position: -32px -0px;
+            }
+          }
+        }
+        & .header_gnb_list {
+          display: flex;
+          width: calc(100% - 100px);
+          & .header_gnb_item {
+            width: calc(100% / 10);
+            text-align: center;
+            & .header_gnb_link {
+              display: block;
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 60px;
+              &:hover {
+                color: map-get($color-main, color-primary);
+                transition: 0.3s color ease;
               }
             }
           }
@@ -204,16 +192,15 @@
 
 @media screen and (max-width: 1023px) {
   .common_header {
-    @include inner;
     & .header_inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
       @media screen and (max-width: 767px) {
-        padding: 8px 0px;
+        padding: 8px 20px;
       }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
-        padding: 10px 0px;
+        padding: 10px 20px;
       }
       & .header_info {
         display: none;
@@ -248,7 +235,10 @@
       }
     }
     & .header_gnb {
-      display: none;
+      border-bottom: 1px solid map-get($color-main, color-black);
+      & .header_gnb_inner {
+        display: none;
+      }
     }
   }
 }

@@ -86,6 +86,13 @@ add_view /* 더보기 */
       background-image: url("../img/svg/logo_v1.svg");
     }
   }
+  .logo_v2 {
+    width: 113px;
+    height: 34px;
+    &::after {
+      background-image: url("../img/svg/logo_v2.svg");
+    }
+  }
   .logo_preparing {
     width: 300px;
     height: 90px;

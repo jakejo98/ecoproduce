@@ -1,0 +1,301 @@
+.common_footer {
+  background-color: map-get($color-main, color-black);
+}
+
+@media screen and (min-width: 1024px) {
+  .common_footer {
+    & .footer_menu {
+      @include container;
+      padding: 30px 0px;
+      @media screen and (min-width: 1024px) and (max-width: 1239px) {
+        width: 100%;
+        padding: 30px 20px;
+      }
+      & .footer_menu_list {
+        display: flex;
+        & .footer_menu_item {
+          & .footer_menu_link {
+            display: block;
+            padding: 0px 15px;
+            line-height: 24px;
+            color: map-get($color-type, grey-03);
+          }
+          &:first-of-type {
+            & .footer_menu_link {
+              padding: 0px 15px 0px 0px;
+            }
+          }
+          &:nth-of-type(5) {
+            & .footer_menu_link {
+              color: map-get($color-main, color-white);
+            }
+          }
+        }
+      }
+    }
+    & .footer_inner {
+      border-top: 1px solid map-get($color-line, grey-03);
+      border-bottom: 1px solid map-get($color-line, grey-03);
+      & .footer_inner_inner {
+        @include container;
+        padding: 40px 0px;
+        display: flex;
+        @media screen and (min-width: 1024px) and (max-width: 1239px) {
+          width: 100%;
+          padding: 30px 20px;
+        }
+        & .footer_logo_wrap {
+          margin-right: 100px;
+        }
+        & .footer_address {
+          display: flex;
+          width: calc(100% - 300px);
+          & .company_info {
+            width: 50%;
+            & .company_info_list {
+              & .company_info_item {
+                &:first-of-type {
+                  font-weight: 700;
+                  line-height: 32px;
+                  color: map-get($color-main, color-white);
+                }
+                &:not(:first-of-type) {
+                  font-weight: 100;
+                  font-size: 14px;
+                  line-height: 28px;
+                  color: map-get($color-type, grey-05);
+                }
+              }
+            }
+          }
+          & .service_info {
+            width: 50%;
+            & .service_info_list {
+              & .service_info_item {
+                &:first-of-type {
+                  font-weight: 700;
+                  line-height: 32px;
+                  color: map-get($color-main, color-white);
+                }
+                &:not(:first-of-type) {
+                  font-weight: 100;
+                  font-size: 14px;
+                  line-height: 28px;
+                  color: map-get($color-type, grey-05);
+                }
+                & .email {
+                  display: block;
+                  font-weight: 100;
+                  font-size: 14px;
+                  line-height: 28px;
+                  color: map-get($color-type, grey-05);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    & .footer_copyright {
+      @include container;
+      padding: 30px 0px;
+      font-weight: 100;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($color-type, grey-03);
+      text-align: center;
+      @media screen and (min-width: 1024px) and (max-width: 1239px) {
+        width: 100%;
+        padding: 30px 20px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .common_footer {
+    & .footer_menu {
+      padding: 25px 20px;
+      & .footer_menu_list {
+        display: flex;
+        justify-content: center;
+        & .footer_menu_item {
+          & .footer_menu_link {
+            display: block;
+            padding: 0px 12px;
+            line-height: 24px;
+            color: map-get($color-type, grey-03);
+          }
+          &:nth-of-type(5) {
+            & .footer_menu_link {
+              color: map-get($color-main, color-white);
+            }
+          }
+        }
+      }
+    }
+    & .footer_inner {
+      border-top: 1px solid map-get($color-line, grey-03);
+      border-bottom: 1px solid map-get($color-line, grey-03);
+      & .footer_inner_inner {
+        padding: 35px 20px;
+        display: flex;
+        flex-direction: column;
+        & .footer_logo_wrap {
+          margin-bottom: 30px;
+        }
+        & .footer_address {
+          display: flex;
+          & .company_info {
+            width: 50%;
+            & .company_info_list {
+              & .company_info_item {
+                &:first-of-type {
+                  font-weight: 700;
+                  line-height: 32px;
+                  color: map-get($color-main, color-white);
+                }
+                &:not(:first-of-type) {
+                  font-weight: 100;
+                  font-size: 14px;
+                  line-height: 28px;
+                  color: map-get($color-type, grey-05);
+                }
+              }
+            }
+          }
+          & .service_info {
+            width: 50%;
+            & .service_info_list {
+              & .service_info_item {
+                &:first-of-type {
+                  font-weight: 700;
+                  line-height: 32px;
+                  color: map-get($color-main, color-white);
+                }
+                &:not(:first-of-type) {
+                  font-weight: 100;
+                  font-size: 14px;
+                  line-height: 28px;
+                  color: map-get($color-type, grey-05);
+                }
+                & .email {
+                  display: block;
+                  font-weight: 100;
+                  font-size: 14px;
+                  line-height: 28px;
+                  color: map-get($color-type, grey-05);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    & .footer_copyright {
+      @include container;
+      padding: 25px 0px;
+      font-weight: 100;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($color-type, grey-03);
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .common_footer {
+    & .footer_menu {
+      padding: 30px 20px;
+      & .footer_menu_list {
+        display: flex;
+        flex-direction: column;
+        & .footer_menu_item {
+          border-top: 1px solid map-get($color-line, grey-03);
+          text-align: center;
+          & .footer_menu_link {
+            display: block;
+            font-size: 14px;
+            line-height: 45px;
+            color: map-get($color-type, grey-03);
+          }
+          &:last-of-type {
+            border-bottom: 1px solid map-get($color-line, grey-03);
+          } 
+          &:nth-of-type(5) {
+            & .footer_menu_link {
+              color: map-get($color-main, color-white);
+            }
+          }
+        }
+      }
+    }
+    & .footer_inner {
+      border-bottom: 1px solid map-get($color-line, grey-03);
+      & .footer_inner_inner {
+        padding: 0px 20px 30px 20px;
+        display: flex;
+        flex-direction: column;
+        & .footer_logo_wrap {
+          display: none;
+        }
+        & .footer_address {
+          & .company_info {
+            & .company_info_list {
+              & .company_info_item {
+                &:first-of-type {
+                  font-weight: 700;
+                  font-size: 14px;
+                  line-height: 20px;
+                  color: map-get($color-main, color-white);
+                }
+                &:not(:first-of-type) {
+                  font-weight: 100;
+                  font-size: 12px;
+                  line-height: 24px;
+                  color: map-get($color-type, grey-05);
+                }
+              }
+            }
+          }
+          & .service_info {
+            margin-top: 20px;
+            & .service_info_list {
+              & .service_info_item {
+                &:first-of-type {
+                  font-weight: 700;
+                  font-size: 14px;
+                  line-height: 20px;
+                  color: map-get($color-main, color-white);
+                }
+                &:not(:first-of-type) {
+                  font-weight: 100;
+                  font-size: 12px;
+                  line-height: 24px;
+                  color: map-get($color-type, grey-05);
+                }
+                & .email {
+                  display: block;
+                  font-weight: 100;
+                  font-size: 12px;
+                  line-height: 24px;
+                  color: map-get($color-type, grey-05);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    & .footer_copyright {
+      @include container;
+      padding: 20px 0px;
+      font-weight: 100;
+      font-size: 12px;
+      line-height: 18px;
+      color: map-get($color-type, grey-03);
+      text-align: center;
+    }
+  }
+}
