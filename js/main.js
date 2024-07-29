@@ -8,7 +8,7 @@ import { btn } from "./button.js";
 import { countdown } from "./countdown.js";
 import { list } from "./list.js";
 
-$(document).ready(function() {
+$(function() {
   // 파일을 로드한 후 초기화 작업을 수행
   loadFile(function() {
     // 로드가 완료된 후에 실행할 코드
