@@ -69,3 +69,27 @@
     }
   }
 }
+
+.common_tab {
+  &.type_line_v1 {
+    & .common_tab_list {
+      display: flex;
+      width: 100%;
+      border-bottom: 1px solid map-get($color-line, grey-02);
+      & .common_tab_item {
+        flex: 1;
+        text-align: center;
+        & .common_tab_btn {
+          display: block;
+          width: 100%;
+          line-height: 60px;
+          color: map-get($color-type, grey-01);
+          &[aria-selected="true"] {
+            color: map-get($color-main, color-black);
+            border-bottom: 2px solid map-get($color-main, color-primary);
+          }
+        }
+      }
+    }
+  }
+}

@@ -32,6 +32,42 @@
         }
       }
     }
+    &.section_product_list {
+      & .section_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        & .section_breadcrumbes {
+          & .section_breadcrumbes_list {
+            display: flex;
+            align-items: center;
+            & .section_breadcrumbes_item {
+              display: block;
+              position: relative;
+              font-size: 14px;
+              line-height: 20px;
+              color: map-get($color-type, grey-01);
+              &:last-of-type {
+                color: map-get($color-main, color-black);
+              }
+              &:not(:first-of-type){
+                padding-left: 32px;
+                &::before {
+                  @include position(50%, null, null, 8px, null);
+                  width: 16px;
+                  height: 16px;
+                  background: url('../img/sprites/sprites.png') no-repeat;
+                  background-position: -48px -0px;
+                  transform: translateY(-50%);
+                  content: '';
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -66,6 +102,42 @@
           font-weight: 700;
           font-size: 14px;
           line-height: 20px;
+        }
+      }
+    }
+    &.section_product_list {
+      & .section_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        & .section_breadcrumbes {
+          & .section_breadcrumbes_list {
+            display: flex;
+            align-items: center;
+            & .section_breadcrumbes_item {
+              display: block;
+              position: relative;
+              font-size: 14px;
+              line-height: 20px;
+              color: map-get($color-type, grey-01);
+              &:last-of-type {
+                color: map-get($color-main, color-black);
+              }
+              &:not(:first-of-type){
+                padding-left: 32px;
+                &::before {
+                  @include position(50%, null, null, 8px, null);
+                  width: 16px;
+                  height: 16px;
+                  background: url('../img/sprites/sprites.png') no-repeat;
+                  background-position: -48px -0px;
+                  transform: translateY(-50%);
+                  content: '';
+                }
+              }
+            }
+          }
         }
       }
     }

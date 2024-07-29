@@ -14,6 +14,7 @@ function toolbarappCon(){
 
   $(toolbarBtn).click(function(){
     let btnId = $(this).parent().index() + 1;
+    
     if(btnId == 3) {
       $(commonApp).attr('aria-hidden', 'true');
       window.location.href = resetPage;
