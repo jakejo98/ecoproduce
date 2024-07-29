@@ -9,16 +9,17 @@ body {
   #common_container {
     width: 100%;
     & .common_section {
-      & + .common_section {
-        @include container;
-        @media screen and (min-width: 1024px) and (max-width: 1239px) {
-          padding: 70px 20px 0px 20px;
-        }
-        padding-top: 70px;
+      @include container;
+      @media screen and (min-width: 1024px) and (max-width: 1239px) {
+        padding: 70px 20px 0px 20px;
       }
+      padding-top: 70px;  
       &.section_main_banner {
         overflow: hidden;
+        max-width: none;
         height: 600px;
+        margin: 0;
+        padding: 0;
       }
       &.section_event_banner {
         @media screen and (min-width: 1024px) and (max-width: 1239px) {
@@ -31,14 +32,16 @@ body {
     }
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   #common_container {
-    padding: 0px 0px 60px 0px;
     width: 100%;
+    padding: 0px 0px 60px 0px;
     & .common_section {
-      & + .common_section {
-        @include inner;
-        padding-top: 60px;
+      @include inner;
+      padding-top: 60px;
+      &.section_main_banner {
+        padding: 0px;
       }
       &.section_event_banner {
         padding: 60px 0px 0px 0px;
@@ -49,14 +52,16 @@ body {
     }
   }
 }
+
 @media screen and (max-width: 767px) {
   #common_container {
-    padding: 0px 0px 60px 0px;
     width: 100%;
+    padding: 0px 0px 60px 0px;
     & .common_section {
-      & + .common_section {
-        @include inner;
-        padding-top: 50px;
+      @include inner;
+      padding-top: 50px;
+      &.section_main_banner {
+        padding: 0px;
       }
       &.section_event_banner {
         padding: 50px 0px 0px 0px;
