@@ -1,3 +1,4 @@
+// 카운트다운 함수
 export function countdown() {
   const target = new Date("Aug 31, 2024 00:00:00").getTime();
 
