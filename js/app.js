@@ -64,9 +64,9 @@ function toolbarcategoryDep(){
 
 // 검색창 활성화
 function searchApp(){
-  const searchBtn = $('.header_search_btn');
-  const searchApp = $('#app .header_search_app');
-  const searchClsBtn = $('.header_cls_btn');
+  const searchBtn = $('.common_header .header_search_btn');
+  const searchApp = $('#app .header_search_app'); 
+  const searchClsBtn = $('#app .header_cls_btn');
 
   $(searchBtn).click(function(){
     $(searchApp).attr('aria-hidden', 'false');
