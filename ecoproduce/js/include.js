@@ -59,7 +59,7 @@ export function loadFile(callback) {
     }
   }
 
-  $('#header').load('/html/include/header.html', function(response, status, xhr) {
+  $('#header').load('/ecoproduce/html/include/header.html', function(response, status, xhr) {
     if (status === "error") {
       console.error("헤더 로딩 오류:", xhr.statusText);
     } else {
@@ -68,7 +68,7 @@ export function loadFile(callback) {
     }
   });
 
-  $('#app').load('/html/include/app.html', function(response, status, xhr) {
+  $('#app').load('/ecoproduce/html/include/app.html', function(response, status, xhr) {
     if (status === "error") {
       console.error("헤더 로딩 오류:", xhr.statusText);
     } else {
@@ -77,7 +77,7 @@ export function loadFile(callback) {
     }
   });
 
-  $('#footer').load('/html/include/footer.html', function(response, status, xhr) {
+  $('#footer').load('/ecoproduce/html/include/footer.html', function(response, status, xhr) {
     if (status === "error") {
       console.error("풋터 로딩 오류:", xhr.statusText);
     } else {
@@ -86,7 +86,7 @@ export function loadFile(callback) {
     }
   });
 
-  $('#toolbar').load('/html/include/toolbar.html', function(response, status, xhr) {
+  $('#toolbar').load('/ecoproduce/html/include/toolbar.html', function(response, status, xhr) {
     if (status === "error") {
       console.error("풋터 로딩 오류:", xhr.statusText);
     } else {
