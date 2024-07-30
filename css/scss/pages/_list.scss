@@ -50,7 +50,7 @@
               font-size: 14px;
               line-height: 20px;
               color: map-get($color-type, grey-01);
-              &:last-of-type {
+              &.current_list {
                 color: map-get($color-main, color-black);
               }
               &:not(:first-of-type){
@@ -125,7 +125,7 @@
               font-size: 14px;
               line-height: 20px;
               color: map-get($color-type, grey-01);
-              &:last-of-type {
+              &.current_list {
                 color: map-get($color-main, color-black);
               }
               &:not(:first-of-type){
@@ -201,7 +201,7 @@
               font-size: 14px;
               line-height: 20px;
               color: map-get($color-type, grey-01);
-              &:last-of-type {
+              &.current_list {
                 color: map-get($color-main, color-black);
               }
               &:not(:first-of-type){
@@ -489,6 +489,9 @@
           & .product_filter_count {
             font-weight: 700;
             color: map-get($color-main, color-primary);
+          }
+          & .product_filter_explain {
+            display: inline-block;
           }
         }
       }
@@ -783,21 +786,25 @@
             font-weight: 700;
             color: map-get($color-main, color-primary);
           }
+          & .product_filter_explain {
+            display: inline-block;
+          }
+
         }
       }
       & .product_grid {
         padding: 25px 0px 90px 0px;
         & .product_grid_list {
           display: flex;
-          margin-bottom: -70px;
+          margin-bottom: -60px;
           &.expanded_list {
             display: none;
-            margin-top: 70px;
+            margin-top: 60px;
           }
           & .product_grid_item {
-            width: calc((100% - 60px) / 4);
+            width: calc((100% - 20px) / 2);
             margin-bottom: 70px;
-            &:not(:nth-of-type(4n)) {
+            &:not(:nth-of-type(2n)) {
               margin-right: 20px;
             }
           }
@@ -1046,6 +1053,45 @@
             flex: 0 0 190px;
             &:not(:last-of-type) {
               margin-right: 12px;
+            }
+          }
+        }
+      }
+    }
+    &.section_product_list {
+      & .product_filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0px;
+        border-bottom: 1px solid map-get($color-line, grey-02);
+        & .product_filter_text {
+          font-size: 14px;
+          line-height: 20px;
+          color: map-get($color-type, grey-01);
+          & .product_filter_count {
+            font-weight: 700;
+            color: map-get($color-main, color-primary);
+          }
+          & .product_filter_explain {
+            display: none;
+          }
+        }
+      }
+      & .product_grid {
+        padding: 25px 0px 90px 0px;
+        & .product_grid_list {
+          display: flex;
+          margin-bottom: -60px;
+          &.expanded_list {
+            display: none;
+            margin-top: 60px;
+          }
+          & .product_grid_item {
+            width: calc((100% - 20px) / 2);
+            margin-bottom: 70px;
+            &:not(:nth-of-type(2n)) {
+              margin-right: 20px;
             }
           }
         }

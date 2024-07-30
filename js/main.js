@@ -7,6 +7,7 @@ import { toolbar } from "./toolbar.js";
 import { btn } from "./button.js";
 import { countdown } from "./countdown.js";
 import { list } from "./list.js";
+import { tabCon } from "./tab.js";
 
 $(function() {
   // 파일을 로드한 후 초기화 작업을 수행
@@ -17,6 +18,7 @@ $(function() {
     emptyLinkCon();
     countdown();
     list();
+    tabCon();
 
     if (initialWidth > 1023) {
       header();
