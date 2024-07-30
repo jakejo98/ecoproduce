@@ -66,14 +66,32 @@
       display: flex;
       width: 100%;
       border-bottom: 1px solid map-get($color-line, grey-02);
+      @media screen and (max-width: 767px) {
+        overflow-x: scroll;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
       & .common_tab_item {
-        flex: 1;
-        text-align: center;
+        @media screen and (min-width: 1024px) {
+          flex: 1;
+        }
+        @media screen and (max-width: 1023px) {
+          flex: 0;
+        }
         & .common_tab_btn {
           display: block;
-          width: 100%;
           line-height: 60px;
           color: map-get($color-type, grey-01);
+          @media screen and (min-width: 1024px) {
+            width: 100%;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            padding: 0px 20px;
+          }
+          @media screen and (max-width: 767px) {
+            padding: 0px 25px;
+          }
           &[aria-selected="true"] {
             color: map-get($color-main, color-black);
             border-bottom: 2px solid map-get($color-main, color-primary);

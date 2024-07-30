@@ -1,0 +1,65 @@
+.common_dropdown {
+  position: relative;
+  & .dropdown_expanded_btn {
+    display: block;
+    width: 150px;
+    padding: 9px 15px;
+    background-color: map-get($color-background, white-01);
+    text-align: left;
+    &[aria-expanded="false"] {
+      border: 1px solid map-get($color-line, grey-02);
+      border-radius: 5px;
+    }
+    &[aria-expanded="true"] {
+      border: 1px solid map-get($color-line, black-01);
+      border-radius: 5px 5px 0px 0px;
+    }
+    &::after {
+      @include position(50%, 15px, null, null, null);
+      width: 16px;
+      height: 16px;
+      background: url('../img/sprites/sprites.png') no-repeat;
+      transform: translateY(-50%);
+      content: "";
+    }
+    &[aria-expanded="false"]::after {
+      background-position: -112px 0px;
+    }
+    &[aria-expanded="true"]::after {
+      background-position: -96px 0px;
+    }
+    & .dropdown_current {
+      display: inline-block;
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($color-type, grey-01);
+    }
+  }
+  & .common_dropdown_list {
+    @include position(40px, null, null, 0px, 10);
+    width: 150px;
+    border: 1px solid map-get($color-line, black-01);
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+    background-color: map-get($color-background, white-01);
+    &[aria-hidden="true"] {
+      display: none;
+    }
+    &[aria-hidden="false"] {
+      display: block;
+    }
+    & .common_dropdown_item {
+      &:not(:last-of-type) {
+        border-bottom: 1px solid map-get($color-line, grey-02);
+      }
+      & .common_dropdown_btn {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        font-size: 14px;
+        line-height: 20px;
+        text-align: left;
+      }
+    }
+  }
+}
