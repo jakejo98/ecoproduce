@@ -1,6 +1,5 @@
 .common_tab {
   &.type_capsule_v1 {
-    padding: 20px 0px 0px 0px;
     & .common_tab_list {
       display: flex;
       flex-wrap: wrap;
@@ -34,15 +33,6 @@
 
 .common_tab {
   &.type_capsule_v2 {
-    @media screen and (min-width: 1024px) {
-      margin-bottom: 30px;
-    }
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
-      margin-bottom: 25px;
-    }
-    @media screen and (max-width: 767px) {
-      margin-bottom: 20px;
-    }
     & .common_tab_list {
       display: flex;
       & .common_tab_item {
