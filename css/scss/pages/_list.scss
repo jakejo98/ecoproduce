@@ -521,6 +521,9 @@
             &.expanded_list {
               display: none;
               margin-top: 70px;
+              &.active{
+                display: flex;
+              }
             }
             & .product_grid_item {
               width: calc((100% - 60px) / 4);
@@ -815,12 +818,22 @@
       }
       & .product_grid {
         padding: 25px 0px 90px 0px;
-        & .product_grid_list {
+        & .product_tab_list_box {
+          &[aria-hidden="false"] {
+            display: block;
+          }
+          &[aria-hidden="true"] {
+            display: none;
+          }
+                  & .product_grid_list {
           display: flex;
           margin-bottom: -60px;
           &.expanded_list {
             display: none;
             margin-top: 60px;
+            &.active{
+              display: flex;
+            }
           }
           & .product_grid_item {
             width: calc((100% - 20px) / 2);
@@ -829,6 +842,7 @@
               margin-right: 20px;
             }
           }
+        }
         }
       }
     }
@@ -1112,18 +1126,29 @@
       }
       & .product_grid {
         padding: 25px 0px 90px 0px;
-        & .product_grid_list {
-          display: flex;
-          margin-bottom: -60px;
-          &.expanded_list {
-            display: none;
-            margin-top: 60px;
+        & .product_tab_list_box {
+          &[aria-hidden="false"] {
+            display: block;
           }
-          & .product_grid_item {
-            width: calc((100% - 20px) / 2);
-            margin-bottom: 70px;
-            &:not(:nth-of-type(2n)) {
-              margin-right: 20px;
+          &[aria-hidden="true"] {
+            display: none;
+          }
+          & .product_grid_list {
+            display: flex;
+            margin-bottom: -60px;
+            &.expanded_list {
+              display: none;
+              margin-top: 60px;
+              &.active{
+                display: flex;
+              }
+            }
+            & .product_grid_item {
+              width: calc((100% - 20px) / 2);
+              margin-bottom: 70px;
+              &:not(:nth-of-type(2n)) {
+                margin-right: 20px;
+              }
             }
           }
         }
