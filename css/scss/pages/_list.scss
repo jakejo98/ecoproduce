@@ -59,7 +59,7 @@
                   @include position(50%, null, null, 8px, null);
                   width: 16px;
                   height: 16px;
-                  background: url('../img/sprites/sprites.png') no-repeat;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
                   background-position: -48px -0px;
                   transform: translateY(-50%);
                   content: '';
@@ -134,7 +134,7 @@
                   @include position(50%, null, null, 8px, null);
                   width: 16px;
                   height: 16px;
-                  background: url('../img/sprites/sprites.png') no-repeat;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
                   background-position: -48px -0px;
                   transform: translateY(-50%);
                   content: '';
@@ -210,7 +210,7 @@
                   @include position(50%, null, null, 8px, null);
                   width: 16px;
                   height: 16px;
-                  background: url('../img/sprites/sprites.png') no-repeat;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
                   background-position: -48px -0px;
                   transform: translateY(-50%);
                   content: '';
@@ -476,6 +476,17 @@
     }
     // 상품 리스트
     &.section_product_list {
+      & .common_tab {
+        &.sticky {
+          @include container;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 100;
+          width: 100%;
+          transform: translateX(-50%);
+        }
+      }
       & .product_filter {
         display: flex;
         justify-content: space-between;
@@ -772,6 +783,17 @@
     }
     // 상품 리스트
     &.section_product_list {
+      & .common_tab {
+        &.sticky {
+          @include container;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 100;
+          width: 100%;
+          transform: translateX(-50%);
+        }
+      }
       & .product_filter {
         display: flex;
         justify-content: space-between;
@@ -789,7 +811,6 @@
           & .product_filter_explain {
             display: inline-block;
           }
-
         }
       }
       & .product_grid {
@@ -1059,6 +1080,17 @@
       }
     }
     &.section_product_list {
+      & .common_tab {
+        &.sticky {
+          @include container;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 100;
+          width: 100%;
+          transform: translateX(-50%);
+        }
+      }
       & .product_filter {
         display: flex;
         justify-content: space-between;

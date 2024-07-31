@@ -139,7 +139,7 @@
                   @include position(50%, null, null, 24px, null);
                   width: 16px;
                   height: 16px;
-                  background: url("../img/sprites/sprites.png") no-repeat;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
                   transform: translateY(-50%);
                   content: "";
                 }
@@ -222,7 +222,7 @@
                     @include position(50%, 0px, null, null, null);
                     width: 16px;
                     height: 16px;
-                    background: url("../img/sprites/sprites.png") no-repeat;
+                    background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
                     transform: translateY(-50%);
                     content: "";
                   }

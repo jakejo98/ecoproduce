@@ -1,7 +1,7 @@
-export function swiper() {
+$(document).ready(function(){
   mainBannerSwiperCon();
   eventBannerSwiperCon();
-}
+})
 
 function mainBannerSwiperCon() {
   const cont = $('.section_main_banner'); 
