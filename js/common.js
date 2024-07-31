@@ -3,7 +3,7 @@ export function commonFunc(){
   changeEventProductTab();
   changeProductTab();
   productSortDropdown();
-  stickTab();
+  // stickTab();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -104,25 +104,25 @@ function changeProductTab(){
 }
 
 // Sticky 탭 메뉴
-function stickTab(){
-  const tab = $('.section_product_list .common_tab.type_line_v1')
-  const act = 'sticky'
+// function stickTab(){
+//   const tab = $('.section_product_list .common_tab.type_line_v1')
+//   const act = 'sticky'
 
-  // 탭과 화면 최상단의 거리
-  const stickyTop = $(tab).offset().top;
+//   // 탭과 화면 최상단의 거리
+//   const stickyTop = $(tab).offset().top;
   
-  $(window).scroll(function(){
-    // 스크롤 시 거리를 가져오기
-    const scrollTop = $(window).scrollTop();
+//   $(window).scroll(function(){
+//     // 스크롤 시 거리를 가져오기
+//     const scrollTop = $(window).scrollTop();
 
-    if(scrollTop >= stickyTop) {
-      $(tab).addClass(act);
-    } else {
-      $(tab).removeClass(act);
-    }
+//     if(scrollTop >= stickyTop) {
+//       $(tab).addClass(act);
+//     } else {
+//       $(tab).removeClass(act);
+//     }
     
-  })
-}
+//   })
+// }
 
 // 상품 페이지 정렬 순 드롭다운 메뉴
 function productSortDropdown(){
