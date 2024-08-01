@@ -72,3 +72,12 @@ body {
     }
   }
 }
+
+#dimmed {
+  @include dimmed;
+  &.active {
+    display: block;
+  }
+}
+
+
