@@ -10,8 +10,8 @@ function mainBannerSwiperCon() {
   const nextBtn = $('.swiper-button-next')
   // 스와이퍼 기본속성
   var mainBannerSwiper = new Swiper('.main_banner', {
-    slidesPerView : 'auto', 
-    loopAdditionalSlides: 1, 
+    slidesPerView: 'auto',
+    // loopAdditionalSlides: 1,
     centeredSlides: true,
     loop: true,
     autoplay: {
@@ -59,6 +59,7 @@ function mainBannerSwiperCon() {
 }
 
 function eventBannerSwiperCon() {
+  const cont = $('.section_event_banner');
   // 스와이퍼 기본속성
   var eventBannerSwiper = new Swiper('.event_banner', {
     slidesPerView : 1, 
@@ -81,4 +82,12 @@ function eventBannerSwiperCon() {
       slideLabelMessage: '총 {{slidesLength}}장의 이벤트 배너 중 {{index}}번 이벤트 배너 입니다.',
     },
   });
+
+  $(cont).mouseenter(function(){
+    eventBannerSwiper.autoplay.stop();
+  })
+
+  $(cont).mouseleave(function(){
+    eventBannerSwiper.autoplay.start();
+  })
 }

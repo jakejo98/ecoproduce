@@ -5,6 +5,7 @@ export function commonFunc(){
   productSortDropdown();
   activeStickTab();
   scrollProductAddList();
+  activeStickTab();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -103,12 +104,15 @@ function changeProductTab(){
 // 상품 페이지 스크롤 시 추가 상품 보여주는 이벤트
 function scrollProductAddList() {
   const productCont = $('.section_product_list .product_tab_list_box');
+  const isProductCont = $('.section_product_list .product_tab_list_box').length;
   const productAddList = $('.section_product_list .product_tab_list_box .product_grid_list.expanded_list');
   const stickyHeight = $('.section_product_list .common_tab.type_line_v1').innerHeight();
-  const dim = $('#dimmed');
-  const act = 'active';
+  const respondToolbarHeight = $('.toolbar').innerHeight();
+
+  const addListActive = $('#dimmed');
   const fixPage = $('body');
-  const fix = 'is-fixed'
+  const isActive = 'active';
+  const isFixed = 'is-fixed'
 
   let expandedCount = -1;
 
@@ -118,7 +122,11 @@ function scrollProductAddList() {
   }
   // 초기 상품 리스트 높이 값 구해주는 함수
   function upadateProductContTop(){
-    return $(productCont).offset().top;
+    // 예외 처리
+    if(isProductCont){
+      productContTop = $(productCont).offset().top;
+    }
+    productContTop = null;
   }
   // 화면 높이 값 구해주는 함수
   function upadateWindowHeight(){
@@ -128,6 +136,7 @@ function scrollProductAddList() {
   function upadateWindowWidth(){
     return $(window).width();
   }
+  // 실시간 화면 너비 값 구해주는 함수
   function updateResizeWidth(){
     $(window).resize(function(){
       windowResizeWidth = $(window).width();
@@ -135,7 +144,8 @@ function scrollProductAddList() {
   }
 
   // 최상단에서 상품 리스트 거리
-  let productContTop = upadateProductContTop();
+  let productContTop = 0;
+  upadateProductContTop();
   // 초기 상품 리스트 높이 값 구함
   let productContHeight = updateProductContHeight(); 
   // 화면 높이 값 구함
@@ -145,61 +155,53 @@ function scrollProductAddList() {
   // 실시간 너비 값 구함
   let windowResizeWidth = $(window).width();
   updateResizeWidth();
-  console.log(windowResizeWidth);
   
   $(window).scroll(function(){
+    // window scroll 값 가져옴
     let windowScrollTop = $(window).scrollTop();
-    if(expandedCount < 1 && windowScrollTop >= (productContTop + productContHeight) - (windowHeight + stickyHeight)){
+
+    let isDesktopScreen = windowWidth > 1023 && windowResizeWidth > 1023;
+    let scrollCondition = windowScrollTop >= (productContTop + productContHeight) - (windowHeight + stickyHeight - (isDesktopScreen ? 0 : respondToolbarHeight));
+
+    if(expandedCount < 1 && scrollCondition){
       expandedCount++;
 
-      $(dim).addClass(act);
-      $(fixPage).addClass(fix);
+      $(addListActive).addClass(isActive);
+      $(fixPage).addClass(isFixed);
 
       // dimmed 처리 후 1초 후에 추가 상품목록 
       setTimeout(function() {
-        $(dim).removeClass(act);
-        $(fixPage).removeClass(fix);
-        $(productAddList).eq(expandedCount).addClass(act);
+        $(addListActive).removeClass(isActive);
+        $(fixPage).removeClass(isFixed);
+        $(productAddList).eq(expandedCount).addClass(isActive);
         productContHeight = updateProductContHeight();
-      }, 1000); 
-    }
-  });
-
-  // 윈도우 사이즈가 바뀔 때 높이 재계산
-  $(window).resize(function() {
-    let resizeWidth = $(window).width();
-    if(resizeWidth > 1023 && windowWidth > 1023) {
-        productContHeight = updateProductContHeight();
-        productContTop = upadateProductContTop();
-        windowHeight = upadateWindowHeight();
-    } else {
-      productContHeight = updateProductContHeight();
-      productContTop = upadateProductContTop() + 60;
-      windowHeight = upadateWindowHeight();
+      }, 2000); 
     }
   });
 }
 
-
-
 // Sticky 탭 메뉴
 function activeStickTab(){
-  const tab = $('.section_product_list .common_tab.type_line_v1')
+  const stickyTab = $('.section_product_list .common_tab.type_line_v1')
+  const isStickyTab = $('.section_product_list .common_tab.type_line_v1').length
   const act = 'sticky'
+  let stickyTop = 0;
 
-  // 탭과 화면 최상단의 거리
-  const stickyTop = $(tab).offset().top;
+  if(isStickyTab) {
+    stickyTop = $(stickyTab).offset().top;
+  } else {
+    stickyTop = null;
+  }
   
   $(window).scroll(function(){
     // 스크롤 시 거리를 가져오기
     const scrollTop = $(window).scrollTop();
 
     if(scrollTop >= stickyTop) {
-      $(tab).addClass(act);
+      $(stickyTab).addClass(act);
     } else {
-      $(tab).removeClass(act);
+      $(stickyTab).removeClass(act);
     }
-    
   })
 }
 
@@ -207,7 +209,10 @@ function activeStickTab(){
 function productSortDropdown(){
   const dropdownBtn = $('.section_product_list .dropdown_expanded_btn');
   const dropdownList = $('.section_product_list .common_dropdown_list');
+  const dropdownBtnText = $('.section_product_list .dropdown_expanded_btn .dropdown_current');
+  const dropdownExpandedBtn = $('.section_product_list .common_dropdown_btn');
 
+  // 버튼 클릭 시 상품 정렬 리스트 활성화
   $(dropdownBtn).click(function(){
     if($(dropdownBtn).attr('aria-expanded') == 'false') {
       $(this).attr('aria-expanded', 'true');
@@ -216,5 +221,16 @@ function productSortDropdown(){
       $(this).attr('aria-expanded', 'false');
       $(dropdownList).attr('aria-hidden', 'true');
     }
+  })
+
+  // 상품 정렬 리스트 버튼 클릭 시 해당 텍스트로 변경
+  $(dropdownExpandedBtn).click(function(){
+    const btnText = $(this).text();
+
+    // 텍스트 변경 이벤트
+    $(dropdownBtnText).text(btnText);
+    // 드롭다운 리스트 숨김
+    $(dropdownBtn).attr('aria-expanded', 'false');
+    $(dropdownList).attr('aria-hidden', 'true');
   })
 }
