@@ -125,8 +125,9 @@ function scrollProductAddList() {
     // 예외 처리
     if(isProductCont){
       productContTop = $(productCont).offset().top;
+    } else {
+      productContTop = null;
     }
-    productContTop = null;
   }
   // 화면 높이 값 구해주는 함수
   function upadateWindowHeight(){
