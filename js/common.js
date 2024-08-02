@@ -112,71 +112,81 @@ function scrollProductAddList() {
   const addListActive = $('#dimmed');
   const fixPage = $('body');
   const isActive = 'active';
-  const isFixed = 'is-fixed'
+  const isFixed = 'is-fixed';
 
   let expandedCount = -1;
 
   // 상품 리스트 높이 값을 구해주는 함수
-  function updateProductContHeight(){
-    return $(productCont).innerHeight(); 
+  function updateProductContHeight() {
+    return $(productCont).innerHeight();
   }
+
   // 초기 상품 리스트 높이 값 구해주는 함수
-  function upadateProductContTop(){
+  function upadateProductContTop() {
     // 예외 처리
-    if(isProductCont){
+    if (isProductCont) {
       productContTop = $(productCont).offset().top;
     } else {
       productContTop = null;
     }
   }
+
   // 화면 높이 값 구해주는 함수
-  function upadateWindowHeight(){
+  function upadateWindowHeight() {
     return $(window).height();
   }
+
   // 화면 너비 값 구해주는 함수
-  function upadateWindowWidth(){
+  function upadateWindowWidth() {
     return $(window).width();
   }
+
   // 실시간 화면 너비 값 구해주는 함수
-  function updateResizeWidth(){
-    $(window).resize(function(){
-      windowResizeWidth = $(window).width();
-    })
+  function updateResizeWidth() {
+    windowResizeWidth = $(window).width();
   }
 
   // 최상단에서 상품 리스트 거리
   let productContTop = 0;
   upadateProductContTop();
+
   // 초기 상품 리스트 높이 값 구함
-  let productContHeight = updateProductContHeight(); 
+  let productContHeight = updateProductContHeight();
+
   // 화면 높이 값 구함
   let windowHeight = upadateWindowHeight();
+
   // 화면 너비 값 구함
   let windowWidth = upadateWindowWidth();
+
   // 실시간 너비 값 구함
   let windowResizeWidth = $(window).width();
-  updateResizeWidth();
-  
-  $(window).scroll(function(){
+
+  $(window).resize(function () {
+    updateResizeWidth();
+    windowWidth = upadateWindowWidth(); 
+  });
+
+  $(window).scroll(function () {
     // window scroll 값 가져옴
     let windowScrollTop = $(window).scrollTop();
 
     let isDesktopScreen = windowWidth > 1023 && windowResizeWidth > 1023;
     let scrollCondition = windowScrollTop >= (productContTop + productContHeight) - (windowHeight + stickyHeight - (isDesktopScreen ? 0 : respondToolbarHeight));
 
-    if(expandedCount < 1 && scrollCondition){
+    if (expandedCount < 1 && scrollCondition) {
       expandedCount++;
 
       $(addListActive).addClass(isActive);
       $(fixPage).addClass(isFixed);
 
-      // dimmed 처리 후 1초 후에 추가 상품목록 
-      setTimeout(function() {
+      // dimmed 처리 후 2초 후에 추가 상품목록
+      setTimeout(function () {
         $(addListActive).removeClass(isActive);
         $(fixPage).removeClass(isFixed);
         $(productAddList).eq(expandedCount).addClass(isActive);
         productContHeight = updateProductContHeight();
-      }, 2000); 
+      }, 2000);
     }
   });
 }
