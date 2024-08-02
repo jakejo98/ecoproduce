@@ -4,7 +4,7 @@ export function commonFunc(){
   changeProductTab();
   productSortDropdown();
   activeStickTab();
-  scrollProductAddList();
+  // scrollProductAddList();
   activeStickTab();
 }
 
