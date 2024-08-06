@@ -139,7 +139,7 @@ function createProductHTML(product) {
       <div class="product_grid_box">
         <div class="product_img_box">
           <img src="${product.imgSrc}" alt="${product.imgAlt}">
-          <button class="common_btn shopping_btn" aria-label="장바구니 담기">
+          <button class="common_btn type_shopping_v1" aria-label="장바구니 담기">
             <span class="common_icon icon icon_shopping_primary">
               <span class="blind">장바구니 담기</span>
             </span>

@@ -6,8 +6,6 @@ export function commonFunc(){
   activeStickTab();
   // scrollProductAddList();
   activeStickTab();
-  changeStroyTab();
-  storyAddviewList();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -253,6 +251,9 @@ function changeStroyTab(){
   const tabBtn = $('.section_review .common_tab_btn');
   const tabContent = $('.section_review .story_tab_box');
 
+  const addStoryList = $('.section_review .story_tab_box .product_grid_list.expanded_list');
+  
+
   $(tabBtn).click(function(){
     const tabId = $(this).parent().index();
     
@@ -280,6 +281,7 @@ function storyAddviewList() {
 
   const disBtn = 'disabled'
 
+  // 소비자 리뷰 탭 리뷰 더 보기 이벤트
   $(addCustomerBtn).click(function(){
     customerCount++;
     $(this).attr('aria-expanded', 'true');
@@ -289,6 +291,7 @@ function storyAddviewList() {
     }
   })
 
+  // 생산자 스토리 탭 스토리 더 보기 이벤트
   $(addProducerBtn).click(function(){
     producerCount++;
     $(this).attr('aria-expanded', 'true');
