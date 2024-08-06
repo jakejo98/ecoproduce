@@ -1,5 +1,6 @@
 .common_btn {
-  & .shopping_btn {
+  &.shopping_btn {
+    display: block;
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -8,7 +9,7 @@
       background-color: map-get($color-main, color-primary);
     }
   }
-  & .sns_addview_btn {
+  &.sns_addview_btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,6 +36,24 @@
         line-height: 20px;
       }
     } 
+  }
+  &.review_addview_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    padding: 20px 0px;
+    border: 1px solid map-get($color-line, black-01);
+    border-radius: 30px;
+    & .common_icon {
+      display: inline-block;
+    }
+    & .review_addview_text {
+      display: inline-block;
+      margin-right: 16px;
+      font-weight: 700;
+      line-height: 24px;
+    }
   }
 }
 

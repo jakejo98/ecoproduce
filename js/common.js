@@ -6,6 +6,8 @@ export function commonFunc(){
   activeStickTab();
   // scrollProductAddList();
   activeStickTab();
+  changeStroyTab();
+  storyAddviewList();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -15,7 +17,7 @@ function countdownTimer(){
   const countDownCon = setInterval(function(){
 
     const titTime = $(".section_title_countdown");
-    const comCountTime = $(".common_flag_v1 .flag_text.countdown_time");
+    const comCountTime = $(".common_flag.type_capsule .flag_text.countdown_time");
 
     const now = new Date().getTime();
     const leftTime = target - now;
@@ -62,9 +64,9 @@ function changeEventProductTab (){
 
 // 상품 페이지 탭 변경 이벤트(공통)
 function changeProductTab(){
-  const tabBtn = $(".section_product_list .common_tab_list .common_tab_btn");
-  const tabList = $(".section_product_list .product_grid .product_tab_list_box");
-  const currentText = $(".section_product_list .section_breadcrumbes .section_breadcrumbes_item.current_list");
+  const tabBtn = $(".section_product_page .common_tab_list .common_tab_btn");
+  const tabList = $(".section_product_page .product_grid .product_tab_list_box");
+  const currentText = $(".section_product_page .section_breadcrumbes .section_breadcrumbes_item.current_list");
 
   $(tabBtn).click(function () {
     const tabId = $(this).parent().index();
@@ -103,10 +105,10 @@ function changeProductTab(){
 
 // 상품 페이지 스크롤 시 추가 상품 보여주는 이벤트
 function scrollProductAddList() {
-  const productCont = $('.section_product_list .product_tab_list_box');
-  const isProductCont = $('.section_product_list .product_tab_list_box').length;
-  const productAddList = $('.section_product_list .product_tab_list_box .product_grid_list.expanded_list');
-  const stickyHeight = $('.section_product_list .common_tab.type_line_v1').innerHeight();
+  const productCont = $('.section_product_page .product_tab_list_box');
+  const isProductCont = $('.section_product_page .product_tab_list_box').length;
+  const productAddList = $('.section_product_page .product_tab_list_box .product_grid_list.expanded_list');
+  const stickyHeight = $('.section_product_page .common_tab.type_line_v1').innerHeight();
   const respondToolbarHeight = $('.toolbar').innerHeight();
 
   const addListActive = $('#dimmed');
@@ -193,8 +195,8 @@ function scrollProductAddList() {
 
 // Sticky 탭 메뉴
 function activeStickTab(){
-  const stickyTab = $('.section_product_list .common_tab.type_line_v1')
-  const isStickyTab = $('.section_product_list .common_tab.type_line_v1').length
+  const stickyTab = $('.section_product_page .common_tab.type_line_v1')
+  const isStickyTab = $('.section_product_page .common_tab.type_line_v1').length;
   const act = 'sticky'
   let stickyTop = 0;
 
@@ -218,10 +220,10 @@ function activeStickTab(){
 
 // 상품 페이지 정렬 순 드롭다운 메뉴
 function productSortDropdown(){
-  const dropdownBtn = $('.section_product_list .dropdown_expanded_btn');
-  const dropdownList = $('.section_product_list .common_dropdown_list');
-  const dropdownBtnText = $('.section_product_list .dropdown_expanded_btn .dropdown_current');
-  const dropdownExpandedBtn = $('.section_product_list .common_dropdown_btn');
+  const dropdownBtn = $('.section_product_page .dropdown_expanded_btn');
+  const dropdownList = $('.section_product_page .common_dropdown_list');
+  const dropdownBtnText = $('.section_product_page .dropdown_expanded_btn .dropdown_current');
+  const dropdownExpandedBtn = $('.section_product_page .common_dropdown_btn');
 
   // 버튼 클릭 시 상품 정렬 리스트 활성화
   $(dropdownBtn).click(function(){
@@ -243,5 +245,56 @@ function productSortDropdown(){
     // 드롭다운 리스트 숨김
     $(dropdownBtn).attr('aria-expanded', 'false');
     $(dropdownList).attr('aria-hidden', 'true');
+  })
+}
+
+// 스토리 페이지 탭 변경 이벤트
+function changeStroyTab(){
+  const tabBtn = $('.section_review .common_tab_btn');
+  const tabContent = $('.section_review .story_tab_box');
+
+  $(tabBtn).click(function(){
+    const tabId = $(this).parent().index();
+    
+    // 탭 버튼
+    $(this).attr('aria-selected', 'true');
+    $(this).parent().siblings().children(tabBtn).attr('aria-selected', 'false');
+
+    // 탭 리스트
+    $(tabContent).eq(tabId).attr('aria-hidden', 'false')
+    $(tabContent).eq(tabId).siblings().attr('aria-hidden', 'true');
+  })
+}
+
+// 스토리 페이지 리뷰 더 보기 이벤트 
+function storyAddviewList() {
+  const addCustomerBtn = $('.section_review .customer_box .review_addview_btn');
+  const addCustomerList = $('.section_review .customer_box .product_grid_list.expanded_list');
+  const addCustomerListLen = $('.section_review .customer_box .product_grid_list.expanded_list').length - 1;
+  let customerCount = -1;
+
+  const addProducerBtn = $('.section_review .producer_box .review_addview_btn');
+  const addProducerList = $('.section_review .producer_box .product_grid_list.expanded_list');
+  const addProducerListLen = $('.section_review .producer_box .product_grid_list.expanded_list').length - 1;
+  let producerCount = -1;
+
+  const disBtn = 'disabled'
+
+  $(addCustomerBtn).click(function(){
+    customerCount++;
+    $(this).attr('aria-expanded', 'true');
+    $(addCustomerList).eq(customerCount).attr('aria-hidden', 'false');
+    if(customerCount == addCustomerListLen){
+      $(addCustomerBtn).addClass(disBtn);
+    }
+  })
+
+  $(addProducerBtn).click(function(){
+    producerCount++;
+    $(this).attr('aria-expanded', 'true');
+    $(addProducerList).eq(producerCount).attr('aria-hidden', 'false');
+    if(producerCount == addProducerListLen){
+      $(addProducerBtn).addClass(disBtn);
+    }
   })
 }

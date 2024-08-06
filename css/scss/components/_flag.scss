@@ -15,35 +15,53 @@
   }
 }
 
-.common_flag_v2 {
-  display: flex;
-  & .flag {
-    position: relative;
-    padding: 7px 10px 7px 31px;
-    border-radius: 5px;
-    & + .flag {
-      margin-left: 6px;
+.common_flag {
+  &.type_capsule {
+    & .flag {
+      display: flex;
+      align-items: center;
+      padding: 2px 5px;
+      border-radius: 20px;
+      background-color: map-get($color-background, red-01);
+      & .flag_text {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        color: map-get($color-main, color-white);
+      }
     }
-    &.agricultural {
-      background-color: map-get($color-background, green-01);
-    }
-    &.livestock {
-      background-color: map-get($color-background, brwon-01);
-    }
-    &.seafood {
-      background-color: map-get($color-background, skyblue-01);
-    }
-    &.delivery {
-      background-color: map-get($color-background, yellow-01);
-    }
-    & .common_icon {
-      @include position(7px, 0px, 0px, 10px, null);
-    }
-    & .flag_text {
-      display: block;
-      font-size: 12px;
-      line-height: 16px;
-      color: map-get($color-main, color-white);
+  }
+  &.type_product {
+    display: flex;
+    & .flag {
+      position: relative;
+      padding: 7px 10px 7px 31px;
+      border-radius: 5px;
+      & + .flag {
+        margin-left: 6px;
+      }
+      &.agricultural {
+        background-color: map-get($color-background, green-01);
+      }
+      &.livestock {
+        background-color: map-get($color-background, brwon-01);
+      }
+      &.seafood {
+        background-color: map-get($color-background, skyblue-01);
+      }
+      &.delivery {
+        background-color: map-get($color-background, yellow-01);
+      }
+      & .common_icon {
+        @include position(7px, 0px, 0px, 10px, null);
+      }
+      & .flag_text {
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+        color: map-get($color-main, color-white);
+      }
     }
   }
 }

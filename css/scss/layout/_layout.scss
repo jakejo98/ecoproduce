@@ -26,8 +26,14 @@ body {
           padding: 70px 0px 0px 0px;
         }
       }
+      &.section_sns_banner {
+        padding: 70px 0px 50px 0px;
+      }
       &.section_card_benefit {
         padding-bottom: 100px;
+      }
+      &.section_review{
+        padding: 70px 0px 50px 0px;
       }
     }
   }
@@ -45,6 +51,9 @@ body {
       }
       &.section_event_banner {
         padding: 60px 0px 0px 0px;
+      }
+      &.section_sns_banner {
+        padding: 60px 20px 40px 20px;
       }
       &.section_card_benefit {
         padding: 60px 20px 90px 20px;
@@ -65,6 +74,9 @@ body {
       }
       &.section_event_banner {
         padding: 50px 0px 0px 0px;
+      }
+      &.section_sns_banner {
+        padding: 50px 20px 30px 20px;
       }
       &.section_card_benefit {
         padding: 50px 20px 80px 20px;

@@ -11,7 +11,7 @@ function mainBannerSwiperCon() {
   // 스와이퍼 기본속성
   var mainBannerSwiper = new Swiper('.main_banner', {
     slidesPerView: 'auto',
-    // loopAdditionalSlides: 1,
+    loopAdditionalSlides: 1,
     centeredSlides: true,
     loop: true,
     autoplay: {

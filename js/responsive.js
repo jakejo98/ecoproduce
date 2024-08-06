@@ -3,6 +3,7 @@ export function responsiveFunc(){
   searchAppWordDel();
   toolbarApp();
   toolbarAppCategory();
+  storyHorizonScroll();
 }
 
 // 헤더 검색창
@@ -124,25 +125,40 @@ function toolbarAppCategory(){
   const act = 'active';
 
   $(firstDepLink).click(function(event){
+    const linkId = $(this).parent().index();    
 
     // dep1 리스트 링크 막기(버튼 처럼 사용)
-    event.preventDefault();
-
-    // dep1 클릭 시 해당 요소에 자식 요소인 dep2 활성화/비활성화
-    if($(this).attr('aria-expanded') == 'false') {
-      $(this).attr('aria-expanded', 'true');
-      $(this).parent().siblings().find(firstDepLink).attr('aria-expanded', 'false');
-      $(this).parent().find(secondDep).attr('aria-hidden', 'false');
-      $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
-      $(this).children(firstDepText).removeClass(dis).addClass(act);
-      $(this).parent().siblings().find(firstDepText).removeClass(act).addClass(dis);
-    } else {
-      $(this).attr('aria-expanded', 'false')
-      $(this).parent().find(secondDep).attr('aria-hidden', 'true');
-      $(this).children(firstDepText).removeClass(act).addClass(dis);
+    if(linkId <= 2) { 
+      event.preventDefault();
+      
+      // dep1 클릭 시 해당 요소에 자식 요소인 dep2 활성화/비활성화
+      if($(this).attr('aria-expanded') == 'false') {
+        $(this).attr('aria-expanded', 'true');
+        $(this).parent().siblings().find(firstDepLink).attr('aria-expanded', 'false');
+        $(this).parent().siblings().slice(3, 10).each(function(){
+          $(this).find(firstDepLink).removeAttr('aria-expanded');
+        });
+        $(this).parent().find(secondDep).attr('aria-hidden', 'false');
+        $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
+        $(this).children(firstDepText).removeClass(dis).addClass(act);
+        $(this).parent().siblings().find(firstDepText).removeClass(act).addClass(dis);
+      } else {
+        $(this).attr('aria-expanded', 'false')
+        $(this).parent().siblings().slice(3, 10).each(function(){
+          $(this).find(firstDepLink).removeAttr('aria-expanded');
+        });
+        $(this).parent().find(secondDep).attr('aria-hidden', 'true');
+        $(this).children(firstDepText).removeClass(act).addClass(dis);
+      }
     }
   })
 }
 
+// 스토리 페이지 탭 스크롤 끝 도달시 리뷰 더 보여주는 이벤트
+function storyHorizonScroll(){
+  const producerContWidth = $('.section_review .story_tab_box .product_grid_list').width();
+  console.log(producerContWidth);
+  
+}
 
 

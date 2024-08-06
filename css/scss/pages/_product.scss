@@ -1,0 +1,307 @@
+@media screen and (min-width: 1024px) {
+  .common_section {
+    &.section_product_page {
+      // 상품페이지 제목
+      & .section_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        & .section_breadcrumbes {
+          & .section_breadcrumbes_list {
+            display: flex;
+            align-items: center;
+            & .section_breadcrumbes_item {
+              display: block;
+              position: relative;
+              font-size: 14px;
+              line-height: 20px;
+              color: map-get($color-type, grey-01);
+              &.current_list {
+                color: map-get($color-main, color-black);
+              }
+              &:not(:first-of-type){
+                padding-left: 32px;
+                &::before {
+                  @include position(50%, null, null, 8px, null);
+                  width: 16px;
+                  height: 16px;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
+                  background-position: -48px -0px;
+                  transform: translateY(-50%);
+                  content: '';
+                }
+              }
+            }
+          }
+        }
+      }
+      // sticky 탭
+      & .common_tab {
+        &.sticky {
+          @include container;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 100;
+          width: 100%;
+          transform: translateX(-50%);
+        }
+      }
+      // 드롭다운
+      & .product_filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0px;
+        border-bottom: 1px solid map-get($color-line, grey-02);
+        & .product_filter_text {
+          font-size: 14px;
+          line-height: 20px;
+          color: map-get($color-type, grey-01);
+          & .product_filter_count {
+            font-weight: 700;
+            color: map-get($color-main, color-primary);
+          }
+          & .product_filter_explain {
+            display: inline-block;
+          }
+        }
+      }
+      // 상품 리스트
+      & .product_grid {
+        padding: 30px 0px 100px 0px;
+        & .product_tab_box {
+          &[aria-hidden="false"] {
+            display: block;
+          }
+          &[aria-hidden="true"] {
+            display: none;
+          }
+          & .product_grid_list {
+            display: flex;
+            margin-bottom: -70px;
+            &.expanded_list {
+              display: none;
+              margin-top: 70px;
+              &.active{
+                display: flex;
+              }
+            }
+            & .product_grid_item {
+              width: calc((100% - 60px) / 4);
+              margin-bottom: 70px;
+              &:not(:nth-of-type(4n)) {
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .common_section {
+    &.section_product_page {
+      // 상품페이지 제목
+      & .section_heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        & .section_breadcrumbes {
+          & .section_breadcrumbes_list {
+            display: flex;
+            align-items: center;
+            & .section_breadcrumbes_item {
+              display: block;
+              position: relative;
+              font-size: 14px;
+              line-height: 20px;
+              color: map-get($color-type, grey-01);
+              &.current_list {
+                color: map-get($color-main, color-black);
+              }
+              &:not(:first-of-type){
+                padding-left: 32px;
+                &::before {
+                  @include position(50%, null, null, 8px, null);
+                  width: 16px;
+                  height: 16px;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
+                  background-position: -48px -0px;
+                  transform: translateY(-50%);
+                  content: '';
+                }
+              }
+            }
+          }
+        }
+      }
+      // sticky 탭
+      & .common_tab {
+        &.sticky {
+          @include container;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 100;
+          width: 100%;
+          transform: translateX(-50%);
+        }
+      }
+      // 드롭다운
+      & .product_filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0px;
+        border-bottom: 1px solid map-get($color-line, grey-02);
+        & .product_filter_text {
+          font-size: 14px;
+          line-height: 20px;
+          color: map-get($color-type, grey-01);
+          & .product_filter_count {
+            font-weight: 700;
+            color: map-get($color-main, color-primary);
+          }
+          & .product_filter_explain {
+            display: inline-block;
+          }
+        }
+      }
+      // 상품 리스트
+      & .product_grid {
+        padding: 25px 0px 90px 0px;
+        & .product_tab_box {
+          &[aria-hidden="false"] {
+            display: block;
+          }
+          &[aria-hidden="true"] {
+            display: none;
+          }
+          & .product_grid_list {
+          display: flex;
+          margin-bottom: -60px;
+          &.expanded_list {
+            display: none;
+            margin-top: 60px;
+            &.active{
+              display: flex;
+            }
+          }
+          & .product_grid_item {
+            width: calc((100% - 20px) / 2);
+            margin-bottom: 70px;
+            &:not(:nth-of-type(2n)) {
+              margin-right: 20px;
+            }
+          }
+        }
+        }
+      } 
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .common_section {
+    &.section_product_page {
+      & .section_heading {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 30px;
+        & .section_breadcrumbes {
+          margin-top: 6px;
+          & .section_breadcrumbes_list {
+            display: flex;
+            align-items: center;
+            & .section_breadcrumbes_item {
+              display: block;
+              position: relative;
+              font-size: 14px;
+              line-height: 20px;
+              color: map-get($color-type, grey-01);
+              &.current_list {
+                color: map-get($color-main, color-black);
+              }
+              &:not(:first-of-type){
+                padding-left: 32px;
+                &::before {
+                  @include position(50%, null, null, 8px, null);
+                  width: 16px;
+                  height: 16px;
+                  background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
+                  background-position: -48px -0px;
+                  transform: translateY(-50%);
+                  content: '';
+                }
+              }
+            }
+          }
+        }
+      }
+      & .common_tab {
+        &.sticky {
+          @include container;
+          position: fixed;
+          top: 0;
+          left: 50%;
+          z-index: 100;
+          width: 100%;
+          transform: translateX(-50%);
+        }
+      }
+      & .product_filter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0px;
+        border-bottom: 1px solid map-get($color-line, grey-02);
+        & .product_filter_text {
+          font-size: 14px;
+          line-height: 20px;
+          color: map-get($color-type, grey-01);
+          & .product_filter_count {
+            font-weight: 700;
+            color: map-get($color-main, color-primary);
+          }
+          & .product_filter_explain {
+            display: none;
+          }
+        }
+      }
+      & .product_grid {
+        padding: 25px 0px 90px 0px;
+        & .product_tab_box {
+          &[aria-hidden="false"] {
+            display: block;
+          }
+          &[aria-hidden="true"] {
+            display: none;
+          }
+          & .product_grid_list {
+            display: flex;
+            margin-bottom: -60px;
+            &.expanded_list {
+              display: none;
+              margin-top: 60px;
+              &.active{
+                display: flex;
+              }
+            }
+            & .product_grid_item {
+              width: calc((100% - 20px) / 2);
+              margin-bottom: 70px;
+              &:not(:nth-of-type(2n)) {
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
