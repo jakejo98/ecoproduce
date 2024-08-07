@@ -6,6 +6,7 @@ export function commonFunc(){
   activeStickTab();
   // scrollProductAddList();
   activeStickTab();
+  changeStoryTab();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -247,57 +248,20 @@ function productSortDropdown(){
 }
 
 // 스토리 페이지 탭 변경 이벤트
-function changeStroyTab(){
-  const tabBtn = $('.section_review .common_tab_btn');
-  const tabContent = $('.section_review .story_tab_box');
-
-  const addStoryList = $('.section_review .story_tab_box .product_grid_list.expanded_list');
-  
+function changeStoryTab(){
+  const tabBtn = $('.section_story .type_capsule_v2 .common_tab_btn');
+  const headingTit = $('.section_story .type_title_v1 .common_tab_item .section_heading');
+  const tabBox = $('.section_story .story_tab_box');
 
   $(tabBtn).click(function(){
     const tabId = $(this).parent().index();
-    
+
     // 탭 버튼
     $(this).attr('aria-selected', 'true');
     $(this).parent().siblings().children(tabBtn).attr('aria-selected', 'false');
 
-    // 탭 리스트
-    $(tabContent).eq(tabId).attr('aria-hidden', 'false')
-    $(tabContent).eq(tabId).siblings().attr('aria-hidden', 'true');
-  })
-}
-
-// 스토리 페이지 리뷰 더 보기 이벤트 
-function storyAddviewList() {
-  const addCustomerBtn = $('.section_review .customer_box .review_addview_btn');
-  const addCustomerList = $('.section_review .customer_box .product_grid_list.expanded_list');
-  const addCustomerListLen = $('.section_review .customer_box .product_grid_list.expanded_list').length - 1;
-  let customerCount = -1;
-
-  const addProducerBtn = $('.section_review .producer_box .review_addview_btn');
-  const addProducerList = $('.section_review .producer_box .product_grid_list.expanded_list');
-  const addProducerListLen = $('.section_review .producer_box .product_grid_list.expanded_list').length - 1;
-  let producerCount = -1;
-
-  const disBtn = 'disabled'
-
-  // 소비자 리뷰 탭 리뷰 더 보기 이벤트
-  $(addCustomerBtn).click(function(){
-    customerCount++;
-    $(this).attr('aria-expanded', 'true');
-    $(addCustomerList).eq(customerCount).attr('aria-hidden', 'false');
-    if(customerCount == addCustomerListLen){
-      $(addCustomerBtn).addClass(disBtn);
-    }
-  })
-
-  // 생산자 스토리 탭 스토리 더 보기 이벤트
-  $(addProducerBtn).click(function(){
-    producerCount++;
-    $(this).attr('aria-expanded', 'true');
-    $(addProducerList).eq(producerCount).attr('aria-hidden', 'false');
-    if(producerCount == addProducerListLen){
-      $(addProducerBtn).addClass(disBtn);
-    }
+    // 탭 헤딩
+    $(headingTit).addClass('test');
+    
   })
 }

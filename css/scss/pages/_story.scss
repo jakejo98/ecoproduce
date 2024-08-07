@@ -1,9 +1,6 @@
 @media screen and (min-width: 1024px) {
   .common_section {
-    &.section_review {
-      + .section_sns_banner {
-        padding: 70px 0px 150px 0px !important;
-      }
+    &.section_story {
       & .product_grid {
         & .story_tab_box {
           &.producer_box {
@@ -43,13 +40,27 @@
           }
         }
       }
+      & .common_tab {
+        &.type_title_v1 {
+          & .common_tab_item {
+            & .section_heading {
+              &[aria-selected="true"] {
+                display: block;
+              }
+              &[aria-selected="false"] {
+                display: none;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
 @media screen and (max-width: 1023px) {
   .common_section {
-    &.section_review {
+    &.section_story {
       & .product_grid {
         & .story_tab_box {
           & .product_grid_list {
@@ -66,8 +77,22 @@
         }
       }
       & .common_btn {
-        &.review_addview_btn {
+        &.type_addview_v2 {
           display: none;
+        }
+      }
+      & .common_tab {
+        &.type_title_v1 {
+          & .common_tab_item {
+            & .section_heading {
+              &[aria-selected="true"] {
+                display: block;
+              }
+              &[aria-selected="false"] {
+                display: none;
+              }
+            }
+          }
         }
       }
     }
