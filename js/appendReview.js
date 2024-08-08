@@ -55,10 +55,11 @@ function reviewHorizontalScroll() {
 function reviewAddview(){
   const addviewBtn = $('.section_story .customer_box .type_addview_v2');
   const disBtn = 'disabled'
+  let reviewBox = $('.section_story .customer_box').attr('aria-hidden');
   let addCount = 0;
-
+  
   $(addviewBtn).click(function(){
-    addCount++
+    addCount++;
     appendCustomer();
     if(addCount == 2) {
       $(addviewBtn).addClass(disBtn);

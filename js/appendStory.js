@@ -60,7 +60,7 @@ function storyAddview(){
   $(addviewBtn).click(function(){
     addCount++
     appendProducer();
-    if(addCount == 2) {
+    if(addCount < 2) {
       $(addviewBtn).addClass(disBtn);
     }
   })

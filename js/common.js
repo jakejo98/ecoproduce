@@ -259,7 +259,8 @@ function changeStoryTab(){
 
   $(tabBtn).click(function(){
     const tabId = $(this).parent().index();
-    
+    const expandedItem = $('.section_story .expanded_item');
+
     // 탭 버튼
     $(this).attr('aria-selected', 'true');
     $(this).parent().siblings().children(tabBtn).attr('aria-selected', 'false');
@@ -276,10 +277,9 @@ function changeStoryTab(){
     $(storyBtn).removeClass(disBtn);
 
     // 탭 변경시 확장 리스트 초기화
-    $('.section_story .expanded_item').remove();
+    $(expandedItem).remove();
 
     // 탭 변경시 가로 스크롤 초기화
     $(storyScroll).scrollLeft(0);
-
   })
 }
