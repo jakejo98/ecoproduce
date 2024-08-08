@@ -409,7 +409,7 @@
                 width: 100%;
               }
               & .common_btn {
-                & .type_shopping_v1 {
+                &.type_shopping_v1 {
                   @include position(null, 10px, 10px, null, null);
                 }
               }
@@ -663,7 +663,7 @@
                 width: 100%;
               }
               & .common_btn {
-                & .type_shopping_v1 {
+                &.type_shopping_v1 {
                   @include position(null, 10px, 10px, null, null);
                 }
               }

@@ -1,9 +1,8 @@
 export function responsiveFunc(){
-  searchApp();
+  searchApp(); 
   searchAppWordDel();
   toolbarApp();
   toolbarAppCategory();
-  storyHorizonScroll();
 }
 
 // 헤더 검색창
@@ -153,12 +152,3 @@ function toolbarAppCategory(){
     }
   })
 }
-
-// 스토리 페이지 탭 스크롤 끝 도달시 리뷰 더 보여주는 이벤트
-function storyHorizonScroll(){
-  const producerContWidth = $('.section_review .story_tab_box .product_grid_list').width();
-  console.log(producerContWidth);
-  
-}
-
-

@@ -22,21 +22,13 @@
           &[aria-hidden="true"] {
             display: none;
           }
-          & .product_grid_list {
-            &.expanded_list {
-              margin-top: 70px;
-              &[aria-hidden="false"] {
-                display: flex;
-              }
-              &[aria-hidden="true"] {
-                display: none;
-              }
-            }
-          }
         }
         & .common_btn {
           &.type_addview_v2 {
             margin: 50px auto 0px auto;
+          }
+          &.disabled {
+            display: none;
           }
         }
       }
@@ -63,11 +55,7 @@
     &.section_story {
       & .product_grid {
         & .story_tab_box {
-          & .product_grid_list {
-            &.expanded_list {
-              display: none;
-            }
-          }
+
           &[aria-hidden="false"] {
             display: block;
           }
