@@ -81,13 +81,6 @@
           & .product_grid_list {
             display: flex;
             margin-bottom: -70px;
-            &.expanded_list {
-              display: none;
-              margin-top: 70px;
-              &.active{
-                display: flex;
-              }
-            }
             & .product_grid_item {
               width: calc((100% - 60px) / 4);
               margin-bottom: 70px;
@@ -185,13 +178,6 @@
           & .product_grid_list {
           display: flex;
           margin-bottom: -60px;
-          &.expanded_list {
-            display: none;
-            margin-top: 60px;
-            &.active{
-              display: flex;
-            }
-          }
           & .product_grid_item {
             width: calc((100% - 20px) / 2);
             margin-bottom: 70px;
@@ -285,13 +271,6 @@
           & .product_grid_list {
             display: flex;
             margin-bottom: -60px;
-            &.expanded_list {
-              display: none;
-              margin-top: 60px;
-              &.active{
-                display: flex;
-              }
-            }
             & .product_grid_item {
               width: calc((100% - 20px) / 2);
               margin-bottom: 70px;

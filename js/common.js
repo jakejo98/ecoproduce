@@ -4,9 +4,8 @@ export function commonFunc(){
   changeProductTab();
   productSortDropdown();
   activeStickTab();
-  // scrollProductAddList();
-  activeStickTab();
   changeStoryTab();
+  changeGnbAria();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -64,10 +63,34 @@ function changeEventProductTab (){
 // 상품 페이지 탭 변경 이벤트(공통)
 function changeProductTab(){
   const tabBtn = $(".section_product_page .common_tab_list .common_tab_btn");
-  const tabList = $(".section_product_page .product_grid .product_tab_list_box");
+  const stickyTab = $('.section_product_page .common_tab.type_line_v1');
+  const isStickyTab = $('.section_product_page .common_tab.type_line_v1').length;
+  const tabList = $(".section_product_page .product_grid .product_tab_box");
   const currentText = $(".section_product_page .section_breadcrumbes .section_breadcrumbes_item.current_list");
+  let stickyTop = 0;
 
-  $(tabBtn).click(function () {
+  $(window).scroll(function() {
+    // 현재 스크롤 위치의 탑값을 구함
+    let scrollTop = $(window).scrollTop();
+    console.log('현재 스크롤 탑값:', scrollTop);
+});
+  function updateStickyTop() {
+    if (isStickyTab) {
+      // .product_filter 부분까지 보여주기 위해 -1 적용
+      stickyTop = $(stickyTab).offset().top - 1;
+      console.log(stickyTop)
+    } else {
+      stickyTop = null;
+    }
+  }
+  // 초기 top 값
+  updateStickyTop();
+  // 너비 변경 시 top 값
+  $(window).resize(function(){
+    updateStickyTop();
+  })
+
+  $(tabBtn).click(function() {
     const tabId = $(this).parent().index();
     // 탭 버튼
     $(this).parent().children(tabBtn).attr("aria-selected", "true");
@@ -78,7 +101,7 @@ function changeProductTab(){
     $(tabList).eq(tabId).siblings().attr("aria-hidden", "true");
 
     // 탭 현재 페이지 텍스트 변경
-    switch (tabId) {
+    switch(tabId) {
       case 0:
         $(currentText).text("전체");
         break;
@@ -99,96 +122,9 @@ function changeProductTab(){
         break;
       default:
     }
-  });
-}
 
-// 상품 페이지 스크롤 시 추가 상품 보여주는 이벤트
-function scrollProductAddList() {
-  const productCont = $('.section_product_page .product_tab_list_box');
-  const isProductCont = $('.section_product_page .product_tab_list_box').length;
-  const productAddList = $('.section_product_page .product_tab_list_box .product_grid_list.expanded_list');
-  const stickyHeight = $('.section_product_page .common_tab.type_line_v1').innerHeight();
-  const respondToolbarHeight = $('.toolbar').innerHeight();
-
-  const addListActive = $('#dimmed');
-  const fixPage = $('body');
-  const isActive = 'active';
-  const isFixed = 'is-fixed';
-
-  let expandedCount = -1;
-
-  // 상품 리스트 높이 값을 구해주는 함수
-  function updateProductContHeight() {
-    return $(productCont).innerHeight();
-  }
-
-  // 초기 상품 리스트 높이 값 구해주는 함수
-  function upadateProductContTop() {
-    // 예외 처리
-    if (isProductCont) {
-      productContTop = $(productCont).offset().top;
-    } else {
-      productContTop = null;
-    }
-  }
-
-  // 화면 높이 값 구해주는 함수
-  function upadateWindowHeight() {
-    return $(window).height();
-  }
-
-  // 화면 너비 값 구해주는 함수
-  function upadateWindowWidth() {
-    return $(window).width();
-  }
-
-  // 실시간 화면 너비 값 구해주는 함수
-  function updateResizeWidth() {
-    windowResizeWidth = $(window).width();
-  }
-
-  // 최상단에서 상품 리스트 거리
-  let productContTop = 0;
-  upadateProductContTop();
-
-  // 초기 상품 리스트 높이 값 구함
-  let productContHeight = updateProductContHeight();
-
-  // 화면 높이 값 구함
-  let windowHeight = upadateWindowHeight();
-
-  // 화면 너비 값 구함
-  let windowWidth = upadateWindowWidth();
-
-  // 실시간 너비 값 구함
-  let windowResizeWidth = $(window).width();
-
-  $(window).resize(function () {
-    updateResizeWidth();
-    windowWidth = upadateWindowWidth(); 
-  });
-
-  $(window).scroll(function () {
-    // window scroll 값 가져옴
-    let windowScrollTop = $(window).scrollTop();
-
-    let isDesktopScreen = windowWidth > 1023 && windowResizeWidth > 1023;
-    let scrollCondition = windowScrollTop >= (productContTop + productContHeight) - (windowHeight + stickyHeight - (isDesktopScreen ? 0 : respondToolbarHeight));
-
-    if (expandedCount < 1 && scrollCondition) {
-      expandedCount++;
-
-      $(addListActive).addClass(isActive);
-      $(fixPage).addClass(isFixed);
-
-      // dimmed 처리 후 2초 후에 추가 상품목록
-      setTimeout(function () {
-        $(addListActive).removeClass(isActive);
-        $(fixPage).removeClass(isFixed);
-        $(productAddList).eq(expandedCount).addClass(isActive);
-        productContHeight = updateProductContHeight();
-      }, 2000);
-    }
+    // 상단 거리 만큼 이동
+    $(window).scrollTop(stickyTop)
   });
 }
 
@@ -283,3 +219,52 @@ function changeStoryTab(){
     $(storyScroll).scrollLeft(0);
   })
 }
+
+// 헤더 Gnb aria-current="page" 설정
+function changeGnbAria() {
+  const logoBtn = $('.common_header .logo a');
+  const headerGnbItem = $('.common_header .header_gnb_item');
+  const headerGnbBtn = $('.common_header .header_gnb_link');
+  let currentUrl = window.location.pathname;
+  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+  
+  $(logoBtn).add(headerGnbBtn).removeAttr('aria-current'); 
+
+  switch(fileName) {
+    case 'index.html':
+      $(logoBtn).attr('aria-current', 'page');
+      break;
+    case 'agricultural_product.html':
+      $(headerGnbItem).eq(0).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'livestock_product.html':
+      $(headerGnbItem).eq(1).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'seafood_product.html':
+      $(headerGnbItem).eq(2).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'ugly_product.html':
+      $(headerGnbItem).eq(3).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'timeattack_product.html':
+      $(headerGnbItem).eq(4).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'event_product.html':
+      $(headerGnbItem).eq(5).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'new_product.html':
+      $(headerGnbItem).eq(6).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'best_product.html':
+      $(headerGnbItem).eq(7).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'event.html':
+      $(headerGnbItem).eq(8).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+    case 'story.html':
+      $(headerGnbItem).eq(8).children(headerGnbItem).attr('aria-current', 'page');
+      break;
+  }
+}
+
+

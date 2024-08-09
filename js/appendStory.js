@@ -1,14 +1,31 @@
 $(document).ready(function(){
   storyHorizontalScroll();
   storyAddview();
+  producerCheckDisplay();
 })
+
+let producerDisplayValue = '';
+let producerCount = 0;
+
+// 탭 변경 감지시 count 초기화
+function producerCheckDisplay() {
+  const tabBtn = $('.section_story .type_capsule_v2 .common_tab_btn');
+  
+  $(tabBtn).click(function() {
+    // 버튼 클릭 후 변경된 aria-hidden 값을 확인하기 위한 코드
+    setTimeout(function() {
+      producerCheckDisplayDisplayValue = $('.section_story .producer_box').attr('aria-hidden');
+      producerCount = 0;
+    }, 100); // 또는 적절한 시간 지연을 설정
+    
+  });
+}
 
 // 스토리 페이지 가로 스크롤 도달 시 추가 글 활성화
 function storyHorizontalScroll() {
   const producerCont = $('.section_story .story_tab_box.producer_box .product_grid_list');
   const fixPage = $('body');
   const fix = 'is-fixed';
-  let producerCount = 0;
 
   // 스크롤 왼쪽 값 구하는 함수
   function updateProducerScrollLeft() {
@@ -44,8 +61,6 @@ function storyHorizontalScroll() {
       producerScrollLeft = updateProducerScrollLeft();
       producerScrollWidth = updateProducerScrollWidth();
       producerWidth = updateProducerWidth();
-      } else {
-        producerCount = 0;
       }
     }
   });
@@ -55,14 +70,15 @@ function storyHorizontalScroll() {
 function storyAddview(){
   const addviewBtn = $('.section_story .producer_box .type_addview_v2');
   const disBtn = 'disabled'
-  let addCount = 0;
 
   $(addviewBtn).click(function(){
-    addCount++
+    producerCount++;
     appendProducer();
-    if(addCount < 2) {
+    if(producerCount == 2) {
       $(addviewBtn).addClass(disBtn);
     }
+    console.log(producerCount);
+    
   })
 }
 

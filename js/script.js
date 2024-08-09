@@ -1,5 +1,5 @@
 import { loadFile } from "./include.js";
-import { loadScreen, responsiveScreen, emptyLinkCon } from "./reset.js";
+import { loadScreen, responsiveScreen, emptyLinkLock } from "./reset.js";
 import { commonFunc } from "./common.js";
 import { desktopFunc } from "./desktop.js";
 import { responsiveFunc } from "./responsive.js";
@@ -9,7 +9,7 @@ $(document).ready(function() {
   loadFile(function() {
     // 로드가 완료된 후에 실행할 코드
     const initialWidth = loadScreen();
-    emptyLinkCon();
+    emptyLinkLock();
     commonFunc();
     
     if (initialWidth > 1023) {

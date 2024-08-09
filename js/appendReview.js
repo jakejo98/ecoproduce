@@ -1,14 +1,30 @@
 $(document).ready(function(){
   reviewHorizontalScroll();
   reviewAddview();
+  customerCheckDisplay();
 })
+
+let customerDisplayValue = '';
+let customerCount = 0;
+
+// 탭 변경 감지시 count 초기화
+function customerCheckDisplay() {
+  const tabBtn = $('.section_story .type_capsule_v2 .common_tab_btn');
+  
+  $(tabBtn).click(function() {
+    // 버튼 클릭 후 변경된 aria-hidden 값을 확인하기 위한 코드
+    setTimeout(function() {
+      customerDisplayValue = $('.section_story .customer_box').attr('aria-hidden');
+      customerCount = 0;
+    }, 100); // 또는 적절한 시간 지연을 설정
+  });
+}
 
 // 스토리 페이지 가로 스크롤 도달 시 추가 글 활성화
 function reviewHorizontalScroll() {
   const customerCont = $('.section_story .story_tab_box.customer_box .product_grid_list');
   const fixPage = $('body');
   const fix = 'is-fixed';
-  let customerCount = 0;
 
   // 스크롤 왼쪽 값 구하는 함수
   function updateCustomerScrollLeft() {
@@ -29,9 +45,8 @@ function reviewHorizontalScroll() {
     let customerScrollLeft = updateCustomerScrollLeft();
     let customerScrollWidth = updateCustomerScrollWidth();
     let customerWidth = updateCustomerWidth();
-    
-    if(customerScrollLeft + customerWidth >= customerScrollWidth) {
-      if(customerCount < 2) {
+
+    if(customerScrollLeft + customerWidth >= customerScrollWidth && customerCount < 2) {
       customerCount++;
       // 스크롤 일시적으로 정지
       $(fixPage).addClass(fix);
@@ -44,9 +59,6 @@ function reviewHorizontalScroll() {
       customerScrollLeft = updateCustomerScrollLeft();
       customerScrollWidth = updateCustomerScrollWidth();
       customerWidth = updateCustomerWidth();
-      } else {
-        customerCount = 0;
-      }
     }
   });
 }
@@ -55,13 +67,12 @@ function reviewHorizontalScroll() {
 function reviewAddview(){
   const addviewBtn = $('.section_story .customer_box .type_addview_v2');
   const disBtn = 'disabled'
-  let reviewBox = $('.section_story .customer_box').attr('aria-hidden');
-  let addCount = 0;
   
   $(addviewBtn).click(function(){
-    addCount++;
+    customerCount++;
     appendCustomer();
-    if(addCount == 2) {
+
+    if(customerCount == 2) {
       $(addviewBtn).addClass(disBtn);
     }
   })

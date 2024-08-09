@@ -12,7 +12,7 @@ export function responsiveScreen(callback){
 }
 
 // a링크 동작 제어
-export function emptyLinkCon(){
+export function emptyLinkLock(){
   $('a[href="#"]').click(function(event){
     event.preventDefault();
   });
