@@ -69,16 +69,10 @@ function changeProductTab(){
   const currentText = $(".section_product_page .section_breadcrumbes .section_breadcrumbes_item.current_list");
   let stickyTop = 0;
 
-  $(window).scroll(function() {
-    // 현재 스크롤 위치의 탑값을 구함
-    let scrollTop = $(window).scrollTop();
-    console.log('현재 스크롤 탑값:', scrollTop);
-});
   function updateStickyTop() {
     if (isStickyTab) {
-      // .product_filter 부분까지 보여주기 위해 -1 적용
-      stickyTop = $(stickyTab).offset().top - 1;
-      console.log(stickyTop)
+    // .product_filter 부분까지 보여주기 위해 -1 적용
+    stickyTop = $(stickyTab).offset().top - 1;
     } else {
       stickyTop = null;
     }

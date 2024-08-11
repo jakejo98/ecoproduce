@@ -1,8 +1,10 @@
-$(document).ready(function(){
+
+
+export function review(){
   reviewHorizontalScroll();
   reviewAddview();
   customerCheckDisplay();
-})
+}
 
 let customerDisplayValue = '';
 let customerCount = 0;
@@ -42,6 +44,9 @@ function reviewHorizontalScroll() {
   }
 
   $(customerCont).scroll(function() {
+    const addviewBtn = $('.section_story .customer_box .type_addview_v2');
+    const disBtn = 'disabled'
+
     let customerScrollLeft = updateCustomerScrollLeft();
     let customerScrollWidth = updateCustomerScrollWidth();
     let customerWidth = updateCustomerWidth();
@@ -60,6 +65,11 @@ function reviewHorizontalScroll() {
       customerScrollWidth = updateCustomerScrollWidth();
       customerWidth = updateCustomerWidth();
     }
+
+    // 스크롤 최대치 도달 시 리뷰 더 보기 버튼 비활성화
+    if(customerCount == 2) {
+      $(addviewBtn).addClass(disBtn);
+    }
   });
 }
 
@@ -71,7 +81,6 @@ function reviewAddview(){
   $(addviewBtn).click(function(){
     customerCount++;
     appendCustomer();
-
     if(customerCount == 2) {
       $(addviewBtn).addClass(disBtn);
     }
@@ -149,7 +158,7 @@ function appendCustomer() {
                                 </div>
                                 <div class="grade">
                                     <strong class="text">평점</strong>
-                                    <span class="number">${data.grade}</span>
+                                    <span class="number">${data.grade.toFixed(1)}</span>
                                 </div>
                             </div>
                         </div>

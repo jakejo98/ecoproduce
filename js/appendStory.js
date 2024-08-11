@@ -1,10 +1,10 @@
-$(document).ready(function(){
+export function story(){
   storyHorizontalScroll();
   storyAddview();
   producerCheckDisplay();
-})
+}
 
-let producerDisplayValue = '';
+let producrDisplayValue = '';
 let producerCount = 0;
 
 // 탭 변경 감지시 count 초기화
@@ -14,7 +14,7 @@ function producerCheckDisplay() {
   $(tabBtn).click(function() {
     // 버튼 클릭 후 변경된 aria-hidden 값을 확인하기 위한 코드
     setTimeout(function() {
-      producerCheckDisplayDisplayValue = $('.section_story .producer_box').attr('aria-hidden');
+      producrDisplayValue = $('.section_story .producer_box').attr('aria-hidden');
       producerCount = 0;
     }, 100); // 또는 적절한 시간 지연을 설정
     
@@ -43,6 +43,9 @@ function storyHorizontalScroll() {
   }
 
   $(producerCont).scroll(function() {
+    const addviewBtn = $('.section_story .producer_box .type_addview_v2');
+    const disBtn = 'disabled'
+    
     let producerScrollLeft = updateProducerScrollLeft();
     let producerScrollWidth = updateProducerScrollWidth();
     let producerWidth = updateProducerWidth();
@@ -63,6 +66,10 @@ function storyHorizontalScroll() {
       producerWidth = updateProducerWidth();
       }
     }
+    // 스크롤 최대치 도달 시 스토리 더 보기 비활성화
+    if(producerCount == 2) {
+      $(addviewBtn).addClass(disBtn);
+    }
   });
 }
 
@@ -77,7 +84,6 @@ function storyAddview(){
     if(producerCount == 2) {
       $(addviewBtn).addClass(disBtn);
     }
-    console.log(producerCount);
     
   })
 }

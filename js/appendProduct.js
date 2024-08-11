@@ -1,12 +1,66 @@
-
-$(document).ready(function() {
-  appendProduct();
-});
-
-// function productScroll(){
+export function product(){
+  productScroll();
+}
   
-// }
+function productScroll(){
+  const productTabBox = $('.section_product_page .product_grid .product_tab_box');
+  const isProductTabBox = $('.section_product_page .product_grid .product_tab_box').length;
+  const stickyTabHeight = $('.section_product_page .common_tab.type_line_v1').outerHeight();
+  let windowValue = 0;
+  let windowTop = 0;
+  let windowHeight = 0;
+  let productTabBoxValue = 0;
+  let productTabBoxTop = 0;
+  let productTabBoxHeight = 0;
 
+  // 요소 top 값 구하는 함수
+  function updateProductTop(){
+    if(isProductTabBox){
+      // Sticky 높이 값 만큼 값 재설정
+      productTabBoxTop = $(productTabBox).offset().top - stickyTabHeight;
+    } else {
+      productTabBoxTop = null;
+    }
+  }
+  // 요소 높이 값 구하는 함수
+  function updateProductHeight(){
+    if(isProductTabBox){
+      productTabBoxHeight = $(productTabBox).outerHeight();
+    } else {
+      productTabBoxHeight = null;
+    }
+  }
+
+  // 요소 초기 top 값
+  updateProductTop();
+  // 요소 초기 높이 값
+  updateProductHeight();
+
+  $(window).scroll(function(){
+  // 윈도우 스크롤 값 구하는 함수
+  function updateWindowTop(){
+    windowTop = $(window).scrollTop();
+  }
+  // 윈도우 높이 값 구하는 함수
+  function updateWindowHeight(){
+    windowHeight = $(window).height();
+  }
+
+  // 윈도우 초기 top 값
+  updateWindowTop();
+  // 윈도우 초기 높이 값
+  updateWindowHeight();
+
+  windowValue = windowTop + windowHeight;
+  productTabBoxValue = productTabBoxTop + productTabBoxHeight;
+  if(windowValue >= productTabBoxValue) {
+    console.log('최하단 도달');
+  } else {
+    console.log('최하단 이동 중');
+  }
+  })
+}
+  
 // 내용 추가해주는 함수
 function appendProduct() {
   const productData = {
