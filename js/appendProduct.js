@@ -6,6 +6,9 @@ function productScroll(){
   const productTabBox = $('.section_product_page .product_grid .product_tab_box');
   const isProductTabBox = $('.section_product_page .product_grid .product_tab_box').length;
   const stickyTabHeight = $('.section_product_page .common_tab.type_line_v1').outerHeight();
+  const fixPage = $('body');
+  const isFixed = 'is-fixed'
+  const dim = $('#dimmed');
   let windowValue = 0;
   let windowTop = 0;
   let windowHeight = 0;
@@ -22,19 +25,9 @@ function productScroll(){
       productTabBoxTop = null;
     }
   }
-  // 요소 높이 값 구하는 함수
-  function updateProductHeight(){
-    if(isProductTabBox){
-      productTabBoxHeight = $(productTabBox).outerHeight();
-    } else {
-      productTabBoxHeight = null;
-    }
-  }
 
   // 요소 초기 top 값
   updateProductTop();
-  // 요소 초기 높이 값
-  updateProductHeight();
 
   $(window).scroll(function(){
   // 윈도우 스크롤 값 구하는 함수
@@ -45,18 +38,33 @@ function productScroll(){
   function updateWindowHeight(){
     windowHeight = $(window).height();
   }
+  // 요소 높이 값 구하는 함수
+  function updateProductHeight(){
+    if(isProductTabBox){
+      productTabBoxHeight = $(productTabBox).outerHeight();
+    } else {
+      productTabBoxHeight = null;
+    }
+  }
 
   // 윈도우 초기 top 값
   updateWindowTop();
   // 윈도우 초기 높이 값
   updateWindowHeight();
+  // 요소 초기 높이 값
+  updateProductHeight();
 
   windowValue = windowTop + windowHeight;
   productTabBoxValue = productTabBoxTop + productTabBoxHeight;
   if(windowValue >= productTabBoxValue) {
-    console.log('최하단 도달');
-  } else {
-    console.log('최하단 이동 중');
+    $(fixPage).addClass('is-fixed');
+    $(dim).attr('aria-hidden', 'false');
+
+    setTimeout(function(){
+      $(fixPage).removeClass('is-fixed');
+      $(dim).attr('aria-hidden', 'true');
+    }, 1500)
+    appendProduct();
   }
   })
 }
