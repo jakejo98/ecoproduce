@@ -1,14 +1,145 @@
-export function product(){
-  productScroll();
+import { loadFile } from "/ecoproduce/js/common/include.js";
+
+$(document).ready(function(){
+  loadFile(function(){
+    changeProductTab();
+    activeStickTab();
+    productSortDropdown();
+    productScroll();
+  })
+})
+
+// 상품 페이지 탭 변경 이벤트(공통)
+function changeProductTab(){
+  const tabBtn = $(".section_product_page .common_tab_list .common_tab_btn");
+  const stickyTab = $('.section_product_page .common_tab.type_line_v1');
+  const isStickyTab = $('.section_product_page .common_tab.type_line_v1').length;
+  const tabList = $(".section_product_page .product_grid .product_tab_box");
+  const currentText = $(".section_product_page .section_breadcrumbes .section_breadcrumbes_item.current_list");
+  let stickyTop = 0;
+
+  function updateStickyTop() {
+    if (isStickyTab) {
+    // .product_filter 부분까지 보여주기 위해 -1 적용
+    stickyTop = $(stickyTab).offset().top - 1;
+    } else {
+      stickyTop = null;
+    }
+  }
+  // 초기 top 값
+  updateStickyTop();
+  // 너비 변경 시 top 값
+  $(window).resize(function(){
+    updateStickyTop();
+  })
+
+  $(tabBtn).click(function() {
+    const tabId = $(this).parent().index();
+    const expandedItem = $('.section_product_page .expanded_item')
+    // 탭 버튼
+    $(this).parent().children(tabBtn).attr("aria-selected", "true");
+    $(this).parent().siblings().children(tabBtn).attr("aria-selected", "false");
+
+    // 탭 버튼 상품 리스트
+    $(tabList).eq(tabId).attr("aria-hidden", "false");
+    $(tabList).eq(tabId).siblings().attr("aria-hidden", "true");
+
+    // 탭 현재 페이지 텍스트 변경
+    switch(tabId) {
+      case 0:
+        $(currentText).text("전체");
+        break;
+      case 1:
+        $(currentText).text("채소");
+        break;
+      case 2:
+        $(currentText).text("과일");
+        break;
+      case 3:
+        $(currentText).text("버섯");
+        break;
+      case 4:
+        $(currentText).text("곡물");
+        break;
+      case 5:
+        $(currentText).text("유기농");
+        break;
+      default:
+    }
+
+    // 상단 거리 만큼 이동
+    $(window).scrollTop(stickyTop)
+
+    // 탭 변경시 확장 아이템 삭제
+    $(expandedItem).remove();
+  });
+}
+
+// Sticky 탭 메뉴
+function activeStickTab(){
+  const stickyTab = $('.section_product_page .common_tab.type_line_v1')
+  const isStickyTab = $('.section_product_page .common_tab.type_line_v1').length;
+  const act = 'sticky'
+  let stickyTop = 0;
+
+  if(isStickyTab) {
+    stickyTop = $(stickyTab).offset().top;
+  } else {
+    stickyTop = null;
+  }
+  
+  $(window).scroll(function(){
+    // 스크롤 시 거리를 가져오기
+    const scrollTop = $(window).scrollTop();
+
+    if(scrollTop >= stickyTop) {
+      $(stickyTab).addClass(act);
+    } else {
+      $(stickyTab).removeClass(act);
+    }
+  })
+}
+
+// 상품 페이지 정렬 순 드롭다운 메뉴
+function productSortDropdown(){
+  const dropdownBtn = $('.section_product_page .dropdown_expanded_btn');
+  const dropdownList = $('.section_product_page .common_dropdown_list');
+  const dropdownBtnText = $('.section_product_page .dropdown_expanded_btn .dropdown_current');
+  const dropdownExpandedBtn = $('.section_product_page .common_dropdown_btn');
+
+  // 버튼 클릭 시 상품 정렬 리스트 활성화
+  $(dropdownBtn).click(function(){
+    if($(dropdownBtn).attr('aria-expanded') == 'false') {
+      $(this).attr('aria-expanded', 'true');
+      $(dropdownList).attr('aria-hidden', 'false');
+    } else {
+      $(this).attr('aria-expanded', 'false');
+      $(dropdownList).attr('aria-hidden', 'true');
+    }
+  })
+
+  // 상품 정렬 리스트 버튼 클릭 시 해당 텍스트로 변경
+  $(dropdownExpandedBtn).click(function(){
+    const btnText = $(this).text();
+
+    // 텍스트 변경 이벤트
+    $(dropdownBtnText).text(btnText);
+    // 드롭다운 리스트 숨김
+    $(dropdownBtn).attr('aria-expanded', 'false');
+    $(dropdownList).attr('aria-hidden', 'true');
+  })
 }
   
 function productScroll(){
+  const tabBtn = $(".section_product_page .common_tab_list .common_tab_btn");
+  const expandedItem = $('.section_product_page .expanded_item');
   const productTabBox = $('.section_product_page .product_grid .product_tab_box');
   const isProductTabBox = $('.section_product_page .product_grid .product_tab_box').length;
-  const stickyTabHeight = $('.section_product_page .common_tab.type_line_v1').outerHeight();
+  const toolbar = $('.toolbar'); 
   const fixPage = $('body');
-  const isFixed = 'is-fixed'
+  const isFixed = 'is-fixed';
   const dim = $('#dimmed');
+  let toolbarHeight = 0;
   let windowValue = 0;
   let windowTop = 0;
   let windowHeight = 0;
@@ -16,18 +147,29 @@ function productScroll(){
   let productTabBoxTop = 0;
   let productTabBoxHeight = 0;
 
+  $(tabBtn).click(function(){
+    $(expandedItem).remove();
+  })
+
+  function updateisToolber(){
+    if($(toolbar).css('display') === 'block'){
+      toolbarHeight = $(toolbar).outerHeight();
+    } else {
+      toolbarHeight = 0;
+    }
+    console.log(toolbarHeight)
+  }
+
   // 요소 top 값 구하는 함수
   function updateProductTop(){
     if(isProductTabBox){
       // Sticky 높이 값 만큼 값 재설정
-      productTabBoxTop = $(productTabBox).offset().top - stickyTabHeight;
+      productTabBoxTop = $(productTabBox).offset().top;
     } else {
       productTabBoxTop = null;
     }
   }
 
-  // 요소 초기 top 값
-  updateProductTop();
 
   $(window).scroll(function(){
   // 윈도우 스크롤 값 구하는 함수
@@ -46,16 +188,24 @@ function productScroll(){
       productTabBoxHeight = null;
     }
   }
+    // 스크롤시 요소 top 값
+    updateProductTop();
+    // 스크롤시 윈도우 top 값
+    updateWindowTop();
+    // 스크롤시 윈도우 높이 값
+    updateWindowHeight();
+    // 스크롤시 요소 높이 값
+    updateProductHeight();
 
-  // 윈도우 초기 top 값
-  updateWindowTop();
-  // 윈도우 초기 높이 값
-  updateWindowHeight();
-  // 요소 초기 높이 값
-  updateProductHeight();
+  $(window).resize(function(){
+    updateWindowTop();
+    updateWindowHeight();
+    updateProductHeight();
+  })
 
   windowValue = windowTop + windowHeight;
-  productTabBoxValue = productTabBoxTop + productTabBoxHeight;
+  productTabBoxValue = productTabBoxTop + productTabBoxHeight + toolbarHeight + 60;
+
   if(windowValue >= productTabBoxValue) {
     $(fixPage).addClass('is-fixed');
     $(dim).attr('aria-hidden', 'false');

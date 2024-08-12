@@ -1,61 +1,6 @@
-export function responsiveFunc(){
-  searchApp(); 
-  searchAppWordDel();
+export function toolbarRespond(){
   toolbarApp();
   toolbarAppCategory();
-}
-
-// 헤더 검색창
-function searchApp(){
-  const searchBtn = $('.common_header .header_search_btn');
-  const searchApp = $('#app .header_search_app'); 
-  const searchClsBtn = $('#app .header_cls_btn');
-  const fixPage = 'body';
-
-  // 헤더 검색창 활성화
-  $(searchBtn).click(function(){
-    $(fixPage).addClass('is-fixed');
-    $(searchApp).attr('aria-hidden', 'false');
-    $(searchBtn).attr('aria-expanded', 'true');
-    $(searchClsBtn).attr('aria-expanded', 'true')
-  })
-
-  // 헤더 검색창 비활성화
-  $(searchClsBtn).click(function(){
-    $(fixPage).removeClass('is-fixed');
-    $(searchApp).attr('aria-hidden', 'true');
-    $(searchBtn).attr('aria-expanded', 'false');
-    $(searchClsBtn).attr('aria-expanded', 'false')
-  })
-}
-
-// 검색창 최근검색어 삭제
-function searchAppWordDel(){
-  const recentNotBox = $('#app .header_search_app .recent_not_search')
-  const recentBox = $('#app .header_search_app .recent_search');
-  const delItem =  $('#app .header_search_app .common_tab.type_capsule_v1 .common_tab_item');
-  const delItemLen =  $('#app .header_search_app .common_tab.type_capsule_v1 .common_tab_item').length;
-  const delBtn =  $('#app .header_search_app .common_tab.type_capsule_v1 .common_tab_btn');
-  const entireDelBtn =  $('#app .header_search_app .entire_del_btn');
-  let delCount = 0;
-
-  // "x"버튼 클릭 시 해당 요소 삭제
-  $(delBtn).click(function(){
-    $(this).closest(delItem).remove();
-    delCount++;
-    // 모든 최근 검색어 삭제 시 "최근 검색어가 없습니다" 활성화
-    if(delItemLen == delCount) {
-      $(recentBox).attr('aria-hidden', 'true');
-      $(recentNotBox).attr('aria-hidden', 'false');
-    }
-  })
-
-  // 전체삭제 버튼 클릭 시 최근 검색어 전체 삭제
-  $(entireDelBtn).click(function(){
-    $(delItem).remove();
-    $(recentBox).attr('aria-hidden', 'true');
-    $(recentNotBox).attr('aria-hidden', 'false');
-  })
 }
 
 // 툴바

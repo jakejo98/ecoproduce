@@ -1,10 +1,17 @@
+export function reset(callback){
+  const currentWidth = loadScreen();
+  responsiveScreen(callback);
+  emptyLinkLock();
+  callback(currentWidth);
+}
+
 // 현재 윈도우 크기
-export function loadScreen(){
+function loadScreen(){
   return $(window).width();
 }
 
 // 반응형 윈도우 크기
-export function responsiveScreen(callback){
+function responsiveScreen(callback){
   $(window).resize(function(){
     const resizeWidth = $(window).width();
     callback(resizeWidth);
@@ -12,7 +19,7 @@ export function responsiveScreen(callback){
 }
 
 // a링크 동작 제어
-export function emptyLinkLock(){
+function emptyLinkLock(){
   $('a[href="#"]').click(function(event){
     event.preventDefault();
   });
