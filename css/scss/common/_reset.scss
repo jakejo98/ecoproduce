@@ -93,6 +93,9 @@ video {
   vertical-align: middle;
 }
 /* HTML5 display-role reset for older browsers */
+html {
+  scroll-behavior: smooth;
+}
 article,
 aside,
 details,

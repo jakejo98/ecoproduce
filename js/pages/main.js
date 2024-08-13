@@ -1,7 +1,6 @@
 export function initMainPage(){
   countdownTimer();
   changeEventProductTab();
-  changeStoryTab();
 }
 
 // 카운트다운 타이머 이벤트(공통)
@@ -55,43 +54,5 @@ function changeEventProductTab (){
     $(eventList).eq(eventId).siblings().attr('aria-hidden', 'true');
   })
 }
-
-// 스토리 페이지 탭 변경 이벤트
-function changeStoryTab(){
-  const tabBtn = $('.section_story .type_capsule_v2 .common_tab_btn');
-  const tabItem = $('.section_story .type_title_v1 .common_tab_item');
-  const headingTit = $('.section_story .type_title_v1 .common_tab_item .section_heading');
-  const tabBox = $('.section_story .story_tab_box');
-  const storyBtn = $('.section_story .story_tab_box .type_addview_v2');
-  const storyScroll = $('.section_story .story_tab_box .product_grid_list');
-  const disBtn = 'disabled';
-
-  $(tabBtn).click(function(){
-    const tabId = $(this).parent().index();
-    const expandedItem = $('.section_story .expanded_item');
-
-    // 탭 버튼
-    $(this).attr('aria-selected', 'true');
-    $(this).parent().siblings().children(tabBtn).attr('aria-selected', 'false');
-
-    // 탭 헤딩
-    $(tabItem).eq(tabId).children(headingTit).attr('aria-selected', 'true');
-    $(tabItem).eq(tabId).siblings().children(headingTit).attr('aria-selected', 'false');
-    
-    // 리스트
-    $(tabBox).eq(tabId).attr('aria-hidden', 'false');
-    $(tabBox).eq(tabId).siblings().attr('aria-hidden', 'true');
-
-    // 탭 변경시 더 보기 버튼 초기화
-    $(storyBtn).removeClass(disBtn);
-
-    // 탭 변경시 확장 리스트 초기화
-    $(expandedItem).remove();
-
-    // 탭 변경시 가로 스크롤 초기화
-    $(storyScroll).scrollLeft(0);
-  })
-}
-
 
 

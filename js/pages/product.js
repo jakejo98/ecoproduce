@@ -65,7 +65,7 @@ function changeProductTab(){
     // 상단 거리 만큼 이동
     setTimeout(function(){
       $(window).scrollTop(stickyTop)
-    }, 0)
+    }, 100)
   });
 }
 

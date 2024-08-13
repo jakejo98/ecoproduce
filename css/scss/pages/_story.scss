@@ -61,9 +61,17 @@
           &[aria-hidden="true"] {
             display: none;
           }
-          & .product_grid_list {
-            &.is-fixed {
-              overflow-x: hidden;
+          &.producer_box {
+            & .product_grid_list {
+              & .product_grid_item {
+                & .product_grid_link {
+                  & .product_info {
+                    & .info {
+                      margin-bottom: 0px;
+                    }
+                  }
+                }
+              }
             }
           }
         }
