@@ -1,10 +1,11 @@
 
-
-export function review(){
-  reviewHorizontalScroll();
-  reviewAddview();
+$(document).ready(function(){
+  appendCustomer();
+  initAppendCustomer();
   customerCheckDisplay();
-}
+  customerHorizontalScroll();
+  customerAddview();
+})
 
 let customerDisplayValue = '';
 let customerCount = 0;
@@ -23,10 +24,9 @@ function customerCheckDisplay() {
 }
 
 // 스토리 페이지 가로 스크롤 도달 시 추가 글 활성화
-function reviewHorizontalScroll() {
+function customerHorizontalScroll() {
   const customerCont = $('.section_story .story_tab_box.customer_box .product_grid_list');
-  const fixPage = $('body');
-  const fix = 'is-fixed';
+  const isFixed = 'is-fixed';
 
   // 스크롤 왼쪽 값 구하는 함수
   function updateCustomerScrollLeft() {
@@ -54,11 +54,11 @@ function reviewHorizontalScroll() {
     if(customerScrollLeft + customerWidth >= customerScrollWidth && customerCount < 2) {
       customerCount++;
       // 스크롤 일시적으로 정지
-      $(fixPage).addClass(fix);
+      $(customerCont).addClass(isFixed);
       // 지정 시간 이후 리스트 추가로 보여줌
       setTimeout(function(){
         appendCustomer();
-        $(fixPage).removeClass(fix);
+        $(customerCont).removeClass(isFixed);
       }, 100);
       // 리스트 추가 후 변수 값 업데이트
       customerScrollLeft = updateCustomerScrollLeft();
@@ -74,7 +74,7 @@ function reviewHorizontalScroll() {
 }
 
 // 리뷰 더 보기
-function reviewAddview(){
+function customerAddview(){
   const addviewBtn = $('.section_story .customer_box .type_addview_v2');
   const disBtn = 'disabled'
   
@@ -87,6 +87,13 @@ function reviewAddview(){
   })
 }
 
+// 기본 제공 소비자 리뷰
+function initAppendCustomer(){
+  const item = $('.section_story .customer_box .product_grid_item')
+  const basicItem = 'expanded_item'
+  $(item).slice(0, 8).removeClass(basicItem);
+}
+
 // 내용 추가 해주는 함수
 function appendCustomer() {
   const customerData = [
@@ -96,7 +103,7 @@ function appendCustomer() {
       weight: "[1kg / 5개]",
       reviewCount: 666,
       grade: 5.0,
-      reviewText: "중간 유통 과정을 거치지 않아서인지, 같은 품질의 농산물을 마트에서 사는 것보다 저렴하게 살 수 있었습니다. 물론 일부 품목에",
+      reviewText: "중간 유통 과정을 거치지 않아서인지, 같은 품질의 농산물을 마트에서 사는 것보다 저렴하게 살 수 있었습니다. 물론 일부 품목에 글자가 길어지는 경우 3줄로 정리합니다.",
       reviewer: "조재****",
       reviewDate: "2024.05.23"
     },
@@ -106,7 +113,7 @@ function appendCustomer() {
       weight: "[1kg]",
       reviewCount: 500,
       grade: 5.0,
-      reviewText: "방울토마토의 신선도는 정말 놀라웠습니다. 껍질이 얇고 매끈하며, 크기도 고르게 잘 자라 있었습니다. 생으로 먹어보니, 방울토마토가",
+      reviewText: "방울토마토의 신선도는 정말 놀라웠습니다. 껍질이 얇고 매끈하며, 크기도 고르게 잘 자라 있었습니다. 생으로 먹어보니, 방울토마토가 글자가 길어지는 경우 3줄로 정리합니다.",
       reviewer: "조재****",
       reviewDate: "2024.05.23"
     },
@@ -116,7 +123,7 @@ function appendCustomer() {
       weight: "[2kg]",
       reviewCount: 310,
       grade: 5.0,
-      reviewText: "양파를 꺼내서 바로 요리해 보았습니다. 생으로 샐러드에 넣어도 좋고, 볶아서 다양한 요리에 활용할 수 있었습니다. 햇양파",
+      reviewText: "양파를 꺼내서 바로 요리해 보았습니다. 생으로 샐러드에 넣어도 좋고, 볶아서 다양한 요리에 활용할 수 있었습니다. 햇양파 글자가 길어지는 경우 3줄로 정리합니다.",
       reviewer: "조재****",
       reviewDate: "2024.05.23"
     },
@@ -126,7 +133,7 @@ function appendCustomer() {
       weight: "[5kg]",
       reviewCount: 807,
       grade: 5.0,
-      reviewText: "고구마의 신선도는 정말 놀라웠습니다. 껍질이 얇고 매끈했으며, 크기도 고르게 잘 자라 있었습니다. 첫 번째로 찜을 해봤는데",
+      reviewText: "고구마의 신선도는 정말 놀라웠습니다. 껍질이 얇고 매끈했으며, 크기도 고르게 잘 자라 있었습니다. 첫 번째로 찜을 해봤는데 글자가 길어지는 경우 3줄로 정리합니다.",
       reviewer: "조재****",
       reviewDate: "2024.05.23"
     }

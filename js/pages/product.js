@@ -2,6 +2,7 @@ import { loadFile } from "/ecoproduce/js/common/include.js";
 
 $(document).ready(function(){
   loadFile(function(){
+    appendProduct();
     changeProductTab();
     activeStickTab();
     productSortDropdown();
@@ -68,10 +69,9 @@ function changeProductTab(){
     }
 
     // 상단 거리 만큼 이동
-    $(window).scrollTop(stickyTop)
-
-    // 탭 변경시 확장 아이템 삭제
-    $(expandedItem).remove();
+    setTimeout(function(){
+      $(window).scrollTop(stickyTop)
+    }, 0)
   });
 }
 
@@ -150,16 +150,14 @@ function productScroll(){
   $(tabBtn).click(function(){
     $(expandedItem).remove();
   })
-
-  function updateisToolber(){
+  // 툴바 유무 확인
+  function updateIsToolber(){
     if($(toolbar).css('display') === 'block'){
       toolbarHeight = $(toolbar).outerHeight();
     } else {
       toolbarHeight = 0;
     }
-    console.log(toolbarHeight)
   }
-
   // 요소 top 값 구하는 함수
   function updateProductTop(){
     if(isProductTabBox){
@@ -169,7 +167,14 @@ function productScroll(){
       productTabBoxTop = null;
     }
   }
-
+  // 요소 높이 값 구하는 함수
+  function updateProductHeight(){
+    if(isProductTabBox){
+      productTabBoxHeight = $(productTabBox).outerHeight();
+    } else {
+      productTabBoxHeight = null;
+    }
+  }
 
   $(window).scroll(function(){
   // 윈도우 스크롤 값 구하는 함수
@@ -180,38 +185,30 @@ function productScroll(){
   function updateWindowHeight(){
     windowHeight = $(window).height();
   }
-  // 요소 높이 값 구하는 함수
-  function updateProductHeight(){
-    if(isProductTabBox){
-      productTabBoxHeight = $(productTabBox).outerHeight();
-    } else {
-      productTabBoxHeight = null;
-    }
-  }
-    // 스크롤시 요소 top 값
-    updateProductTop();
-    // 스크롤시 윈도우 top 값
-    updateWindowTop();
-    // 스크롤시 윈도우 높이 값
-    updateWindowHeight();
-    // 스크롤시 요소 높이 값
-    updateProductHeight();
 
-  $(window).resize(function(){
-    updateWindowTop();
-    updateWindowHeight();
-    updateProductHeight();
-  })
+  updateIsToolber();
+  updateProductTop();
+  updateWindowTop();
+  updateWindowHeight();
+  updateProductHeight();
+
+  // $(window).resize(function(){
+  //   updateWindowTop();
+  //   updateWindowHeight();
+  //   updateProductHeight();
+  // })
 
   windowValue = windowTop + windowHeight;
-  productTabBoxValue = productTabBoxTop + productTabBoxHeight + toolbarHeight + 60;
-
+  productTabBoxValue = productTabBoxTop + productTabBoxHeight + toolbarHeight;
+  
+  console.log(productTabBoxHeight);
+  
   if(windowValue >= productTabBoxValue) {
-    $(fixPage).addClass('is-fixed');
+    $(fixPage).addClass(isFixed);
     $(dim).attr('aria-hidden', 'false');
 
     setTimeout(function(){
-      $(fixPage).removeClass('is-fixed');
+      $(fixPage).removeClass(isFixed);
       $(dim).attr('aria-hidden', 'true');
     }, 1500)
     appendProduct();

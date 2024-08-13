@@ -584,7 +584,7 @@
         }
         // 리뷰
         &.col3 {
-          overflow: scroll;
+          overflow-x: auto;
           flex-wrap: nowrap;
           width: 100%;
           &::-webkit-scrollbar {
@@ -762,7 +762,7 @@
               & .product_review {
                 padding: 10px 0px;
                 & .post {
-                  @include ellipsis-multi(100%, 60px, 3);
+                  @include ellipsis-multi(100%, 54px, 3);
                   margin-bottom: 10px;
                   font-size: 12px;
                   line-height: 18px;
@@ -836,7 +836,7 @@
         }
         // 리뷰
         &.col3 {
-          overflow: scroll;
+          overflow-x: auto;
           flex-wrap: nowrap;
           width: 100%;
           &::-webkit-scrollbar {

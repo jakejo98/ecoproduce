@@ -55,12 +55,16 @@
     &.section_story {
       & .product_grid {
         & .story_tab_box {
-
           &[aria-hidden="false"] {
             display: block;
           }
           &[aria-hidden="true"] {
             display: none;
+          }
+          & .product_grid_list {
+            &.is-fixed {
+              overflow-x: hidden;
+            }
           }
         }
       }
