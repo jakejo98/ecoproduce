@@ -1,14 +1,9 @@
-import { loadFile } from "/ecoproduce/js/common/include.js";
-
-$(document).ready(function(){
-  loadFile(function(){
-    appendProduct();
-    changeProductTab();
-    activeStickTab();
-    productSortDropdown();
-    productScroll();
-  })
-})
+export function initProductPage(){
+  appendProduct();
+  changeProductTab();
+  activeStickTab();
+  productSortDropdown();
+}
 
 // 상품 페이지 탭 변경 이벤트(공통)
 function changeProductTab(){
@@ -36,7 +31,6 @@ function changeProductTab(){
 
   $(tabBtn).click(function() {
     const tabId = $(this).parent().index();
-    const expandedItem = $('.section_product_page .expanded_item')
     // 탭 버튼
     $(this).parent().children(tabBtn).attr("aria-selected", "true");
     $(this).parent().siblings().children(tabBtn).attr("aria-selected", "false");
@@ -129,93 +123,7 @@ function productSortDropdown(){
     $(dropdownList).attr('aria-hidden', 'true');
   })
 }
-  
-function productScroll(){
-  const tabBtn = $(".section_product_page .common_tab_list .common_tab_btn");
-  const expandedItem = $('.section_product_page .expanded_item');
-  const productTabBox = $('.section_product_page .product_grid .product_tab_box');
-  const isProductTabBox = $('.section_product_page .product_grid .product_tab_box').length;
-  const toolbar = $('.toolbar'); 
-  const fixPage = $('body');
-  const isFixed = 'is-fixed';
-  const dim = $('#dimmed');
-  let toolbarHeight = 0;
-  let windowValue = 0;
-  let windowTop = 0;
-  let windowHeight = 0;
-  let productTabBoxValue = 0;
-  let productTabBoxTop = 0;
-  let productTabBoxHeight = 0;
 
-  $(tabBtn).click(function(){
-    $(expandedItem).remove();
-  })
-  // 툴바 유무 확인
-  function updateIsToolber(){
-    if($(toolbar).css('display') === 'block'){
-      toolbarHeight = $(toolbar).outerHeight();
-    } else {
-      toolbarHeight = 0;
-    }
-  }
-  // 요소 top 값 구하는 함수
-  function updateProductTop(){
-    if(isProductTabBox){
-      // Sticky 높이 값 만큼 값 재설정
-      productTabBoxTop = $(productTabBox).offset().top;
-    } else {
-      productTabBoxTop = null;
-    }
-  }
-  // 요소 높이 값 구하는 함수
-  function updateProductHeight(){
-    if(isProductTabBox){
-      productTabBoxHeight = $(productTabBox).outerHeight();
-    } else {
-      productTabBoxHeight = null;
-    }
-  }
-
-  $(window).scroll(function(){
-  // 윈도우 스크롤 값 구하는 함수
-  function updateWindowTop(){
-    windowTop = $(window).scrollTop();
-  }
-  // 윈도우 높이 값 구하는 함수
-  function updateWindowHeight(){
-    windowHeight = $(window).height();
-  }
-
-  updateIsToolber();
-  updateProductTop();
-  updateWindowTop();
-  updateWindowHeight();
-  updateProductHeight();
-
-  // $(window).resize(function(){
-  //   updateWindowTop();
-  //   updateWindowHeight();
-  //   updateProductHeight();
-  // })
-
-  windowValue = windowTop + windowHeight;
-  productTabBoxValue = productTabBoxTop + productTabBoxHeight + toolbarHeight;
-  
-  console.log(productTabBoxHeight);
-  
-  if(windowValue >= productTabBoxValue) {
-    $(fixPage).addClass(isFixed);
-    $(dim).attr('aria-hidden', 'false');
-
-    setTimeout(function(){
-      $(fixPage).removeClass(isFixed);
-      $(dim).attr('aria-hidden', 'true');
-    }, 1500)
-    appendProduct();
-  }
-  })
-}
-  
 // 내용 추가해주는 함수
 function appendProduct() {
   const productData = {
@@ -342,12 +250,12 @@ function appendProduct() {
   };
 
   const productSections = [
-    { category: 'entire', containerSelector: '.product_tab_box.entire_box .product_grid_list', repeatCount: 5 },
-    { category: 'vegetable', containerSelector: '.product_tab_box.vegetables_box .product_grid_list', repeatCount: 20 },
-    { category: 'fruit', containerSelector: '.product_tab_box.fruits_box .product_grid_list', repeatCount: 20 },
-    { category: 'mushroom', containerSelector: '.product_tab_box.mushroom_box .product_grid_list', repeatCount: 20 },
-    { category: 'grain', containerSelector: '.product_tab_box.grains_box .product_grid_list', repeatCount: 20 },
-    { category: 'organic', containerSelector: '.product_tab_box.organic_box .product_grid_list', repeatCount: 20 }
+    { category: 'entire', containerSelector: '.product_tab_box.entire_box .product_grid_list', repeatCount: 15 },
+    { category: 'vegetable', containerSelector: '.product_tab_box.vegetables_box .product_grid_list', repeatCount: 60 },
+    { category: 'fruit', containerSelector: '.product_tab_box.fruits_box .product_grid_list', repeatCount: 60 },
+    { category: 'mushroom', containerSelector: '.product_tab_box.mushroom_box .product_grid_list', repeatCount: 60 },
+    { category: 'grain', containerSelector: '.product_tab_box.grains_box .product_grid_list', repeatCount: 60 },
+    { category: 'organic', containerSelector: '.product_tab_box.organic_box .product_grid_list', repeatCount: 60 }
   ];
 
   productSections.forEach(section => {
@@ -402,3 +310,4 @@ function appendProduct() {
     $(containerSelector).append(productContent);
   });
 }
+

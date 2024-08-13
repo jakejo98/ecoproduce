@@ -57,9 +57,9 @@ function customerHorizontalScroll() {
       $(customerCont).addClass(isFixed);
       // 지정 시간 이후 리스트 추가로 보여줌
       setTimeout(function(){
-        appendCustomer();
         $(customerCont).removeClass(isFixed);
       }, 100);
+      appendCustomer();
       // 리스트 추가 후 변수 값 업데이트
       customerScrollLeft = updateCustomerScrollLeft();
       customerScrollWidth = updateCustomerScrollWidth();

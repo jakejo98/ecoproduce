@@ -84,6 +84,7 @@
             & .product_grid_item {
               width: calc((100% - 60px) / 4);
               margin-bottom: 70px;
+              height: auto;
               &:not(:nth-of-type(4n)) {
                 margin-right: 20px;
               }
@@ -181,6 +182,7 @@
           & .product_grid_item {
             width: calc((100% - 20px) / 2);
             margin-bottom: 70px;
+            height: auto;
             &:not(:nth-of-type(2n)) {
               margin-right: 20px;
             }
@@ -274,6 +276,7 @@
             & .product_grid_item {
               width: calc((100% - 20px) / 2);
               margin-bottom: 70px;
+              height: auto;
               &:not(:nth-of-type(2n)) {
                 margin-right: 20px;
               }

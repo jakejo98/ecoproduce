@@ -2,7 +2,8 @@ import { loadFile } from "/ecoproduce/js/common/include.js";
 import { reset } from "/ecoproduce/js/common/reset.js";
 import { headerCommon, headerDesktop, headerRespond } from "/ecoproduce/js/common/header.js";
 import { toolbarRespond } from "/ecoproduce/js/common/toolbar.js";
-import { mainFunc } from "/ecoproduce/js/pages/main.js";
+import { initMainPage } from "/ecoproduce/js/pages/main.js";
+import { initProductPage } from "/ecoproduce/js/pages/product.js";
 
 // 화면 크기에 따른 레이아웃 업데이트 함수
 function checkLayout(width) {
@@ -20,7 +21,8 @@ $(document).ready(function() {
   loadFile(function() {
     // 공통 기능 초기화
     headerCommon();
-    mainFunc();
+    initMainPage();
+    initProductPage();
     
     // 초기화 및 화면 크기 처리
     reset(checkLayout);

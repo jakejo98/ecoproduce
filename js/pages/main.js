@@ -1,4 +1,4 @@
-export function mainFunc(){
+export function initMainPage(){
   countdownTimer();
   changeEventProductTab();
   changeStoryTab();
