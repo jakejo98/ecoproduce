@@ -23,7 +23,7 @@
   <script type="module" src="/ecoproduce/js/pages/product.js"></script>
 </head>
 <body>
-  <div id="dimmed">
+  <div id="dimmed" aria-hidden="true">
     <div class="loader"></div>
   </div>
   <div id="common_container"> 
@@ -34,7 +34,7 @@
         <div class="section_heading">
           <h2 class="section_title">농산물</h2>
           <nav class="section_breadcrumbes">
-            <ol class="section_breadcrumbes_list">
+            <ol class="section_breadcrumbes_list" aria-selected="true">
               <li class="section_breadcrumbes_item">
                 <span class="common_icon ty_sm icon_home">
                   <span class="blind">홈</span>
@@ -43,6 +43,56 @@
               <li class="section_breadcrumbes_item">전체상품</li>
               <li class="section_breadcrumbes_item">농산물</li>
               <li class="section_breadcrumbes_item current_list">전체</li>
+            </ol>
+            <ol class="section_breadcrumbes_list" aria-selected="false">
+              <li class="section_breadcrumbes_item">
+                <span class="common_icon ty_sm icon_home">
+                  <span class="blind">홈</span>
+                </span>
+              </li>
+              <li class="section_breadcrumbes_item">전체상품</li>
+              <li class="section_breadcrumbes_item">농산물</li>
+              <li class="section_breadcrumbes_item current_list">채소</li>
+            </ol>
+            <ol class="section_breadcrumbes_list" aria-selected="false">
+              <li class="section_breadcrumbes_item">
+                <span class="common_icon ty_sm icon_home">
+                  <span class="blind">홈</span>
+                </span>
+              </li>
+              <li class="section_breadcrumbes_item">전체상품</li>
+              <li class="section_breadcrumbes_item">농산물</li>
+              <li class="section_breadcrumbes_item current_list">과일</li>
+            </ol>
+            <ol class="section_breadcrumbes_list" aria-selected="false">
+              <li class="section_breadcrumbes_item">
+                <span class="common_icon ty_sm icon_home">
+                  <span class="blind">홈</span>
+                </span>
+              </li>
+              <li class="section_breadcrumbes_item">전체상품</li>
+              <li class="section_breadcrumbes_item">농산물</li>
+              <li class="section_breadcrumbes_item current_list">버섯</li>
+            </ol>
+            <ol class="section_breadcrumbes_list" aria-selected="false">
+              <li class="section_breadcrumbes_item">
+                <span class="common_icon ty_sm icon_home">
+                  <span class="blind">홈</span>
+                </span>
+              </li>
+              <li class="section_breadcrumbes_item">전체상품</li>
+              <li class="section_breadcrumbes_item">농산물</li>
+              <li class="section_breadcrumbes_item current_list">곡물</li>
+            </ol>
+            <ol class="section_breadcrumbes_list" aria-selected="false">
+              <li class="section_breadcrumbes_item">
+                <span class="common_icon ty_sm icon_home">
+                  <span class="blind">홈</span>
+                </span>
+              </li>
+              <li class="section_breadcrumbes_item">전체상품</li>
+              <li class="section_breadcrumbes_item">농산물</li>
+              <li class="section_breadcrumbes_item current_list">유기농</li>
             </ol>
           </nav>
         </div>

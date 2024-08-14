@@ -3,6 +3,7 @@ $(document).ready(function(){
   appendCustomer();
   appendProducer();
   changeStoryTab();
+  storyHorizontalScroll();
   // storyAddview();
 })
 
@@ -32,6 +33,49 @@ function changeStoryTab() {
     $(contents).eq(tabId).attr('aria-hidden', 'false');
     $(contents).eq(tabId).siblings().attr('aria-hidden', 'true');
   });
+}
+
+function storyHorizontalScroll(){
+  const storyTabBox = $('.section_story .product_grid_list')
+  const customerTabBox = $('.section_story .customer_box');
+  const producerTabBox = $('.section_story .producer_box');
+  const appendCount = 0;
+
+  // PC
+  $(storyTabBox).scroll(function(){
+    let storyScrollLeft = $(storyTabBox).scrollLeft();
+    let storyWidth = $(storyTabBox).width();
+    let storyScrollWidth = $(storyTabBox[0]).prop('scrollWidth');
+    const tolerance = 1;
+    const isFixed = 'is-fixed';
+    
+    if (storyScrollLeft + storyWidth + tolerance >= storyScrollWidth) {
+      $(storyTabBox).addClass(isFixed)
+      setTimeout(function(){
+        $(storyTabBox).removeClass(isFixed);
+        appendCustomer();
+        appendProducer();
+      }, 500)
+    }
+  })
+
+  // Mobile
+  $(storyTabBox).on('touched', function(){
+    let storyScrollLeft = $(storyTabBox).scrollLeft();
+    let storyWidth = $(storyTabBox).width();
+    let storyScrollWidth = $(storyTabBox[0]).prop('scrollWidth');
+    const tolerance = 1;
+    const isFixed = 'is-fixed';
+
+    if (storyScrollLeft + storyWidth + tolerance >= storyScrollWidth) {
+      $(storyTabBox).addClass()
+      setTimeout(function(){
+        $(storyTabBox).removeClass(isFixed);
+        appendCustomer();
+        appendProducer();
+      }, 500)
+    }
+  })
 }
 
 // // 더 보기 버튼

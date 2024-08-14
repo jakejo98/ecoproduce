@@ -1,95 +1,80 @@
 export function initProductPage(){
   appendProduct();
-  changeProductTab();
-  activeStickTab();
+  stickyTab();
   productSortDropdown();
 }
 
 // 상품 페이지 탭 변경 이벤트(공통)
-function changeProductTab(){
-  const tabBtn = $(".section_product_page .common_tab_list .common_tab_btn");
-  const stickyTab = $('.section_product_page .common_tab.type_line_v1');
-  const isStickyTab = $('.section_product_page .common_tab.type_line_v1').length;
-  const tabList = $(".section_product_page .product_grid .product_tab_box");
-  const currentText = $(".section_product_page .section_breadcrumbes .section_breadcrumbes_item.current_list");
-  let stickyTop = 0;
+function stickyTab(){
+  const stickyTab = $('.section_product_page .type_line_v1');
+  const isStickyTab = $('.section_product_page .type_line_v1').length;
+  const bread = $('.section_product_page .section_breadcrumbes_list')
+  const item = $('.section_product_page .type_line_v1 .common_tab_item');
+  const tabBtn = $('.section_product_page .type_line_v1 .common_tab_btn');
+  const filter = $('.section_product_page .product_filter');
+  const productBox = $('.section_product_page .product_tab_box');
+  const dimmed = $('#dimmed');
+  const fixPage = $('body');
+  const isFixed = 'is-fixed'
+  let stickyTabTop = 0;
+  let initStickyTabTop = 0;
+  let windowScroll = 0;
+  const isSticky = 'sticky';
 
-  function updateStickyTop() {
-    if (isStickyTab) {
-    // .product_filter 부분까지 보여주기 위해 -1 적용
-    stickyTop = $(stickyTab).offset().top - 1;
+  // sticky Top
+  function updateStickyTop(){
+    if (isStickyTab){
+      stickyTabTop = $(stickyTab).offset().top;
     } else {
-      stickyTop = null;
+      stickyTabTop = 0;
     }
   }
-  // 초기 top 값
+  // window Top
+  function updateWindowTop(){
+    windowScroll = $(window).scrollTop();
+  }
+
   updateStickyTop();
-  // 너비 변경 시 top 값
-  $(window).resize(function(){
+  initStickyTabTop = stickyTabTop;
+
+  $(window).resize(function() {
     updateStickyTop();
+  });
+
+  $(tabBtn).click(function(){
+    $(dimmed).attr('aria-hidden', 'false');
+    $(fixPage).addClass(isFixed);
+  
+    setTimeout(function(){
+      $(dimmed).attr('aria-hidden', 'true');
+      $(fixPage).removeClass(isFixed);
+      $(window).scrollTop(stickyTabTop);
+    }, 1000);
+  
+    const tabId = $(this).parent().index();
+    $(bread).eq(tabId).attr('aria-selected', 'true');
+    $(bread).eq(tabId).siblings().attr('aria-selected', 'false');
+    $(item).eq(tabId).children(tabBtn).attr('aria-selected', 'true');
+    $(item).eq(tabId).siblings().children(tabBtn).attr('aria-selected', 'false');
+    $(productBox).eq(tabId).attr('aria-hidden', 'false');
+    $(productBox).eq(tabId).siblings().attr('aria-hidden', 'true');
   })
 
-  $(tabBtn).click(function() {
-    const tabId = $(this).parent().index();
-    // 탭 버튼
-    $(this).parent().children(tabBtn).attr("aria-selected", "true");
-    $(this).parent().siblings().children(tabBtn).attr("aria-selected", "false");
-
-    // 탭 버튼 상품 리스트
-    $(tabList).eq(tabId).attr("aria-hidden", "false");
-    $(tabList).eq(tabId).siblings().attr("aria-hidden", "true");
-
-    // 탭 현재 페이지 텍스트 변경
-    switch(tabId) {
-      case 0:
-        $(currentText).text("전체");
-        break;
-      case 1:
-        $(currentText).text("채소");
-        break;
-      case 2:
-        $(currentText).text("과일");
-        break;
-      case 3:
-        $(currentText).text("버섯");
-        break;
-      case 4:
-        $(currentText).text("곡물");
-        break;
-      case 5:
-        $(currentText).text("유기농");
-        break;
-      default:
-    }
-
-    // 상단 거리 만큼 이동
-    setTimeout(function(){
-      $(window).scrollTop(stickyTop)
-    }, 100)
-  });
-}
-
-// Sticky 탭 메뉴
-function activeStickTab(){
-  const stickyTab = $('.section_product_page .common_tab.type_line_v1')
-  const isStickyTab = $('.section_product_page .common_tab.type_line_v1').length;
-  const act = 'sticky'
-  let stickyTop = 0;
-
-  if(isStickyTab) {
-    stickyTop = $(stickyTab).offset().top;
-  } else {
-    stickyTop = null;
-  }
-  
   $(window).scroll(function(){
-    // 스크롤 시 거리를 가져오기
-    const scrollTop = $(window).scrollTop();
+    updateWindowTop();
+    updateStickyTop();
 
-    if(scrollTop >= stickyTop) {
-      $(stickyTab).addClass(act);
+    // 스크롤 시 stickyTabTop값이 변화가 있어도 원래 초기값으로 고정함
+    if (initStickyTabTop !== stickyTabTop) {
+      stickyTabTop = initStickyTabTop;
+    }
+    // 일정 스크롤 도달 시 sticky 활성화
+    if(windowScroll >= stickyTabTop) {
+      $(stickyTab).addClass(isSticky);
+      $(filter).addClass(isSticky)
     } else {
-      $(stickyTab).removeClass(act);
+      $(stickyTab).removeClass(isSticky);
+      $(filter).removeClass(isSticky)
     }
   })
 }
@@ -250,12 +235,12 @@ function appendProduct() {
   };
 
   const productSections = [
-    { category: 'entire', containerSelector: '.product_tab_box.entire_box .product_grid_list', repeatCount: 15 },
-    { category: 'vegetable', containerSelector: '.product_tab_box.vegetables_box .product_grid_list', repeatCount: 60 },
-    { category: 'fruit', containerSelector: '.product_tab_box.fruits_box .product_grid_list', repeatCount: 60 },
-    { category: 'mushroom', containerSelector: '.product_tab_box.mushroom_box .product_grid_list', repeatCount: 60 },
-    { category: 'grain', containerSelector: '.product_tab_box.grains_box .product_grid_list', repeatCount: 60 },
-    { category: 'organic', containerSelector: '.product_tab_box.organic_box .product_grid_list', repeatCount: 60 }
+    { category: 'entire', containerSelector: '.product_tab_box.entire_box .product_grid_list', repeatCount: 5 },
+    { category: 'vegetable', containerSelector: '.product_tab_box.vegetables_box .product_grid_list', repeatCount: 20 },
+    { category: 'fruit', containerSelector: '.product_tab_box.fruits_box .product_grid_list', repeatCount: 20 },
+    { category: 'mushroom', containerSelector: '.product_tab_box.mushroom_box .product_grid_list', repeatCount: 20 },
+    { category: 'grain', containerSelector: '.product_tab_box.grains_box .product_grid_list', repeatCount: 20 },
+    { category: 'organic', containerSelector: '.product_tab_box.organic_box .product_grid_list', repeatCount: 20 }
   ];
 
   productSections.forEach(section => {

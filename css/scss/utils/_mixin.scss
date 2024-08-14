@@ -37,6 +37,16 @@
   z-index: $z-index;
 }
 
+/* 스티키 */
+@mixin sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  border-bottom: 1px solid map-get($color-line, grey-02);
+}
+
 /* 툴바 */
 @mixin toolbar {
   position: fixed;
@@ -91,7 +101,7 @@
   background-color: map-get($color-background, white-02);
 }
 
-/* 말줄임 */
+/* 말줄임 - 단수줄 */
 @mixin ellipsis-single($w) {
   overflow: hidden;
   display: block;
@@ -100,6 +110,7 @@
   white-space: nowrap;
 }
 
+/* 말줄임 - 복수줄 */
 @mixin ellipsis-multi($w,$h,$line) {
   overflow:hidden;
   display:-webkit-box;

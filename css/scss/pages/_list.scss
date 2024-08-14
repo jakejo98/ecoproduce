@@ -587,6 +587,9 @@
           overflow-x: auto;
           flex-wrap: nowrap;
           width: 100%;
+          &.is-fixed {
+            overflow-x: hidden;
+          }
           &::-webkit-scrollbar {
             display: none;
           }
@@ -839,6 +842,9 @@
           overflow-x: auto;
           flex-wrap: nowrap;
           width: 100%;
+          &.is-fixed {
+            overflow-x: hidden;
+          }
           &::-webkit-scrollbar {
             display: none;
           }
