@@ -4,7 +4,6 @@ export function headerCommon(){
 
 export function headerDesktop(){
   headerGnbCategory();
-  imgBoxBtnHover();
 }
 
 export function headerRespond(){
@@ -16,12 +15,9 @@ export function headerRespond(){
 function changeGnbAria() {
   const logoBtn = $('.common_header .logo a');
   const headerGnbItem = $('.common_header .header_gnb_item');
-  const headerGnbBtn = $('.common_header .header_gnb_link');
   let currentUrl = window.location.pathname;
   let fileName = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
   
-  $(logoBtn).add(headerGnbBtn).removeAttr('aria-current'); 
-
   switch(fileName) {
     case 'index.html':
       $(logoBtn).attr('aria-current', 'page');
@@ -109,27 +105,6 @@ function headerGnbCategory(){
     }
   })
 }
-
-// 이미지 박스 버튼 (PC)
-function imgBoxBtnHover(){
-  const btn = $(".shopping_btn");
-  const btnAct = "active";
-  const btnIcon = $(".shopping_btn .common_icon");
-  const iconDis = "icon_shopping_primary";
-  const iconAct = "icon_shopping_white";
-
-  $(btn).mouseenter(function () {
-    $(this).addClass(btnAct);
-    $(this).children(btnIcon).removeClass(iconDis).addClass(iconAct);
-  });
-
-  $(btn).mouseleave(function () {
-    $(this).removeClass(btnAct);
-    $(this).children(btnIcon).removeClass(iconAct).addClass(iconDis);
-  });
-}
-
-
 
 // 헤더 검색창 (Respond)
 function searchApp(){

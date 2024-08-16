@@ -1,67 +1,22 @@
 export function toolbarRespond(){
   toolbarApp();
-  toolbarAppCategory();
+  toolbarCategory();
+  toolbarCategoryGnbAria();
 }
 
 // 툴바
 function toolbarApp(){
-  const toolbarBtn = $('.toolbar .toolbar_list .toolbar_item .toolbar_btn');
-  const toolbarItem = $('.toolbar .toolbar_list .toolbar_item');
-  const toolbarAppCont = $('#app .common_app_container');
   const appClsBtn = $('#app .common_app_container .close_btn');
-  const fixPage = 'body';
   const resetPage = '/ecoproduce/index.html';
 
-  $(toolbarBtn).click(function(){
-
-    // 활성화 된 화면을 제외한 모든 화면 scroll 막기
-    $(fixPage).addClass('is-fixed')
-
-    // 툴바 버튼 인덱스 값
-    let btnId = $(this).parent().index();
-
-    // 툴바 컨텐츠 하면 인덱스값 (2번째 요소부터 시작하여 +1 추가)
-    let contId = $(this).parent().index() + 1
-
-    // 툴바 버튼 aria-current 제어
-    $(this).attr('aria-current', 'page');
-    $(this).parent().siblings().children(appClsBtn).attr('aria-current', 'false');
-
-    // 툴바 버튼 aria-expanded 제어
-    if(btnId != 2) {
-      // 인덱스 값이 2가 아닌 경우에만 해당 버튼에 맞는 화면 활성화
-      $(this).attr('aria-expanded', 'true');
-      $(this).parent().siblings().children(toolbarBtn).attr('aria-expanded', 'false');
-      $(toolbarItem).eq(2).children(toolbarBtn).removeAttr('aria-expanded');
-    } else {
-      // 인덱스 값이 2인 경우 메인페이지로 이동
-      window.location.href = resetPage;
-    }
-
-    // 홈 버튼(3번째 요소) 선택시 메인페이지로 이동
-    if(contId == 3) {
-      $(toolbarAppCont).attr('aria-hidden', 'true');
-      window.location.href = resetPage;
-      // Id값이 4보다 커지는 경우 중간에 메인페이지 버튼의 화면이 존재하지 않기 때문에 -1
-    }else if(contId >= 4){
-      contId -= 1;
-      $(toolbarAppCont).eq(contId).attr('aria-hidden', 'false');
-      $(toolbarAppCont).eq(contId).siblings().attr('aria-hidden', 'true');
-      // 툴바 버튼에 맞는 화면 활성화
-    } else {
-      $(toolbarAppCont).eq(contId).attr('aria-hidden', 'false');
-      $(toolbarAppCont).eq(contId).siblings().attr('aria-hidden', 'true');
-    }
-  })
-
-  // 툴바 콘텐츠 창 종료 시 메인페이지로 이동
+  // 카테고리 창 'x' 버튼 클릭시 메인페이지로 이동
   $(appClsBtn).click(function(){
     window.location.href = resetPage;
   })
 }
 
 // 툴바 카테고리 화면 제어
-function toolbarAppCategory(){
+function toolbarCategory(){
   const firstDepLink = $('#app .category_content .category_content_list.dep1 > .category_content_item > .category_content_link');
   const firstDepText = $('#app .category_content .category_content_list.dep1 > .category_content_item > .category_content_link > .category_content_text');
   const secondDep = $('.category_content_list.dep2');
@@ -96,4 +51,35 @@ function toolbarAppCategory(){
       }
     }
   })
+}
+
+function toolbarCategoryGnbAria() {
+  const toolbarItem = $('.toolbar .toolbar_item');
+  const toolbarLink = $('.toolbar .toolbar_link');
+  const toolbarIcon = $('.toolbar .common_icon');
+  let currentUrl = window.location.pathname;
+  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+
+  switch(fileName) {
+    case 'category.html':
+      $(toolbarItem).eq(0).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(0).find(toolbarIcon).removeClass('icon_toolbar_category_disabled').addClass('icon_toolbar_category_active');
+      break;
+    case 'call.html':
+      $(toolbarItem).eq(1).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(1).find(toolbarIcon).removeClass('icon_toolbar_call_disabled').addClass('icon_toolbar_call_active');
+      break;
+    case 'index.html':
+      $(toolbarItem).eq(2).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(2).find(toolbarIcon).removeClass('icon_toolbar_home_disabled').addClass('icon_toolbar_home_active');
+      break;
+    case 'order.html':
+      $(toolbarItem).eq(3).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(3).find(toolbarIcon).removeClass('icon_toolbar_order_disabled').addClass('icon_toolbar_order_active');
+      break;
+    case 'mypage.html':
+      $(toolbarItem).eq(4).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(4).find(toolbarIcon).removeClass('icon_toolbar_mypage_disabled').addClass('icon_toolbar_mypage_active');
+      break;
+  }
 }

@@ -32,7 +32,7 @@ body {
       &.section_card_benefit {
         padding-bottom: 100px;
       }
-      &.section_story {
+      &.section_story_page {
         & + .section_sns_banner {
           padding: 70px 0px 100px 0px;
         }
@@ -63,7 +63,7 @@ body {
       &.section_card_benefit {
         padding: 60px 20px 90px 20px;
       }
-      &.section_story {
+      &.section_story_page {
         padding: 60px 0px 0px 20px;
         & + .section_sns_banner {
           padding: 60px 20px 90px 20px;
@@ -95,7 +95,7 @@ body {
       &.section_card_benefit {
         padding: 50px 20px 80px 20px;
       }
-      &.section_story {
+      &.section_story_page {
         padding: 50px 0px 0px 20px;
         & + .section_sns_banner {
           padding: 50px 20px 80px 20px;

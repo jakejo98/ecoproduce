@@ -58,7 +58,7 @@
         color: map-get($color-type, grey-01);
       }
       & .section_link {
-        @include position(50%, 0px, null, null, null);
+        @include position(50%, 20px, null, null, null);
         display: flex;
         align-items: center;
         transform: translateY(-50%);
@@ -97,7 +97,7 @@
         color: map-get($color-type, grey-01);
       }
       & .section_link {
-        @include position(50%, 0px, null, null, null);
+        @include position(50%, 20px, null, null, null);
         display: flex;
         align-items: center;
         transform: translateY(-50%);

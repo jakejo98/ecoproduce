@@ -7,7 +7,6 @@ export function initProductPage(){
 // 상품 페이지 탭 변경 이벤트(공통)
 function stickyTab(){
   const stickyTab = $('.section_product_page .type_line_v1');
-  const isStickyTab = $('.section_product_page .type_line_v1').length;
   const bread = $('.section_product_page .section_breadcrumbes_list')
   const item = $('.section_product_page .type_line_v1 .common_tab_item');
   const tabBtn = $('.section_product_page .type_line_v1 .common_tab_btn');
@@ -16,27 +15,36 @@ function stickyTab(){
   const dimmed = $('#dimmed');
   const fixPage = $('body');
   const isFixed = 'is-fixed'
-  let stickyTabTop = 0;
-  let initStickyTabTop = 0;
-  let windowScroll = 0;
   const isSticky = 'sticky';
+  let stickyWidth = 0;
+  let stickyTabTop = 0;
+  let windowScroll = 0;
 
-  // sticky Top
-  function updateStickyTop(){
-    if (isStickyTab){
-      stickyTabTop = $(stickyTab).offset().top;
-    } else {
-      stickyTabTop = 0;
-    }
-  }
   // window Top
   function updateWindowTop(){
     windowScroll = $(window).scrollTop();
   }
 
+  // sticky Top
+  /* 
+  offset().top 메서드를 활용하여 동적으로 값을 구하려 했으나 모바일 기기에서 정상적으로 동작하지 않아
+  뷰포트에 맞춰 상수 값으로 계산
+  */
+  function updateStickyTop() {
+    stickyWidth = $(window).width();
+    if (stickyWidth > 1023) {
+      stickyTabTop = 311;
+    } else if (stickyWidth < 1024 && stickyWidth >= 768) {
+      stickyTabTop = 191;
+    } else {
+      stickyTabTop = 187;
+    }
+  }
+  
+  // 페이지 로드 시 업데이트
   updateStickyTop();
-  initStickyTabTop = stickyTabTop;
-
+  
+  // 창 크기 조절 시 업데이트
   $(window).resize(function() {
     updateStickyTop();
   });
@@ -62,12 +70,6 @@ function stickyTab(){
 
   $(window).scroll(function(){
     updateWindowTop();
-    updateStickyTop();
-
-    // 스크롤 시 stickyTabTop값이 변화가 있어도 원래 초기값으로 고정함
-    if (initStickyTabTop !== stickyTabTop) {
-      stickyTabTop = initStickyTabTop;
-    }
     // 일정 스크롤 도달 시 sticky 활성화
     if(windowScroll >= stickyTabTop) {
       $(stickyTab).addClass(isSticky);
@@ -77,6 +79,21 @@ function stickyTab(){
       $(filter).removeClass(isSticky)
     }
   })
+}
+
+function productVerticalScroll(){
+  function updateWidowHeight(){
+
+  }
+  function updateWindowScroll(){
+
+  }
+  function updateProductHeight(){
+
+  }
+  function updateProductTop(){
+    
+  }
 }
 
 // 상품 페이지 정렬 순 드롭다운 메뉴

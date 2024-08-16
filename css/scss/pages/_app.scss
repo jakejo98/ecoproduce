@@ -1,15 +1,12 @@
 @media screen and (max-width: 1023px) {
   #app {
     & .common_app_container {
-      @include respond-fixed(0px, null, null, 0px, 999);
-      display: none;
-      &[aria-hidden="false"] {
-        display: block;
-      }
       &.header_search_app {
         @include respond-fixed-full(0px, null, null, 0px, 1001);
-      }
-      &.header_search_app {
+        display: none;
+        &[aria-hidden="false"] {
+          display: block;
+        }
         & .search_header {
           @include inner;
           display: flex;

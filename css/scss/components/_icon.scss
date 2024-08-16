@@ -4,15 +4,20 @@ white_close /* 대형 흰색 "x" */
 plus /* 회원가입 아이콘 */
 delivery /* 무료배송 아이콘 */
 fish /* 수산물 아이콘 */
-menu /* 전체메뉴 */
+category /* 전체메뉴 */
 home /* 페이지 목차 */
 leaf /* 농산물 아이콘 */
-meat /* 축산물 아이콘 */
-toolbar_call /* nav 고객센터 */
-toolbar_home /* nav 홈 */
-toolbar_menu /* nav 카테고리 */
-toolbar_order /* nav 주문조회 */
-toolbar_mypage /* nav 마이페이지 */
+meat /* 축산물 아이콘 */ 
+toolbar_home_disabled /* nav 홈 - 비활성화*/
+toolbar_home_active /* nav 홈 - 활성화 */
+toolbar_category_disabled /* nav 카테고리 - 비활성화 */
+toolbar_call_disabled /* nav 고객센터 - 비활성화 */
+toolbar_order_disabled /* nav 주문조회 - 비활성화 */
+toolbar_mypage_disabled /* nav 마이페이지 - 비활성화 */
+toolbar_category_active /* nav 카테고리 - 활성화 */
+toolbar_call_active /* nav 고객센터 - 활성화 */
+toolbar_order_active /* nav 주문조회 - 활성화 */
+toolbar_mypage_active /* nav 마이페이지 - 활성화 */
 shopping_white /* 장바구니 - 흰색 */
 shopping_black /* 장바구니 - 검은색 */
 shopping_primary /* 장바구니 - 메인색 */

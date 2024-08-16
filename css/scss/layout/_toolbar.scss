@@ -5,18 +5,15 @@
       display: flex;
       & .toolbar_item {
         width: calc(100% / 5);
-        & .toolbar_btn {
+        // 툴바 홈버튼
+        & .toolbar_link {
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
           width: 100%;
           padding: 9px 0;
-          &[aria-current="page"] {
-            & .common_icon {
-              filter: brightness(0) saturate(100%) invert(57%) sepia(65%)
-                saturate(450%) hue-rotate(39deg) brightness(101%) contrast(95%);
-            }
+          &[aria-current="page"]{
             & .toolbar_text {
               color: map-get($color-main, color-primary);
             }

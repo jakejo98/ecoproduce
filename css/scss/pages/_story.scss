@@ -1,6 +1,6 @@
 @media screen and (min-width: 1024px) {
   .common_section {
-    &.section_story {
+    &.section_story_page {
       & .product_grid {
         & .story_tab_box {
           &.producer_box {
@@ -52,7 +52,7 @@
 
 @media screen and (max-width: 1023px) {
   .common_section {
-    &.section_story {
+    &.section_story_page {
       & .product_grid {
         & .story_tab_box {
           &[aria-hidden="false"] {

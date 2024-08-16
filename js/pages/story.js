@@ -1,14 +1,14 @@
 
-$(document).ready(function(){
+export function initStoryPage(){
   appendCustomer();
   appendProducer();
+  initAppend();
   changeStoryTab();
-  storyHorizontalScroll();
-  // storyAddview();
-})
+  customerHandler();
+  producerHandler();
+}
 
-let customerDisplayValue = '';
-let customerCount = 0;
+let appendCount = 0;
 
 // 탭 변경 감지시 count 초기화
 function changeStoryTab() {
@@ -16,81 +16,183 @@ function changeStoryTab() {
   const headingitem = $('.section_story .type_title_v1 .common_tab_item');
   const heading = $('section_story .type_title_v1 .common_tab_item .section_heading');
   const contents = $('.section_story .story_tab_box');
+  const contentsScroll = $('.section_story .story_tab_box .product_grid_list');
+  const addviewBtn = $('.section_story .type_addview_v2');
+  const disBtn = 'disabled'
   
   $(tabBtn).click(function() {
     // 인덱스 값
     const tabId = $(this).parent().index();
-
     // 버튼 변화
     $(this).attr('aria-selected', 'true');
     $(this).parent().siblings().children(tabBtn).attr('aria-selected', 'false');
-
     // 헤딩 변화
     $(headingitem).eq(tabId).children(heading).attr('aria-selected', 'true');
     $(headingitem).eq(tabId).siblings().children(heading).attr('aria-selected', 'false');
-
     // 컨텐츠 박스 변화
     $(contents).eq(tabId).attr('aria-hidden', 'false');
     $(contents).eq(tabId).siblings().attr('aria-hidden', 'true');
+    // 스크롤 초기화
+    $(contentsScroll).scrollLeft(0);
+    // 더 보기 버튼 초기화
+    $(addviewBtn).removeClass(disBtn);
+    // 확장된 리스트 초기화
+    $('.section_story .customer_box .expanded_item').remove();
+    $('.section_story .producer_box .expanded_item').remove();
+    // 카운트 초기화
+    appendCount = 0;
   });
 }
 
-function storyHorizontalScroll(){
-  const storyTabBox = $('.section_story .product_grid_list')
-  const customerTabBox = $('.section_story .customer_box');
-  const producerTabBox = $('.section_story .producer_box');
-  const appendCount = 0;
+// 소비자 리뷰
+function customerHandler(){
+  const customerScrollBox = $('.section_story .customer_box .product_grid_list')
+  const addviewBtn = $('.section_story .customer_box .type_addview_v2')
+  const disBtn = 'disabled';
+  const isFixed = 'is-fixed';
+  const tolerance = 1;
 
-  // PC
-  $(storyTabBox).scroll(function(){
-    let storyScrollLeft = $(storyTabBox).scrollLeft();
-    let storyWidth = $(storyTabBox).width();
-    let storyScrollWidth = $(storyTabBox[0]).prop('scrollWidth');
-    const tolerance = 1;
-    const isFixed = 'is-fixed';
-    
-    if (storyScrollLeft + storyWidth + tolerance >= storyScrollWidth) {
-      $(storyTabBox).addClass(isFixed)
+  // 요소 너비 값 구하는 함수
+  function updateWidth(){
+    return $(customerScrollBox).outerWidth();
+  }
+  // 요소 스크롤 움직인 거리 구하는 함수
+  function updateScrollLeft(){
+    return $(customerScrollBox).scrollLeft();
+  }
+  // 요소 스크롤 가능한 수 구히는 함수
+  function updateScrollWidth(){
+    return $(customerScrollBox).get(0).scrollWidth;
+  }
+
+  // 소비자 리뷰 스크롤 (PC)
+  $(customerScrollBox).scroll(function(){
+    let width = updateWidth();
+    let scrollWidth = updateScrollWidth();
+    let scrollLeft = updateScrollLeft();
+
+    if(scrollLeft + width + tolerance >= scrollWidth && appendCount < 2){
+      appendCount++;
+      $(customerScrollBox).addClass(isFixed);
       setTimeout(function(){
-        $(storyTabBox).removeClass(isFixed);
         appendCustomer();
-        appendProducer();
+        $(customerScrollBox).removeClass(isFixed);
+        $(addviewBtn).attr('aria-expanded', 'true')
       }, 500)
+    } else if(appendCount == 2){
+      $(addviewBtn).addClass(disBtn);
     }
   })
 
-  // Mobile
-  $(storyTabBox).on('touched', function(){
-    let storyScrollLeft = $(storyTabBox).scrollLeft();
-    let storyWidth = $(storyTabBox).width();
-    let storyScrollWidth = $(storyTabBox[0]).prop('scrollWidth');
-    const tolerance = 1;
-    const isFixed = 'is-fixed';
+  // 소비자 리뷰 스크롤 (모바일 기기)
+  $(customerScrollBox).on('touchend', function(){
+    let width = updateWidth();
+    let scrollWidth = updateScrollWidth();
+    let scrollLeft = updateScrollLeft();
 
-    if (storyScrollLeft + storyWidth + tolerance >= storyScrollWidth) {
-      $(storyTabBox).addClass()
+    if(scrollLeft + width + tolerance >= scrollWidth && appendCount < 2){
+      appendCount++;
+      $(customerScrollBox).addClass(isFixed);
       setTimeout(function(){
-        $(storyTabBox).removeClass(isFixed);
         appendCustomer();
-        appendProducer();
+        $(customerScrollBox).removeClass(isFixed);
+        $(addviewBtn).attr('aria-expanded', 'true')
       }, 500)
+    } else if(appendCount == 2){
+      $(addviewBtn).addClass(disBtn);
+    }
+  })
+
+  // 소비자 리뷰 더 보기
+  $(addviewBtn).click(function(){
+    appendCount++;
+    appendCustomer();
+    $(addviewBtn).attr('aria-expanded', 'true')
+    if(appendCount == 2){
+      $(addviewBtn).addClass(disBtn);
     }
   })
 }
 
-// // 더 보기 버튼
-// function storyAddview(){
-//   const addviewBtn = $('.section_story .customer_box .type_addview_v2');
-//   const disBtn = 'disabled'
-  
-//   $(addviewBtn).click(function(){
-//     customerCount++;
-//     if(customerCount == 2) {
-//       $(addviewBtn).addClass(disBtn);
-//     }
-//   })
-// }
+// 생산자 스토리
+function producerHandler(){
+  const producerScrollBox = $('.section_story .producer_box .product_grid_list')
+  const addviewBtn = $('.section_story .producer_box .type_addview_v2')
+  const disBtn = 'disabled';
+  const isFixed = 'is-fixed';
+  const tolerance = 1;
 
+  // 요소 너비 값 구하는 함수
+  function updateWidth(){
+    return $(producerScrollBox).outerWidth();
+  }
+  // 요소 스크롤 움직인 거리 구하는 함수
+  function updateScrollLeft(){
+    return $(producerScrollBox).scrollLeft();
+  }
+  // 요소 스크롤 가능한 수 구히는 함수
+  function updateScrollWidth(){
+    return $(producerScrollBox).get(0).scrollWidth;
+  }
+
+  // 생산자 스토리 스크롤 (PC)
+  $(producerScrollBox).scroll(function(){
+    let width = updateWidth();
+    let scrollWidth = updateScrollWidth();
+    let scrollLeft = updateScrollLeft();
+
+    if(scrollLeft + width + tolerance >= scrollWidth && appendCount < 2){
+      appendCount++;
+      $(producerScrollBox).addClass(isFixed);
+      setTimeout(function(){
+        appendProducer();
+        $(producerScrollBox).removeClass(isFixed);
+        $(addviewBtn).attr('aria-expanded', 'true')
+      }, 500)
+    } else if(appendCount == 2){
+      $(addviewBtn).addClass(disBtn);
+    }
+  })
+
+  // 생산자 스토리 스크롤 (모바일 기기)
+  $(producerScrollBox).on('touchend', function(){
+    let width = updateWidth();
+    let scrollWidth = updateScrollWidth();
+    let scrollLeft = updateScrollLeft();
+
+    if(scrollLeft + width + tolerance >= scrollWidth && appendCount < 2){
+      appendCount++;
+      $(producerScrollBox).addClass(isFixed);
+      setTimeout(function(){
+        appendProducer();
+        $(producerScrollBox).removeClass(isFixed);
+        $(addviewBtn).attr('aria-expanded', 'true')
+      }, 500)
+    } else if(appendCount == 2){
+      $(addviewBtn).addClass(disBtn);
+    }
+  })
+
+  // 생산자 스토리 더 보기
+  $(addviewBtn).click(function(){
+    appendCount++;
+    appendProducer();
+    $(addviewBtn).attr('aria-expanded', 'true')
+    if(appendCount == 2){
+      $(addviewBtn).addClass(disBtn);
+    }
+  })
+}
+
+// 기본 제공 리스트 초기화
+function initAppend(){
+  const customerItem = $('.section_story .customer_box .product_grid_item');
+  const producerItem = $('.section_story .producer_box .product_grid_item');
+  const expanded = 'expanded_item';
+
+  $(customerItem).slice(0, 8).removeClass(expanded);
+  $(producerItem).slice(0, 8).removeClass(expanded);
+}
 
 // 소비자 리뷰 내용 추가 함수
 function appendCustomer() {
