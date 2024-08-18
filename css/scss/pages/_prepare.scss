@@ -44,38 +44,40 @@
 }
 
 // 서브페이지 준비중인 페이지
-#common_container {
-  & .common_section {
-    &.section_prepare_page {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-top: 0px;
-      @media screen and (min-width: 1024px) {
-        height: calc(100vh - 161px);
-      }
-      @media screen and (min-width: 768px) and (max-width: 1023px){
-        height: calc(100vh - 60px);
-      }
-      @media screen and (max-width: 767px) {
-        height: calc(100vh - 50px);
-      }
-      & .prepare_message {
+.common_wrap {
+  & .common_container {
+    & .common_section {
+      &.section_prepare {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        & .main_message_text {
-          padding: 20px 0px;
-          font-weight: 700;
-          font-size: 30px;
+        padding-top: 0px;
+        @media screen and (min-width: 1024px) {
+          height: calc(100vh - 161px);
         }
-        & .sub_message_text {
-          display: block;
-          font-size: 14px;
-          line-height: 20px;
-          color: map-get($color-type, grey-01);
-          text-align: center;
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+          height: calc(100vh - 60px);
+        }
+        @media screen and (max-width: 767px) {
+          height: calc(100vh - 50px);
+        }
+        & .prepare_message {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          & .main_message_text {
+            padding: 20px 0px;
+            font-weight: 700;
+            font-size: 30px;
+          }
+          & .sub_message_text {
+            display: block;
+            font-size: 14px;
+            line-height: 20px;
+            color: map-get($color-type, grey-01);
+            text-align: center;
+          }
         }
       }
     }

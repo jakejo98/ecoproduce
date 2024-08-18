@@ -6,12 +6,12 @@ export function initProductPage(){
 
 // 상품 페이지 탭 변경 이벤트(공통)
 function stickyTab(){
-  const stickyTab = $('.section_product_page .type_line_v1');
-  const bread = $('.section_product_page .section_breadcrumbes_list')
-  const item = $('.section_product_page .type_line_v1 .common_tab_item');
-  const tabBtn = $('.section_product_page .type_line_v1 .common_tab_btn');
-  const filter = $('.section_product_page .product_filter');
-  const productBox = $('.section_product_page .product_tab_box');
+  const stickyTab = $('.section_product .type_line_v1');
+  const bread = $('.section_product .section_breadcrumbes_list')
+  const item = $('.section_product .type_line_v1 .common_tab_item');
+  const tabBtn = $('.section_product .type_line_v1 .common_tab_btn');
+  const filter = $('.section_product .product_filter');
+  const productBox = $('.section_product .product_tab_box');
   const dimmed = $('#dimmed');
   const fixPage = $('body');
   const isFixed = 'is-fixed'
@@ -97,11 +97,11 @@ function productVerticalScroll(){
 }
 
 // 상품 페이지 정렬 순 드롭다운 메뉴
-function productSortDropdown(){
-  const dropdownBtn = $('.section_product_page .dropdown_expanded_btn');
-  const dropdownList = $('.section_product_page .common_dropdown_list');
-  const dropdownBtnText = $('.section_product_page .dropdown_expanded_btn .dropdown_current');
-  const dropdownExpandedBtn = $('.section_product_page .common_dropdown_btn');
+function productSortDropdown(){ 
+  const dropdownBtn = $('.section_product .dropdown_expanded_btn');
+  const dropdownList = $('.section_product .common_dropdown_list');
+  const dropdownBtnText = $('.section_product .dropdown_expanded_btn .dropdown_current');
+  const dropdownExpandedBtn = $('.section_product .common_dropdown_btn');
 
   // 버튼 클릭 시 상품 정렬 리스트 활성화
   $(dropdownBtn).click(function(){

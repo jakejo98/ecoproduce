@@ -6,35 +6,37 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  #common_container {
+  .common_wrap {
     width: 100%;
-    & .common_section {
-      @include container;
-      @media screen and (min-width: 1024px) and (max-width: 1239px) {
-        padding: 70px 20px 0px 20px;
-      }
-      padding-top: 70px;  
-      &.section_main_banner {
-        overflow: hidden;
-        max-width: none;
-        height: 600px;
-        margin: 0;
-        padding: 0;
-      }
-      &.section_event_banner {
+    & .common_container {
+      & .common_section {
+        @include container;
         @media screen and (min-width: 1024px) and (max-width: 1239px) {
-          padding: 70px 0px 0px 0px;
+          padding: 70px 20px 0px 20px;
         }
-      }
-      &.section_sns_banner {
-        padding: 70px 0px 50px 0px;
-      }
-      &.section_card_benefit {
-        padding-bottom: 100px;
-      }
-      &.section_story_page {
-        & + .section_sns_banner {
-          padding: 70px 0px 100px 0px;
+        padding-top: 70px;  
+        &.section_main_banner {
+          overflow: hidden;
+          max-width: none;
+          height: 600px;
+          margin: 0;
+          padding: 0;
+        }
+        &.section_event_banner {
+          @media screen and (min-width: 1024px) and (max-width: 1239px) {
+            padding: 70px 0px 0px 0px; 
+          }
+        }
+        &.section_sns_banner {
+          padding: 70px 0px 50px 0px;
+        }
+        &.section_card_benefit {
+          padding-bottom: 100px;
+        }
+        &.section_story {
+          & + .section_sns_banner {
+            padding: 70px 0px 100px 0px;
+          }
         }
       }
     }
@@ -42,31 +44,33 @@ body {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  #common_container {
+  .common_wrap {
     width: 100%;
     padding: 0px 0px 60px 0px;
-    & .common_section {
-      @include inner;
-      padding-top: 60px;
-      &.section_main_banner {
-        padding: 0px;
-      }
-      &.section_event_banner {
-        padding: 60px 0px 0px 0px;
-      }
-      &.section_customer_review {
-        padding: 60px 0px 0px 20px;
-      }
-      &.section_sns_banner {
-        padding: 60px 20px 40px 20px;
-      }
-      &.section_card_benefit {
-        padding: 60px 20px 90px 20px;
-      }
-      &.section_story_page {
-        padding: 60px 0px 0px 20px;
-        & + .section_sns_banner {
+    & .common_container {
+      & .common_section {
+        @include inner;
+        padding-top: 60px;
+        &.section_main_banner {
+          padding: 0px;
+        }
+        &.section_event_banner {
+          padding: 60px 0px 0px 0px;
+        }
+        &.section_customer_review {
+          padding: 60px 0px 0px 20px;
+        }
+        &.section_sns_banner {
+          padding: 60px 20px 40px 20px;
+        }
+        &.section_card_benefit {
           padding: 60px 20px 90px 20px;
+        }
+        &.section_story {
+          padding: 60px 0px 0px 20px;
+          & + .section_sns_banner {
+            padding: 60px 20px 90px 20px;
+          }
         }
       }
     }
@@ -74,31 +78,33 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-  #common_container {
+  .common_wrap {
     width: 100%;
     padding: 0px 0px 60px 0px;
-    & .common_section {
-      @include inner;
-      padding-top: 50px;
-      &.section_main_banner {
-        padding: 0px;
-      }
-      &.section_event_banner {
-        padding: 50px 0px 0px 0px;
-      }
-      &.section_customer_review {
-        padding: 50px 0px 0px 20px;
-      }
-      &.section_sns_banner {
-        padding: 50px 20px 30px 20px;
-      }
-      &.section_card_benefit {
-        padding: 50px 20px 80px 20px;
-      }
-      &.section_story_page {
-        padding: 50px 0px 0px 20px;
-        & + .section_sns_banner {
+    .common_container {
+      & .common_section {
+        @include inner;
+        padding-top: 50px;
+        &.section_main_banner {
+          padding: 0px;
+        }
+        &.section_event_banner {
+          padding: 50px 0px 0px 0px;
+        }
+        &.section_customer_review {
+          padding: 50px 0px 0px 20px;
+        }
+        &.section_sns_banner {
+          padding: 50px 20px 30px 20px;
+        }
+        &.section_card_benefit {
           padding: 50px 20px 80px 20px;
+        }
+        &.section_story {
+          padding: 50px 0px 0px 20px;
+          & + .section_sns_banner {
+            padding: 50px 20px 80px 20px;
+          }
         }
       }
     }
