@@ -68,7 +68,10 @@
         }
         & .header_shopping {
           padding: 0px 0px 0px 10px;
-          & .header_shopping_btn {
+          & .header_shopping_link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
             width: 40px;
             height: 40px;
@@ -80,7 +83,9 @@
             & .header_shopping_count {
               @include position(-5px, -5px, null, null, null);
               @include font-family("Roboto");
-              display: block;
+              display: flex;
+              justify-content: center;
+              align-items: center;
               width: 20px;
               height: 20px;
               border-radius: 10px;
@@ -133,49 +138,36 @@
                 width: 200px;
                 & .header_category_link {
                   position: relative;
-                  display: block;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
                   padding: 0 20px;
                   line-height: 50px;
                   &:hover {
                     color: map-get($color-main, color-primary);
                     transition: 0.3s color ease;
                   }
-                  & .header_category_text {
-                    &::after {
-                      @include position(50%, 20px, null, null, null);
-                      display: block;
-                      width: 16px;
-                      height: 16px;
-                      background: url("/ecoproduce/img/sprites/sprites.png") no-repeat;
-                      transform: translateY(-50%);
-                      content: "";
-                    }
-                    &.category_icon_disabled::after {
-                      background-position: -48px -0px;
-                    }
-                    &.category_icon_active::after {
-                      background-position: -32px -0px;
-                    }
-                  }
                 }
               }
             }
           }
         }
-        & .header_gnb_list {
-          display: flex;
+        & .header_nav {
           width: calc(100% - 100px);
-          & .header_gnb_item {
-            width: calc(100% / 10);
-            text-align: center;
-            & .header_gnb_link {
-              display: block;
-              font-weight: 700;
-              font-size: 18px;
-              line-height: 60px;
-              &:hover {
-                color: map-get($color-main, color-primary);
-                transition: 0.3s color ease;
+          & .header_nav_list {
+            display: flex;
+            & .header_nav_item {
+              width: calc(100% / 10);
+              text-align: center;
+              & .header_nav_link {
+                display: block;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 60px;
+                &:hover {
+                  color: map-get($color-main, color-primary);
+                  transition: 0.3s color ease;
+                }
               }
             }
           }
@@ -205,7 +197,7 @@
         & .header_search_input {
           display: none;
         }
-        & .header_shopping_btn {
+        & .header_shopping_link {
           display: none;
           &.respond {
             display: block;
@@ -219,7 +211,7 @@
             padding: 8px;
           }
         }
-        & .header_shopping_btn {
+        & .header_shopping_link {
           @media screen and (max-width: 767px) {
             padding: 5px 0px 5px 5px;
           }

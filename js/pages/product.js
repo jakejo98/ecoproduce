@@ -81,21 +81,6 @@ function stickyTab(){
   })
 }
 
-function productVerticalScroll(){
-  function updateWidowHeight(){
-
-  }
-  function updateWindowScroll(){
-
-  }
-  function updateProductHeight(){
-
-  }
-  function updateProductTop(){
-    
-  }
-}
-
 // 상품 페이지 정렬 순 드롭다운 메뉴
 function productSortDropdown(){ 
   const dropdownBtn = $('.section_product .dropdown_expanded_btn');
