@@ -1,4 +1,5 @@
 import { loadFile } from "/ecoproduce/js/common/include.js";
+import { swiper } from "/ecoproduce/js/common/swiper.js";
 import { headerCommon, headerDesktop, headerRespond } from "/ecoproduce/js/common/header.js";
 import { listDesktop, listCommon } from "/ecoproduce/js/common/list.js";
 import { appRespond } from "/ecoproduce/js/common/toolbar.js";
@@ -32,6 +33,7 @@ $(document).ready(function(){
   windowWidth = updateWidth();
   loadFile(function(){
     checkWidth();
+    swiper();
     headerCommon();
     listCommon();
     initMainPage();

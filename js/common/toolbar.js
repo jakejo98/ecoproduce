@@ -8,12 +8,12 @@ function categoryHandler(){
   const categoryClsBtn = $('.section_category .close_btn');
   const resetPage = '/ecoproduce/index.html';
   const firstDepLink = $('.category_page .section_category .category_content_list.dep1 > .category_content_item > .category_content_link');
-  const firstDepText = $('.category_page .section_category .category_content_list.dep1 > .category_content_item > .category_content_link > .category_content_text');
+  const firstDepIcon = $('.category_page .section_category .category_content_list.dep1 > .category_content_item > .category_content_link > .common_icon');
   const secondDep = $('.category_page .section_category .category_content_list.dep2');
-  const dis = 'disabled';
-  const act = 'active';
+  const dis = 'icon_respond_category_disabled';
+  const act = 'icon_respond_category_active';
 
-  // 이벤트 초기화
+  // 이벤트 초기화 - 리사이즈시 버튼이 클릭이 안되는 이슈 처리 위해
   $(categoryClsBtn).off('click');
   $(firstDepLink).off('click');
 
@@ -37,15 +37,15 @@ function categoryHandler(){
         });
         $(this).parent().find(secondDep).attr('aria-hidden', 'false');
         $(this).parent().siblings().find(secondDep).attr('aria-hidden', 'true');
-        $(this).children(firstDepText).removeClass(dis).addClass(act);
-        $(this).parent().siblings().find(firstDepText).removeClass(act).addClass(dis);
+        $(this).children(firstDepIcon).removeClass(dis).addClass(act);
+        $(this).parent().siblings().find(firstDepIcon).removeClass(act).addClass(dis);
       } else {
         $(this).attr('aria-expanded', 'false')
         $(this).parent().siblings().slice(3, 10).each(function(){
           $(this).find(firstDepLink).removeAttr('aria-expanded');
         });
         $(this).parent().find(secondDep).attr('aria-hidden', 'true');
-        $(this).children(firstDepText).removeClass(act).addClass(dis);
+        $(this).children(firstDepIcon).removeClass(act).addClass(dis);
       }
     }
   })

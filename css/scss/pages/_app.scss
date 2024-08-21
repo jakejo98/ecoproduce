@@ -141,10 +141,10 @@
                   content: "";
                 }
                 &.maintain::after {
-                  background-position: -0px -16px;
+                  background-position: -16px -16px;
                 }
                 &.down::after {
-                  background-position: -0px -0px;
+                  background-position: -0px -16px;
                 }
                 &.up::after {
                   background-position: -16px -0px;

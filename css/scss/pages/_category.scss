@@ -59,7 +59,9 @@
             & .category_content_item {
               position: relative;
               & .category_content_link {
-                display: block;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 font-weight: 700;
                 line-height: 45px;
                 & .category_content_text {
