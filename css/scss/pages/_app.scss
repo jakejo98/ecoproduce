@@ -23,7 +23,7 @@
             font-weight: 700;
             font-size: 14px;
             line-height: 20px;
-            color: map-get($color-type, grey-01);
+            color: map-get($color-main, color-black);
             &::placeholder {
               font-weight: 700;
               color: map-get($color-type, grey-04);

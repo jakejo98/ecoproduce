@@ -18,43 +18,47 @@ function changeGnbAria() {
   const headerNavItem = $('.common_header .header_nav_item');
   const headerNavLink = $('.common_header .header_nav_item .header_nav_link');
   let currentUrl = window.location.pathname;
-  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/'));
+  console.log(fileName)
   
   switch(fileName) {
     // 메인페이지
-    case 'index.html':
+    case '/':
+      $(logoBtn).attr('aria-current', 'page');
+      break;
+    case '/index.html':
       $(logoBtn).attr('aria-current', 'page');
       break;
     // Desktop Gnb 
-    case 'agricultural_product.html':
+    case '/agricultural_product.html':
       $(headerNavItem).eq(0).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'livestock_product.html':
+    case '/livestock_product.html':
       $(headerNavItem).eq(1).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'seafood_product.html':
+    case '/seafood_product.html':
       $(headerNavItem).eq(2).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'ugly_product.html':
+    case '/ugly_product.html':
       $(headerNavItem).eq(3).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'timeattack_product.html':
+    case '/timeattack_product.html':
       $(headerNavItem).eq(4).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'event_product.html':
+    case '/event_product.html':
       $(headerNavItem).eq(5).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'new_product.html':
+    case '/new_product.html':
       $(headerNavItem).eq(6).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'best_product.html':
+    case '/best_product.html':
       $(headerNavItem).eq(7).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'event.html':
+    case '/event.html':
       $(headerNavItem).eq(8).children(headerNavLink).attr('aria-current', 'page');
       break;
-    case 'story.html':
-      $(headerNavItem).eq(8).children(headerNavLink).attr('aria-current', 'page');
+    case '/story.html':
+      $(headerNavItem).eq(9).children(headerNavLink).attr('aria-current', 'page');
       break;
   }
 }

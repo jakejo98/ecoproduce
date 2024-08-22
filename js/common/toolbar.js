@@ -95,27 +95,31 @@ function toolbarAria() {
   const toolbarLink = $('.toolbar .toolbar_link');
   const toolbarIcon = $('.toolbar .common_icon');
   let currentUrl = window.location.pathname;
-  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/') + 1);
+  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/'));
 
   // 툴바 페이지
   switch(fileName) {
-    case 'category.html':
+    case '/category.html':
       $(toolbarItem).eq(0).children(toolbarLink).attr('aria-current', 'page');
       $(toolbarItem).eq(0).find(toolbarIcon).removeClass('icon_toolbar_category_disabled').addClass('icon_toolbar_category_active');
       break;
-    case 'call.html':
+    case '/call.html':
       $(toolbarItem).eq(1).children(toolbarLink).attr('aria-current', 'page');
       $(toolbarItem).eq(1).find(toolbarIcon).removeClass('icon_toolbar_call_disabled').addClass('icon_toolbar_call_active');
       break;
-    case 'index.html':
+    case '/':
       $(toolbarItem).eq(2).children(toolbarLink).attr('aria-current', 'page');
       $(toolbarItem).eq(2).find(toolbarIcon).removeClass('icon_toolbar_home_disabled').addClass('icon_toolbar_home_active');
       break;
-    case 'order.html':
+    case '/index.html':
+      $(toolbarItem).eq(2).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(2).find(toolbarIcon).removeClass('icon_toolbar_home_disabled').addClass('icon_toolbar_home_active');
+      break;
+    case '/order.html':
       $(toolbarItem).eq(3).children(toolbarLink).attr('aria-current', 'page');
       $(toolbarItem).eq(3).find(toolbarIcon).removeClass('icon_toolbar_order_disabled').addClass('icon_toolbar_order_active');
       break;
-    case 'mypage.html':
+    case '/mypage.html':
       $(toolbarItem).eq(4).children(toolbarLink).attr('aria-current', 'page');
       $(toolbarItem).eq(4).find(toolbarIcon).removeClass('icon_toolbar_mypage_disabled').addClass('icon_toolbar_mypage_active');
       break;
