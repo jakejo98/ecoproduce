@@ -12,14 +12,29 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 9px 20px 8px 20px;
-          border-bottom: 1px solid map-get($color-main, black-01);
-          & .header_cls_btn {
-            padding: 4px 0px 4px 0px;
+          position: relative;
+          @media screen and (max-width: 767px) {
+            padding: 10px 20px;
+          }
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            padding: 15px 20px;
+          }
+          &::after {
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: map-get($color-main, color-black);
+            content: '';
+            @media screen and (max-width: 767px) {
+              @include position(59px, null, null, 0px, null);
+            }
+            @media screen and (min-width: 768px) and (max-width: 1023px) {
+              @include position(69px, null, null, 0px, null);
+            }
           }
           & .header_search_input {
-            width: calc(100% - 64px);
-            padding: 0 10px;
+            width: 100%;
+            padding: 10px 20px;
             font-weight: 700;
             font-size: 14px;
             line-height: 20px;
@@ -34,9 +49,6 @@
             &:focus {
               outline: none;
             }
-          }
-          & .header_search_btn {
-            padding: 4px 0px 4px 0px;
           }
         }
         & .search_content {

@@ -31,13 +31,15 @@
       </div>
       <div class="header_controls">
         <div class="header_search">
-          <label for="search" class="blind">상품명 입력</label>
-          <input type="search" name="search_keyword" id="search" class="header_search_input" placeholder="상품명을 입력해주세요." aria-label="상품명 검색">
-          <button type="button" class="header_search_btn" aria-label="검색창 활성화하기" aria-expanded="false" aria-controls="header_search_app">
-            <span class="common_icon icon_search">
-              <span class="blind">검색</span>
-            </span>
-          </button>
+          <form action="/ecoproduce/html/prepare/search_result.html" method="get">
+            <label for="search" class="blind">상품명 입력</label>
+            <input type="search" name="search_keyword" id="search" class="header_search_input" placeholder="상품명을 입력해주세요." aria-label="상품명 검색">
+            <button type="submit" class="header_search_btn">
+              <span class="common_icon icon_search">
+                <span class="blind">검색</span>
+              </span>
+            </button>
+          </form>
         </div>
         <div class="header_shopping">
           <a href="/ecoproduce/html/prepare/shopping.html" class="header_shopping_link">
@@ -45,11 +47,6 @@
               <span class="blind">장바구니</span>
             </span>
             <em class="header_shopping_count">0</em>
-          </a>
-          <a href="/ecoproduce/html/prepare/shopping.html" class="header_shopping_link respond">
-            <span class="common_icon icon_shopping_black">
-              <span class="blind">장바구니</span>
-            </span>
           </a>
         </div>
       </div>

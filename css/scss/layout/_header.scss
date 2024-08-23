@@ -42,18 +42,11 @@
       & .header_controls {
         display: flex;
         align-items: center;
-        margin-left: 15px;
+        margin-left: 16px;
         & .header_search {
           position: relative;
           & .header_search_input {
-            width: 300px;
-            padding: 11px 64px 11px 20px;
-            border: 0;
-            border-radius: 20px;
-            background-color: map-get($color-background, grey-01);
-            font-size: 14px;
-            line-height: 20px;
-            color: map-get($color-main, color-black);
+            @include input(100%, none, map-get($color-background, grey-01));
             &::placeholder {
               color: map-get($color-type, grey-04);
             }
@@ -62,12 +55,12 @@
             }
           }
           & .header_search_btn {
-            @include position(0px, 0px, null, null, null);
-            padding: 8px 20px 8px 20px;
+            @include position(50%, 20px, null, null, null);
+            transform: translateY(-50%);
           }
         }
         & .header_shopping {
-          margin-left: 10px;
+          margin-left: 16px;
           & .header_shopping_link {
             display: flex;
             justify-content: center;
@@ -114,9 +107,10 @@
             padding: 14px 20px;
           }
           & .header_category_container {
-            @include position(60px, null, null, 0px, 10);
+            @include position(61px, null, null, 0px, 10);
             display: none;
             border: 1px solid map-get($color-line, grey-02);
+            border-top: none;
             background-color: map-get($color-background, white-01);
             &[aria-hidden="false"] {
               display: flex;
@@ -180,43 +174,45 @@
 @media screen and (max-width: 1023px) {
   .common_header {
     & .header_inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: block;
       @media screen and (max-width: 767px) {
-        padding: 8px 20px;
-      }
-      @media screen and (min-width: 768px) and (max-width: 1023px) {
         padding: 10px 20px;
       }
-      & .header_info {
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        padding: 15px 20px;
+      }
+      & .logo_wrap {
         display: none;
       }
-      & .header_controls {
-        display: flex;
-        & .header_search_input {
+      & .header_util {
+        & .header_info {
           display: none;
         }
-        & .header_shopping_link {
-          display: none;
-          &.respond {
-            display: block;
+        & .header_controls {
+          display: flex;
+          align-items: center;
+          & .header_search{
+            position: relative;
+            width: 100%;
+            & .header_search_input {
+              @include input(100%, none, map-get($color-background, grey-01));
+              &::placeholder {
+                color: map-get($color-type, grey-04);
+              }
+              &:focus::placeholder {
+                color: transparent;
+              }
+            }
+            & .header_search_btn {
+              @include position(50%, 20px, null, null, null);
+              transform: translateY(-50%);
+            }
           }
         }
-        & .header_search_btn {
-          @media screen and (max-width: 767px) {
-            padding: 5px;
-          }
-          @media screen and (min-width: 768px) and (max-width: 1023px) {
-            padding: 8px;
-          }
-        }
-        & .header_shopping_link {
-          @media screen and (max-width: 767px) {
-            padding: 5px 0px 5px 5px;
-          }
-          @media screen and (min-width: 768px) and (max-width: 1023px) {
-            padding: 8px 0px 8px 8px;
+        & .header_shopping {
+          margin-left: 16px;
+          & .header_shopping_count {
+            display: none;
           }
         }
       }

@@ -1,6 +1,6 @@
 export function headerCommon(){
   changeGnbAria();
-  
+  changeShoppingBtn();
 }
 
 export function headerDesktop(){
@@ -19,7 +19,6 @@ function changeGnbAria() {
   const headerNavLink = $('.common_header .header_nav_item .header_nav_link');
   let currentUrl = window.location.pathname;
   let fileName = currentUrl.substring(currentUrl.lastIndexOf('/'));
-  console.log(fileName)
   
   switch(fileName) {
     // 메인페이지
@@ -158,15 +157,18 @@ function headerGnbCategory(){
 }
 
 
-// 헤더 검색창 (Respond)
+//헤더 검색창 (Respond)
 function searchApp(){
+  
+  const searchInput = $('.common_header .header_search');
   const searchBtn = $('.common_header .header_search_btn');
   const searchApp = $('#app .header_search_app'); 
   const searchClsBtn = $('#app .header_cls_btn');
   const fixPage = 'body';
 
   // 헤더 검색창 활성화
-  $(searchBtn).click(function(){
+  $(searchInput).click(function(event){
+    event.preventDefault();
     $(fixPage).addClass('is-fixed');
     $(searchApp).attr('aria-hidden', 'false');
     $(searchBtn).attr('aria-expanded', 'true');
@@ -210,3 +212,26 @@ function searchAppWordDel(){
     $(recentNotBox).attr('aria-hidden', 'false');
   })
 }
+
+// 윈도우 리사이즈시 주문조회 아이콘 클래스 변경
+function changeShoppingBtn() {
+  const shopBtn = $('.header_shopping .header_shopping_link .common_icon');
+  const isDesktop = 'icon_shopping_white';
+  const isRespond = 'icon_shopping_black';
+
+  function updateClass() {
+    let windowWidth = $(window).width();
+    if (windowWidth > 1023) {
+      shopBtn.addClass(isDesktop).removeClass(isRespond);
+    } else {
+      shopBtn.addClass(isRespond).removeClass(isDesktop);
+    }
+  }
+  // 초기 너비 값 구하기
+  updateClass();
+  // 리사이즈 되는 너비 값 기준으로 class 변경
+  $(window).resize(function() {
+    updateClass();
+  });
+}
+

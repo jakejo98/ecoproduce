@@ -20,6 +20,7 @@ $(window).resize(function(){
 });
 // 윈도우 너비에 조건부로 작동하는 함수
 function checkWidth() {
+  windowWidth = updateWidth();
   if(windowWidth > 1023) {
     headerDesktop();
     listDesktop();
@@ -30,7 +31,6 @@ function checkWidth() {
 }
 // 공통 함수
 $(document).ready(function(){
-  windowWidth = updateWidth();
   loadFile(function(){
     checkWidth();
     swiper();
