@@ -1,6 +1,7 @@
 export function appRespond(){
   categoryHandler();
   toolbarAria();
+  initCategoryPage();
 }
 
 // 툴바 카테고리 화면 제어
@@ -124,4 +125,23 @@ function toolbarAria() {
       $(toolbarItem).eq(4).find(toolbarIcon).removeClass('icon_toolbar_mypage_disabled').addClass('icon_toolbar_mypage_active');
       break;
   }
+}
+
+// 데스크탑 페이지로 변경 시 메인페이지로 이동
+function initCategoryPage(){
+  function isRespond(){
+    const currentUrl = window.location.pathname;
+    const fileName = currentUrl.substring(currentUrl.lastIndexOf('/'));
+    const resetPage = '/ecoproduce/index.html'
+    let width = $(window).width();
+    if(fileName === '/category.html' && width > 1023) {
+      window.location.href = resetPage
+    }
+  }
+  // 초기 실행될 함수
+  isRespond();
+  // 윈도우 리사이즈 시 실행될 함수
+  $(window).resize(function(){
+    isRespond();
+  })
 }

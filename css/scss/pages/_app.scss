@@ -32,22 +32,29 @@
               @include position(69px, null, null, 0px, null);
             }
           }
-          & .header_search_input {
+          & .header_cls_btn {
+            margin-right: 16px;
+          }
+          & .header_search_input_box {
+            position: relative;
             width: 100%;
-            padding: 10px 20px;
-            font-weight: 700;
-            font-size: 14px;
-            line-height: 20px;
-            color: map-get($color-main, color-black);
-            &::placeholder {
-              font-weight: 700;
-              color: map-get($color-type, grey-04);
+            & .header_search_input {
+              @include input(100%, none, map-get($color-background, grey-01));
+              &::placeholder {
+                font-weight: 700;
+                color: map-get($color-type, grey-04);
+              }
+              &:focus::placeholder {
+                color: transparent;
+              }
+              &:focus {
+                background-color: map-get($color-background, white-01);
+                outline: 1px solid map-get($color-main, color-primary);
+              }
             }
-            &:focus::placeholder {
-              color: transparent;
-            }
-            &:focus {
-              outline: none;
+            & .header_search_btn {
+              @include position(50%, 20px, null, null, null);
+              transform: translateY(-50%);
             }
           }
         }

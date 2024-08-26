@@ -6,13 +6,17 @@
           <span class="blind">검색창 닫기</span>
         </span>
       </button>
-      <label for="search" class="blind"></label>
-      <input type="search" class="header_search_input" name="search_keyword" id="search" placeholder="상품명을 입력해주세요.">
-      <button type="button" class="header_search_btn" aria-label="검색하기">
-        <span class="common_icon icon_search">
-          <span class="blind">검색</span>
-        </span>
-      </button>
+      <div class="header_search_input_box">
+        <form action="/ecoproduce/html/prepare/search_result.html" method="get">
+          <label for="search" class="blind"></label>
+          <input type="search" class="header_search_input" name="search_keyword" id="search" placeholder="상품명을 입력해주세요.">
+          <button type="button" class="header_search_btn" aria-label="검색하기">
+            <span class="common_icon icon_search">
+              <span class="blind">검색</span>
+            </span>
+          </button>
+        </form>
+      </div>
     </div>
     <div class="search_content">
       <div class="recent_search">

@@ -156,31 +156,53 @@ function headerGnbCategory(){
   }
 }
 
-
 //헤더 검색창 (Respond)
 function searchApp(){
-  
   const searchInput = $('.common_header .header_search');
-  const searchBtn = $('.common_header .header_search_btn');
   const searchApp = $('#app .header_search_app'); 
+  const searchAppInput = $('#app .header_search_app .header_search_input'); 
   const searchClsBtn = $('#app .header_cls_btn');
   const fixPage = 'body';
 
-  // 헤더 검색창 활성화
-  $(searchInput).click(function(event){
+  // 반응형 헤더 검색창 활성화
+  const searchOpen = function(event){
     event.preventDefault();
     $(fixPage).addClass('is-fixed');
     $(searchApp).attr('aria-hidden', 'false');
-    $(searchBtn).attr('aria-expanded', 'true');
-    $(searchClsBtn).attr('aria-expanded', 'true')
-  })
-
-  // 헤더 검색창 비활성화
-  $(searchClsBtn).click(function(){
+    $(searchAppInput).focus();
+    $(searchClsBtn).attr('aria-expanded', 'true');
+  }
+  // 반응형 헤더 검색창 비활성화
+  const searchClose = function(){
     $(fixPage).removeClass('is-fixed');
     $(searchApp).attr('aria-hidden', 'true');
-    $(searchBtn).attr('aria-expanded', 'false');
-    $(searchClsBtn).attr('aria-expanded', 'false')
+    $(searchAppInput).blur();
+    $(searchClsBtn).attr('aria-expanded', 'false');
+  }
+  // 반응형
+  function activeSearchHandler(){
+    $(searchInput).on('click', searchOpen);
+    $(searchClsBtn).on('click', searchClose);
+  }
+  // 데스크탑
+  function disabledSearchHandler(){
+    $(searchInput).off('click', searchOpen);
+    $(searchClsBtn).off('click', searchClose);
+  }
+  // 윈도우 너비 기준으로 사용할 함수 정의
+  function updateWindowSearch(){
+    let width = $(window).width();
+    if(width > 1023){
+      disabledSearchHandler();
+    } else {
+      activeSearchHandler();
+    }
+  }
+  // 초기 실행
+  updateWindowSearch();
+  // 윈도우 리사이즈 시 확인
+  $(window).resize(function(){
+    updateWindowSearch();
   })
 }
 
