@@ -158,10 +158,12 @@ function headerGnbCategory(){
 
 //헤더 검색창 (Respond)
 function searchApp(){
-  const searchInput = $('.common_header .header_search');
+  const commonHeaderSearch = $('.common_header .header_search');
   const searchApp = $('#app .header_search_app'); 
   const searchAppInput = $('#app .header_search_app .header_search_input'); 
+  const searchAppBtn = $('#app .header_search_app .header_search_btn'); 
   const searchClsBtn = $('#app .header_cls_btn');
+  const searchResultPage = '/ecoproduce/html/prepare/search_result.html'
   const fixPage = 'body';
 
   // 반응형 헤더 검색창 활성화
@@ -179,15 +181,21 @@ function searchApp(){
     $(searchAppInput).blur();
     $(searchClsBtn).attr('aria-expanded', 'false');
   }
+  // 반응형 헤더 검색창(돋보기) 버튼 클릭 시 검색 결과 페이지로 이동
+  const serachAppResultPage = function(){
+    window.location.href = searchResultPage;
+  }
   // 반응형
   function activeSearchHandler(){
-    $(searchInput).on('click', searchOpen);
+    $(commonHeaderSearch).on('click', searchOpen);
     $(searchClsBtn).on('click', searchClose);
+    $(searchAppBtn).on('click', serachAppResultPage)
   }
   // 데스크탑
   function disabledSearchHandler(){
-    $(searchInput).off('click', searchOpen);
+    $(commonHeaderSearch).off('click', searchOpen);
     $(searchClsBtn).off('click', searchClose);
+    $(searchAppBtn).off('click', serachAppResultPage)
   }
   // 윈도우 너비 기준으로 사용할 함수 정의
   function updateWindowSearch(){
