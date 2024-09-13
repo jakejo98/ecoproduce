@@ -75,6 +75,7 @@ function categoryHandler(){
     };
 
     let index = indexMap[hashValue];
+    console.log(index);
     if (index !== undefined) {
       // 헤딩 변화
       $(heading).eq(index).attr('aria-selected', 'true');

@@ -247,7 +247,7 @@ function appendCustomer() {
     customerData.forEach(data => {
       const customerTemplate = `
         <li class="product_grid_item expanded_item">
-            <a href="#" class="product_grid_link">
+            <a href="/ecoproduce/html/prepare/customer_review_detail.html" class="product_grid_link">
                 <div class="product_grid_box">
                     <div class="product_img_box">
                         <img src="${data.imgSrc}" alt="${data.name}, ${data.weight}, 리뷰 ${data.reviewCount}개, 평점 ${data.grade}, ${data.reviewText}, ${data.reviewer}, ${data.reviewDate}">
@@ -334,7 +334,7 @@ function appendProducer() {
     producerData.forEach(data => {
       const producerTemplate = `
         <li class="product_grid_item expanded_item">
-            <a href="#" class="product_grid_link">
+            <a href="/ecoproduce/html/prepare/producer_story_detail.html" class="product_grid_link">
                 <div class="product_grid_box">
                     <div class="product_img_box">
                         <img src="${data.imgSrc}" alt="${data.name}, ${data.weight}, 리뷰 ${data.reviewCount}개, 평점 ${data.grade}, ${data.reviewText}, ${data.reviewer}, ${data.reviewDate}">

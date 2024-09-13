@@ -1,30 +1,69 @@
-// Desktop
-export function listDesktop(){
-  imgBoxBtnHover();
-}
-
 // 공용
 export function listCommon(){
+  removeShoppingBtnLink();
   countdownTimer();
+  shoppingToastHander();
 }
 
-// 이미지 박스 버튼 (PC)
-function imgBoxBtnHover(){
-  const btn = $(".type_shopping_v1");
-  const btnAct = "active";
-  const btnIcon = $(".type_shopping_v1 .common_icon");
-  const iconDis = "icon_shopping_primary";
-  const iconAct = "icon_shopping_white";
+// Desktop
+export function listDesktop(){
+  shoppingBtnHoverHandler();
+}
 
-  $(btn).mouseenter(function () {
-    $(this).addClass(btnAct);
-    $(this).children(btnIcon).removeClass(iconDis).addClass(iconAct);
-  });
+// 반응형
+export function listRespond(){
+  removeShoppingBtnHoverHandler();
+}
 
-  $(btn).mouseleave(function () {
-    $(this).removeClass(btnAct);
-    $(this).children(btnIcon).removeClass(iconAct).addClass(iconDis);
-  });
+
+// 장바구니 버튼 마우스 오버 활성화 (PC)
+function shoppingBtnHoverHandler(){
+  const shoppingBtn = $('.common_btn.type_shopping_v1');
+  const shoppingIcon = $('.common_btn.type_shopping_v1 .common_icon')
+  const shoppingBtnActive = 'active';
+  const shoppingIconActive = 'icon_shopping_white'
+  const shoppingIconDisabled = 'icon_shopping_primary'
+
+  // 마우스 오버시 버튼 활성화
+  $(shoppingBtn).mouseenter(function(){
+    $(this).addClass(shoppingBtnActive);
+    $(this).children(shoppingIcon).removeClass(shoppingIconDisabled).addClass(shoppingIconActive);
+  })
+
+  // 마우스 오버아웃시 버튼 비활성화
+  $(shoppingBtn).mouseleave(function(){
+    $(this).removeClass(shoppingBtnActive);
+    $(this).children(shoppingIcon).removeClass(shoppingIconActive).addClass(shoppingIconDisabled);
+  })
+}
+
+// 장바구니 버튼 마우스 오버 비활성화 (반응형)
+function removeShoppingBtnHoverHandler(){
+  const shoppingBtn = $('.common_btn.type_shopping_v1');
+  $(shoppingBtn).off('mouseenter mouseleave');
+}
+
+// 장바구니 버튼 클릭시 링크 이동 막기 (공통)
+function removeShoppingBtnLink(){
+  const shoppingBtn = $('.common_btn.type_shopping_v1');
+
+  $(shoppingBtn).click(function(event){
+    event.preventDefault();
+  })
+}
+
+// 장바구니 버튼 클릭 시 토스트 팝업 창 활성화
+function shoppingToastHander(){
+  const shoppingBtn = $('.common_btn.type_shopping_v1');
+  const toastPopup = $('#toast_container .toast_popup');
+
+  $(shoppingBtn).click(function(){
+    $(toastPopup).attr('aria-hidden', 'false');
+    // 3초 후에 토스트 팝업 창 비활성화
+    setTimeout(function(){
+      $(toastPopup).attr('aria-hidden', 'true');
+    }, 3000);
+  })
 }
 
 // 카운트다운 타이머 이벤트(공통)

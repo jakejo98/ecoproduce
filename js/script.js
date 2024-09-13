@@ -1,10 +1,10 @@
 import { loadFile } from "/ecoproduce/js/common/include.js";
 import { swiper } from "/ecoproduce/js/common/swiper.js";
 import { headerCommon, headerDesktop, headerRespond } from "/ecoproduce/js/common/header.js";
-import { listDesktop, listCommon } from "/ecoproduce/js/common/list.js";
+import { listCommon, listDesktop, listRespond  } from "/ecoproduce/js/common/list.js";
 import { appRespond } from "/ecoproduce/js/common/toolbar.js";
 import { initMainPage } from "/ecoproduce/js/pages/main.js";
-import { initProductPage } from "/ecoproduce/js/pages/product.js";
+import { productPage } from "/ecoproduce/js/pages/product.js";
 import { initStoryPage } from "/ecoproduce/js/pages/story.js";
 
 let windowWidth = 0;
@@ -27,6 +27,7 @@ function checkWidth() {
   } else {
     headerRespond();
     appRespond();
+    listRespond();
   }
 }
 // 공통 함수
@@ -37,9 +38,7 @@ $(document).ready(function(){
     headerCommon();
     listCommon();
     initMainPage();
-    initProductPage();
+    productPage();
     initStoryPage();
   });
 });
-
-

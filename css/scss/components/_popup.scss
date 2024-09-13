@@ -1,0 +1,23 @@
+#toast_container {
+  & .toast_popup {
+    &[aria-hidden="false"] {
+      display: true;
+    }
+    &[aria-hidden="true"] {
+      display: none
+    }
+    & .toast_popup_text {
+      @include toast;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: map-get($color-background, black-01);
+      font-size: 14px;
+      line-height: 20px;
+      color: map-get($color-main, color-white);
+    }
+  }
+}
