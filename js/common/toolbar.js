@@ -52,6 +52,18 @@ function categoryHandler(){
   })
   // 해시 값으로 해당 페이지로 이동
   const hashLink = $('.section_category .toolbar_agricultural .category_content_link');
+  const tabList = $('.section_product .type_line_v1 .common_tab_list');
+  const tabItem = $('.section_product .type_line_v1 .common_tab_item');
+  const tabBtn = $('.section_product .type_line_v1 .common_tab_btn');
+  const width = [];
+
+  function btnWidth(){
+    $(tabItem).each(function(number){
+      width[number] = $(this).find(tabBtn).innerWidth();
+    })
+  }
+
+  btnWidth();
 
   $(hashLink).click(function(){
     let hashValue = $(this).data('hash');
@@ -75,7 +87,26 @@ function categoryHandler(){
     };
 
     let index = indexMap[hashValue];
-    console.log(index);
+    switch(index){
+      case 0:
+        $(tabList).scrollLeft(0);
+        break;
+      case 1:
+        $(tabList).scrollLeft(width[0]);
+        break;
+      case 2:
+        $(tabList).scrollLeft(width[0] + width[1]);
+        break;
+      case 3:
+        $(tabList).scrollLeft(width[0] + width[1] + width[2]);
+        break;
+      case 4:
+        $(tabList).scrollLeft(width[0] + width[1] + width[2] + width[3]);
+        break;
+      case 5:
+        $(tabList).scrollLeft(width[0] + width[1] + width[2] + width[3] + width[4]);
+        break;
+    }
     if (index !== undefined) {
       // 헤딩 변화
       $(heading).eq(index).attr('aria-selected', 'true');

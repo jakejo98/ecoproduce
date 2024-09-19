@@ -151,6 +151,7 @@
       & .common_tab {
         &.sticky {
           @include sticky;
+          @include inner;
           & .common_tab_list {
             border-bottom: none;
           }
@@ -254,6 +255,7 @@
       & .common_tab {
         &.sticky {
           @include sticky;
+          @include inner;
           & .common_tab_list {
             border-bottom: none;
           }

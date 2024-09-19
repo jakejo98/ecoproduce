@@ -105,7 +105,20 @@ function stickyTabScroll(){
         $(tabList).scrollLeft(0);
         break;
       case 1:
-        $(tabList).scrollLeft(width[tabIndex]);
+        $(tabList).scrollLeft(width[0]);
+        break;
+      case 2:
+        $(tabList).scrollLeft(width[0] + width[1]);
+        break;
+      case 3:
+        $(tabList).scrollLeft(width[0] + width[1] + width[2]);
+        break;
+      case 4:
+        $(tabList).scrollLeft(width[0] + width[1] + width[2] + width[3]);
+        break;
+      case 5:
+        $(tabList).scrollLeft(width[0] + width[1] + width[2] + width[3] + width[4]);
+        break;
     }
   })
 }
