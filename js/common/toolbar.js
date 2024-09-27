@@ -1,6 +1,6 @@
 export function appRespond(){
   categoryHandler();
-  toolbarAria();
+  toolbarState();
   initCategoryPage();
 }
 
@@ -123,39 +123,39 @@ function categoryHandler(){
 }
 
 // 반응형 aria-current 설정
-function toolbarAria() {
+function toolbarState() {
   const toolbarItem = $('.toolbar .toolbar_item');
   const toolbarLink = $('.toolbar .toolbar_link');
   const toolbarIcon = $('.toolbar .common_icon');
+  const isActive = 'active';
   let currentUrl = window.location.pathname;
   let fileName = currentUrl.substring(currentUrl.lastIndexOf('/'));
 
-  // 툴바 페이지
-  switch(fileName) {
+  switch(fileName){
     case '/category.html':
-      $(toolbarItem).eq(0).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(0).find(toolbarLink).addClass(isActive);
       $(toolbarItem).eq(0).find(toolbarIcon).removeClass('icon_toolbar_category_disabled').addClass('icon_toolbar_category_active');
       break;
     case '/call.html':
-      $(toolbarItem).eq(1).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(1).find(toolbarLink).addClass(isActive);
       $(toolbarItem).eq(1).find(toolbarIcon).removeClass('icon_toolbar_call_disabled').addClass('icon_toolbar_call_active');
       break;
     case '/':
-      $(toolbarItem).eq(2).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(2).find(toolbarLink).addClass(isActive);
       $(toolbarItem).eq(2).find(toolbarIcon).removeClass('icon_toolbar_home_disabled').addClass('icon_toolbar_home_active');
       break;
     case '/index.html':
-      $(toolbarItem).eq(2).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(2).find(toolbarLink).addClass(isActive);
       $(toolbarItem).eq(2).find(toolbarIcon).removeClass('icon_toolbar_home_disabled').addClass('icon_toolbar_home_active');
       break;
     case '/order.html':
-      $(toolbarItem).eq(3).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(3).find(toolbarLink).addClass(isActive);
       $(toolbarItem).eq(3).find(toolbarIcon).removeClass('icon_toolbar_order_disabled').addClass('icon_toolbar_order_active');
-      break;
+    break;
     case '/mypage.html':
-      $(toolbarItem).eq(4).children(toolbarLink).attr('aria-current', 'page');
+      $(toolbarItem).eq(4).find(toolbarLink).addClass(isActive);
       $(toolbarItem).eq(4).find(toolbarIcon).removeClass('icon_toolbar_mypage_disabled').addClass('icon_toolbar_mypage_active');
-      break;
+    break;
   }
 }
 

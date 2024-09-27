@@ -1,5 +1,4 @@
 export function headerCommon(){
-  changeGnbAria();
   changeShoppingBtn();
 }
 
@@ -10,56 +9,6 @@ export function headerDesktop(){
 export function headerRespond(){
   searchApp();
   searchAppWordDel();
-}
-
-// 헤더 Gnb aria-current="page" 설정 (공통)
-function changeGnbAria() {
-  const logoBtn = $('.common_header .logo a');
-  const headerNavItem = $('.common_header .header_nav_item');
-  const headerNavLink = $('.common_header .header_nav_item .header_nav_link');
-  let currentUrl = window.location.pathname;
-  let fileName = currentUrl.substring(currentUrl.lastIndexOf('/'));
-  
-  switch(fileName) {
-    // 메인페이지
-    case '/':
-      $(logoBtn).attr('aria-current', 'page');
-      break;
-    case '/index.html':
-      $(logoBtn).attr('aria-current', 'page');
-      break;
-    // Desktop Gnb 
-    case '/agricultural_product.html':
-      $(headerNavItem).eq(0).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/livestock_product.html':
-      $(headerNavItem).eq(1).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/seafood_product.html':
-      $(headerNavItem).eq(2).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/ugly_product.html':
-      $(headerNavItem).eq(3).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/timeattack_product.html':
-      $(headerNavItem).eq(4).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/event_product.html':
-      $(headerNavItem).eq(5).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/new_product.html':
-      $(headerNavItem).eq(6).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/best_product.html':
-      $(headerNavItem).eq(7).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/event.html':
-      $(headerNavItem).eq(8).children(headerNavLink).attr('aria-current', 'page');
-      break;
-    case '/story.html':
-      $(headerNavItem).eq(9).children(headerNavLink).attr('aria-current', 'page');
-      break;
-  }
 }
 
 // 헤더 gnb 커테고리 (PC)
