@@ -8,15 +8,7 @@
           justify-content: center;
           align-items: center;
           padding-top: 0px;
-          @media screen and (min-width: 1024px) {
-            height: calc(100vh - 161px);
-          }
-          @media screen and (min-width: 768px) and (max-width: 1023px){
-            height: calc(100vh - 60px);
-          }
-          @media screen and (max-width: 767px) {
-            height: calc(100vh - 50px);
-          }
+          height: calc(100vh - 161px);
           & .prepare_message {
             display: flex;
             flex-direction: column;
@@ -49,10 +41,10 @@
       & .common_section {
         &.section_prepare{
           @media screen and (max-width: 767px) {
-            height: calc(100vh - 110px);
+            height: calc(100vh - 121px);
           }
           @media screen and (min-width: 768px) and (max-width: 1023px) {
-            height: calc(100vh - 120px);
+            height: calc(100vh - 131px);
           }
           padding: 0px;
           & .prepare_message {

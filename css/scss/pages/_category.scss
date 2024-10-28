@@ -29,17 +29,23 @@
           & .user_btn_box {
             display: flex;
             align-items: center;
-            & .user_btn {
+            & .user_btn_box_list {
               display: flex;
-              align-items: center;
-              & + .user_btn {
-                margin-left: 15px;
-              }
-              & .btn_text {
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 20px;
-                color: map-get($color-main, color-white);
+              & .user_btn_box_item {
+                & + .user_btn_box_item {
+                  margin-left: 15px;
+                }
+                & .user_btn_box_link {
+                  display: flex;
+                  align-items: center;
+                  & .user_btn_box_text {
+                    display: inline-block;
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: 700;
+                    color: map-get($color-main, color-white);
+                  }
+                }
               }
             }
           }
